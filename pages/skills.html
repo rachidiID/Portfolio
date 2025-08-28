@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Compétences</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/navigation.css">
+    <link rel="stylesheet" href="../styles/pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Menu Hamburger -->
+    <nav class="hamburger-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Portfolio</h2>
+            </div>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </div>
+        
+        <!-- Menu overlay -->
+        <div class="menu-overlay" id="menu-overlay">
+            <div class="menu-content">
+                <div class="menu-header">
+                    <h3>Navigation</h3>
+                    <button class="close-menu" id="close-menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <ul class="menu-links">
+                    <li><a href="../index.html" class="menu-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="about.html" class="menu-link"><i class="fas fa-user"></i> À propos</a></li>
+                    <li><a href="education.html" class="menu-link"><i class="fas fa-graduation-cap"></i> Éducation</a></li>
+                    <li><a href="skills.html" class="menu-link active"><i class="fas fa-code"></i> Compétences</a></li>
+                    <li><a href="projects.html" class="menu-link"><i class="fas fa-laptop-code"></i> Projets</a></li>
+                    <li><a href="experience.html" class="menu-link"><i class="fas fa-briefcase"></i> Expérience</a></li>
+                    <li><a href="contact.html" class="menu-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+                <div class="menu-footer">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <div class="page-header-content">
+                    <div class="breadcrumb">
+                        <a href="../index.html"><i class="fas fa-home"></i> Accueil</a>
+                        <span><i class="fas fa-chevron-right"></i></span>
+                        <span>Compétences</span>
+                    </div>
+                    <h1 class="page-title">
+                        <i class="fas fa-code"></i>
+                        Mes Compétences Techniques
+                    </h1>
+                    <p class="page-subtitle">Technologies, langages et outils que je maîtrise</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Content -->
+        <section class="skills-section">
+            <div class="container">
+                <!-- Overview -->
+                <div class="skills-overview">
+                    <h2>Vue d'ensemble</h2>
+                    <p>
+                        Fort de ma formation en TIC et Mathématiques-Informatique, j'ai développé une expertise 
+                        technique diversifiée couvrant le développement web, les mathématiques appliquées, 
+                        et les technologies modernes. Voici un aperçu détaillé de mes compétences.
+                    </p>
+                </div>
+
+                <!-- Skills Grid -->
+                <div class="skills-grid">
+                    <!-- Langages de Programmation -->
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Langages de Programmation</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">JavaScript</span>
+                                    <span class="skill-level">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90%"></div>
+                                </div>
+                                <div class="skill-details">
+                                    <span class="experience-badge">3 ans</span>
+                                    <div class="skill-tags">
+                                        <span class="tag">ES6+</span>
+                                        <span class="tag">Async/Await</span>
+                                        <span class="tag">DOM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Python</span>
+                                    <span class="skill-level">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85%"></div>
+                                </div>
+                                <div class="skill-details">
+                                    <span class="experience-badge">2 ans</span>
+                                    <div class="skill-tags">
+                                        <span class="tag">Django</span>
+                                        <span class="tag">NumPy</span>
+                                        <span class="tag">Pandas</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Java</span>
+                                    <span class="skill-level">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80%"></div>
+                                </div>
+                                <div class="skill-details">
+                                    <span class="experience-badge">2 ans</span>
+                                    <div class="skill-tags">
+                                        <span class="tag">OOP</span>
+                                        <span class="tag">Spring</span>
+                                        <span class="tag">JPA</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">C++</span>
+                                    <span class="skill-level">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="75%"></div>
+                                </div>
+                                <div class="skill-details">
+                                    <span class="experience-badge">1.5 ans</span>
+                                    <div class="skill-tags">
+                                        <span class="tag">STL</span>
+                                        <span class="tag">Algorithmes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technologies Web -->
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h3>Technologies Web</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">HTML5/CSS3</span>
+                                    <span class="skill-level">95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="95%"></div>
+                                </div>
+                                <div class="skill-details">
+                                    <span class="experience-badge">4 ans</span>
+                                    <div class="skill-tags">
+                                        <span class="tag">Responsive</span>
+                                        <span class="tag">Flexbox</span>
+                                        <span class="tag">Grid</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">React.js</span>
+                                    <span class="skill-level">88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="88%"></div>
+                                </div>
+                                <div class="skill-details">
+                                    <span class="experience-badge">2 ans</span>
+                                    <div class="skill-tags">
+                                        <span class="tag">Hooks</span>
+                                        <span class="tag">Redux</span>
+                                        <span class="tag">JSX</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Node.js</span>
+                                    <span class="skill-level">82%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="82%"></div>
+                                </div>
+                                <div class="skill-details">
+                                    <span class="experience-badge">1.5 ans</span>
+                                    <div class="skill-tags">
+                                        <span class="tag">Express</span>
+                                        <span class="tag">API</span>
+                                        <span class="tag">NPM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Vue.js</span>
+                                    <span class="skill-level">78%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="78%"></div>
+                                </div>
+                                <div class="skill-details">
+                                    <span class="experience-badge">1 an</span>
+                                    <div class="skill-tags">
+                                        <span class="tag">Vuex</span>
+                                        <span class="tag">CLI</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bases de Données -->
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3>Bases de Données</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">MySQL</span>
+                                    <span class="skill-level">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85%"></div>
+                                </div>
+                                <div class="skill-details">
+                                    <span class="experience-badge">2.5 ans</span>
+                                    <div class="skill-tags">
+                                        <span class="tag">Optimisation</span>
+                                        <span class="tag">Procédures</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">MongoDB</span>
+                                    <span class="skill-level">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80%"></div>
+                                </div>
+                                <div class="skill-details">
+                                    <span class="experience-badge">1.5 ans</span>
+                                    <div class="skill-tags">
+                                        <span class="tag">Mongoose</span>
+                                        <span class="tag">Aggregation</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">PostgreSQL</span>
+                                    <span class="skill-level">70%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="70%"></div>
+                                </div>
+                                <div class="skill-details">
+                                    <span class="experience-badge">1 an</span>
+                                    <div class="skill-tags">
+                                        <span class="tag">JSON</span>
+                                        <span class="tag">Extensions</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Outils & DevOps -->
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>Outils & DevOps</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Git/GitHub</span>
+                                    <span class="skill-level">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90%"></div>
+                                </div>
+                                <div class="skill-details">
+                                    <span class="experience-badge">3 ans</span>
+                                    <div class="skill-tags">
+                                        <span class="tag">Branching</span>
+                                        <span class="tag">CI/CD</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Docker</span>
+                                    <span class="skill-level">70%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="70%"></div>
+                                </div>
+                                <div class="skill-details">
+                                    <span class="experience-badge">1 an</span>
+                                    <div class="skill-tags">
+                                        <span class="tag">Containers</span>
+                                        <span class="tag">Compose</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Linux</span>
+                                    <span class="skill-level">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="75%"></div>
+                                </div>
+                                <div class="skill-details">
+                                    <span class="experience-badge">2 ans</span>
+                                    <div class="skill-tags">
+                                        <span class="tag">Shell</span>
+                                        <span class="tag">Serveurs</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compétences Soft -->
+                <div class="soft-skills-section">
+                    <h2>Compétences Transversales</h2>
+                    <div class="soft-skills-grid">
+                        <div class="soft-skill-card">
+                            <div class="soft-skill-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4>Travail d'équipe</h4>
+                            <p>Collaboration efficace en équipe agile et gestion de projets collaboratifs</p>
+                            <div class="skill-level-indicator">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="soft-skill-card">
+                            <div class="soft-skill-icon">
+                                <i class="fas fa-puzzle-piece"></i>
+                            </div>
+                            <h4>Résolution de problèmes</h4>
+                            <p>Analyse critique et approche méthodique pour résoudre les défis techniques</p>
+                            <div class="skill-level-indicator">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="soft-skill-card">
+                            <div class="soft-skill-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h4>Communication</h4>
+                            <p>Communication claire avec les équipes techniques et non-techniques</p>
+                            <div class="skill-level-indicator">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="soft-skill-card">
+                            <div class="soft-skill-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h4>Adaptabilité</h4>
+                            <p>Capacité d'apprentissage rapide et adaptation aux nouvelles technologies</p>
+                            <div class="skill-level-indicator">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications & Formations -->
+                <div class="certifications-preview">
+                    <h2>Certifications & Formations</h2>
+                    <div class="certifications-list">
+                        <div class="cert-item">
+                            <div class="cert-logo">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <div class="cert-info">
+                                <h4>React.js Advanced Developer</h4>
+                                <p>Formation approfondie en développement React</p>
+                                <span class="cert-date">2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="cert-item">
+                            <div class="cert-logo">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="cert-info">
+                                <h4>MongoDB University</h4>
+                                <p>Base de données NoSQL et optimisation</p>
+                                <span class="cert-date">2023</span>
+                            </div>
+                        </div>
+                        
+                        <div class="cert-item planned">
+                            <div class="cert-logo">
+                                <i class="fab fa-aws"></i>
+                            </div>
+                            <div class="cert-info">
+                                <h4>AWS Cloud Practitioner</h4>
+                                <p>Certification Amazon Web Services</p>
+                                <span class="cert-date">Prévu 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Navigation rapide</h4>
+                    <ul>
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="education.html">Éducation</a></li>
+                        <li><a href="projects.html">Projets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> votre.email@example.com</p>
+                    <p><i class="fas fa-phone"></i> +229 XX XX XX XX</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Natitingou, Bénin</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Suivez-moi</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Portfolio - Votre Nom. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scripts/navigation.js"></script>
+    <script src="../scripts/pages.js"></script>
+    <script src="../scripts/individual-pages.js"></script>
+</body>
+</html>

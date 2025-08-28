@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Accueil</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/navigation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Menu Hamburger -->
+    <nav class="hamburger-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Portfolio</h2>
+            </div>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </div>
+        
+        <!-- Menu overlay -->
+        <div class="menu-overlay" id="menu-overlay">
+            <div class="menu-content">
+                <div class="menu-header">
+                    <h3>Navigation</h3>
+                    <button class="close-menu" id="close-menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <ul class="menu-links">
+                    <li><a href="index.html" class="menu-link active"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="pages/about.html" class="menu-link"><i class="fas fa-user"></i> À propos</a></li>
+                    <li><a href="pages/education.html" class="menu-link"><i class="fas fa-graduation-cap"></i> Éducation</a></li>
+                    <li><a href="pages/skills.html" class="menu-link"><i class="fas fa-code"></i> Compétences</a></li>
+                    <li><a href="pages/projects.html" class="menu-link"><i class="fas fa-laptop-code"></i> Projets</a></li>
+                    <li><a href="pages/experience.html" class="menu-link"><i class="fas fa-briefcase"></i> Expérience</a></li>
+                    <li><a href="pages/contact.html" class="menu-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+                <div class="menu-footer">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Héro - Page d'accueil -->
+    <main class="main-content">
+        <section class="hero-home">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="greeting">
+                            <span class="greeting-text">Bonjour, je suis</span>
+                        </div>
+                        <h1 class="hero-title">
+                            <span class="name-highlight">Votre Nom</span>
+                        </h1>
+                        <div class="typing-container">
+                            <p class="hero-subtitle">
+                                <span class="typing-text" id="typing-text">Développeur Full Stack</span>
+                                <span class="cursor">|</span>
+                            </p>
+                        </div>
+                        <p class="hero-description">
+                            Passionné par les technologies de l'information et la création de solutions innovantes. 
+                            Diplômé en TIC et Mathématiques-Informatique avec une expertise en développement web moderne.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <h3>3+</h3>
+                                <p>Années d'études</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>10+</h3>
+                                <p>Projets</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>5+</h3>
+                                <p>Technologies</p>
+                            </div>
+                        </div>
+                        <div class="hero-buttons">
+                            <a href="pages/projects.html" class="btn btn-primary">
+                                <i class="fas fa-laptop-code"></i> Mes Projets
+                            </a>
+                            <a href="pages/contact.html" class="btn btn-secondary">
+                                <i class="fas fa-envelope"></i> Me Contacter
+                            </a>
+                            <a href="#" class="btn btn-outline">
+                                <i class="fas fa-download"></i> Télécharger CV
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="image-container">
+                            <div class="image-placeholder">
+                                <i class="fas fa-user"></i>
+                                <p>Votre photo ici</p>
+                            </div>
+                            <div class="floating-elements">
+                                <div class="floating-icon" style="--delay: 0s">
+                                    <i class="fab fa-js-square"></i>
+                                </div>
+                                <div class="floating-icon" style="--delay: 1s">
+                                    <i class="fab fa-react"></i>
+                                </div>
+                                <div class="floating-icon" style="--delay: 2s">
+                                    <i class="fab fa-python"></i>
+                                </div>
+                                <div class="floating-icon" style="--delay: 3s">
+                                    <i class="fab fa-node-js"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Scroll indicator -->
+                <div class="scroll-indicator">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <p>Explorez mes pages</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section présentation rapide -->
+        <section class="quick-intro">
+            <div class="container">
+                <div class="intro-content">
+                    <h2>Qui suis-je ?</h2>
+                    <p>
+                        Diplômé d'une licence en Techniques d'Information et de Communication (TIC) à l'Institut des 
+                        Mathématiques et des Sciences Physiques et d'une licence professionnelle en Mathématiques-Informatique 
+                        à l'École Normale Supérieure de Natitingou. Passionné par la technologie et l'innovation.
+                    </p>
+                    <div class="quick-links">
+                        <a href="pages/about.html" class="quick-link">
+                            <i class="fas fa-user"></i>
+                            <h4>En savoir plus</h4>
+                            <p>Découvrez mon parcours</p>
+                        </a>
+                        <a href="pages/skills.html" class="quick-link">
+                            <i class="fas fa-code"></i>
+                            <h4>Mes compétences</h4>
+                            <p>Technologies maîtrisées</p>
+                        </a>
+                        <a href="pages/projects.html" class="quick-link">
+                            <i class="fas fa-laptop-code"></i>
+                            <h4>Mes réalisations</h4>
+                            <p>Projets développés</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Navigation rapide</h4>
+                    <ul>
+                        <li><a href="pages/about.html">À propos</a></li>
+                        <li><a href="pages/skills.html">Compétences</a></li>
+                        <li><a href="pages/projects.html">Projets</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> votre.email@example.com</p>
+                    <p><i class="fas fa-phone"></i> +229 XX XX XX XX</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Natitingou, Bénin</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Suivez-moi</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Portfolio - Votre Nom. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/home.js"></script>
+</body>
+</html>

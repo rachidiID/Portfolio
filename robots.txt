@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://YOUR_USERNAME.github.io/portfolio-moderne/sitemap.txt
+
+# Disallow sensitive files
+Disallow: /scripts/
+Disallow: /*.md
+Disallow: /deploy.sh
+Disallow: /.github/

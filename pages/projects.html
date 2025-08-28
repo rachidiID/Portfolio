@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Projets</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/navigation.css">
+    <link rel="stylesheet" href="../styles/pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Menu Hamburger -->
+    <nav class="hamburger-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Portfolio</h2>
+            </div>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </div>
+        
+        <!-- Menu overlay -->
+        <div class="menu-overlay" id="menu-overlay">
+            <div class="menu-content">
+                <div class="menu-header">
+                    <h3>Navigation</h3>
+                    <button class="close-menu" id="close-menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <ul class="menu-links">
+                    <li><a href="../index.html" class="menu-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="about.html" class="menu-link"><i class="fas fa-user"></i> À propos</a></li>
+                    <li><a href="education.html" class="menu-link"><i class="fas fa-graduation-cap"></i> Éducation</a></li>
+                    <li><a href="skills.html" class="menu-link"><i class="fas fa-code"></i> Compétences</a></li>
+                    <li><a href="projects.html" class="menu-link active"><i class="fas fa-laptop-code"></i> Projets</a></li>
+                    <li><a href="experience.html" class="menu-link"><i class="fas fa-briefcase"></i> Expérience</a></li>
+                    <li><a href="contact.html" class="menu-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+                <div class="menu-footer">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <div class="page-header-content">
+                    <div class="breadcrumb">
+                        <a href="../index.html"><i class="fas fa-home"></i> Accueil</a>
+                        <span><i class="fas fa-chevron-right"></i></span>
+                        <span>Projets</span>
+                    </div>
+                    <h1 class="page-title">
+                        <i class="fas fa-laptop-code"></i>
+                        Mes Projets
+                    </h1>
+                    <p class="page-subtitle">Découvrez mes réalisations et projets techniques</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Content -->
+        <section class="projects-section">
+            <div class="container">
+                <!-- Filtres de projets -->
+                <div class="projects-filters">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-th-large"></i>
+                        Tous les projets
+                    </button>
+                    <button class="filter-btn" data-filter="web">
+                        <i class="fas fa-globe"></i>
+                        Web Development
+                    </button>
+                    <button class="filter-btn" data-filter="mobile">
+                        <i class="fas fa-mobile-alt"></i>
+                        Applications Mobile
+                    </button>
+                    <button class="filter-btn" data-filter="data">
+                        <i class="fas fa-chart-bar"></i>
+                        Data Science
+                    </button>
+                    <button class="filter-btn" data-filter="academic">
+                        <i class="fas fa-graduation-cap"></i>
+                        Projets Académiques
+                    </button>
+                </div>
+
+                <!-- Statistiques des projets -->
+                <div class="projects-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>15+</h3>
+                            <p>Projets réalisés</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>8</h3>
+                            <p>Projets open source</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>5</h3>
+                            <p>Projets en équipe</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>12</h3>
+                            <p>Technologies utilisées</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grille de projets -->
+                <div class="projects-grid">
+                    <!-- Projet 1 - Application E-commerce -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="#" class="action-btn" title="Voir le code">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="#" class="action-btn" title="Démo live">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <button class="action-btn project-details-btn" title="Plus de détails">
+                                        <i class="fas fa-info-circle"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <img src="https://via.placeholder.com/400x250/87CEEB/FFFFFF?text=E-commerce+App" alt="Application E-commerce">
+                            <div class="project-status">
+                                <span class="status-badge completed">Terminé</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>Plateforme E-commerce</h3>
+                                <div class="project-type">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Application Web
+                                </div>
+                            </div>
+                            <p class="project-description">
+                                Application e-commerce complète avec gestion des produits, panier d'achat, 
+                                système de paiement et interface administrateur.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Stripe</span>
+                            </div>
+                            <div class="project-meta">
+                                <div class="project-date">
+                                    <i class="fas fa-calendar"></i>
+                                    Mars 2024
+                                </div>
+                                <div class="project-duration">
+                                    <i class="fas fa-clock"></i>
+                                    3 mois
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet 2 - Application Mobile -->
+                    <div class="project-card" data-category="mobile">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="#" class="action-btn" title="Voir le code">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="#" class="action-btn" title="Play Store">
+                                        <i class="fab fa-google-play"></i>
+                                    </a>
+                                    <button class="action-btn project-details-btn" title="Plus de détails">
+                                        <i class="fas fa-info-circle"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <img src="https://via.placeholder.com/400x250/20B2AA/FFFFFF?text=Task+Manager+App" alt="Application de gestion de tâches">
+                            <div class="project-status">
+                                <span class="status-badge completed">Terminé</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>TaskFlow - Gestion de Tâches</h3>
+                                <div class="project-type">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    App Mobile
+                                </div>
+                            </div>
+                            <p class="project-description">
+                                Application mobile de gestion de tâches avec synchronisation cloud, 
+                                notifications push et collaboration en équipe.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">Redux</span>
+                                <span class="tech-tag">Push Notifications</span>
+                            </div>
+                            <div class="project-meta">
+                                <div class="project-date">
+                                    <i class="fas fa-calendar"></i>
+                                    Janvier 2024
+                                </div>
+                                <div class="project-duration">
+                                    <i class="fas fa-clock"></i>
+                                    2 mois
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet 3 - Analyse de Données -->
+                    <div class="project-card" data-category="data">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="#" class="action-btn" title="Voir le code">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="#" class="action-btn" title="Notebook Jupyter">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <button class="action-btn project-details-btn" title="Plus de détails">
+                                        <i class="fas fa-info-circle"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <img src="https://via.placeholder.com/400x250/7FFFD4/000000?text=Data+Analysis" alt="Analyse de données">
+                            <div class="project-status">
+                                <span class="status-badge completed">Terminé</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>Analyse Prédictive - Éducation</h3>
+                                <div class="project-type">
+                                    <i class="fas fa-chart-line"></i>
+                                    Data Science
+                                </div>
+                            </div>
+                            <p class="project-description">
+                                Analyse prédictive des performances étudiantes avec machine learning 
+                                pour améliorer les stratégies pédagogiques.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">Scikit-learn</span>
+                                <span class="tech-tag">Matplotlib</span>
+                            </div>
+                            <div class="project-meta">
+                                <div class="project-date">
+                                    <i class="fas fa-calendar"></i>
+                                    Novembre 2023
+                                </div>
+                                <div class="project-duration">
+                                    <i class="fas fa-clock"></i>
+                                    6 semaines
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet 4 - Système de Gestion Scolaire -->
+                    <div class="project-card" data-category="web academic">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="#" class="action-btn" title="Voir le code">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="#" class="action-btn" title="Démo">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <button class="action-btn project-details-btn" title="Plus de détails">
+                                        <i class="fas fa-info-circle"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <img src="https://via.placeholder.com/400x250/87CEEB/FFFFFF?text=School+Management" alt="Système de gestion scolaire">
+                            <div class="project-status">
+                                <span class="status-badge in-progress">En cours</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>EduManager - Gestion Scolaire</h3>
+                                <div class="project-type">
+                                    <i class="fas fa-school"></i>
+                                    Système Web
+                                </div>
+                            </div>
+                            <p class="project-description">
+                                Système complet de gestion scolaire avec modules pour étudiants, 
+                                enseignants, notes, et communication parents-école.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
+                            <div class="project-meta">
+                                <div class="project-date">
+                                    <i class="fas fa-calendar"></i>
+                                    Février 2024
+                                </div>
+                                <div class="project-duration">
+                                    <i class="fas fa-clock"></i>
+                                    4 mois
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet 5 - API REST -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="#" class="action-btn" title="Voir le code">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="#" class="action-btn" title="Documentation API">
+                                        <i class="fas fa-book"></i>
+                                    </a>
+                                    <button class="action-btn project-details-btn" title="Plus de détails">
+                                        <i class="fas fa-info-circle"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <img src="https://via.placeholder.com/400x250/20B2AA/FFFFFF?text=REST+API" alt="API REST">
+                            <div class="project-status">
+                                <span class="status-badge completed">Terminé</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>BlogAPI - Service de Blog</h3>
+                                <div class="project-type">
+                                    <i class="fas fa-server"></i>
+                                    API Backend
+                                </div>
+                            </div>
+                            <p class="project-description">
+                                API REST complète pour système de blog avec authentification JWT, 
+                                CRUD articles, commentaires et gestion utilisateurs.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express</span>
+                                <span class="tech-tag">JWT</span>
+                                <span class="tech-tag">Swagger</span>
+                            </div>
+                            <div class="project-meta">
+                                <div class="project-date">
+                                    <i class="fas fa-calendar"></i>
+                                    Décembre 2023
+                                </div>
+                                <div class="project-duration">
+                                    <i class="fas fa-clock"></i>
+                                    1 mois
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet 6 - Calculateur Mathématique -->
+                    <div class="project-card" data-category="academic">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="#" class="action-btn" title="Voir le code">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="#" class="action-btn" title="Essayer">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <button class="action-btn project-details-btn" title="Plus de détails">
+                                        <i class="fas fa-info-circle"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <img src="https://via.placeholder.com/400x250/7FFFD4/000000?text=Math+Calculator" alt="Calculateur mathématique">
+                            <div class="project-status">
+                                <span class="status-badge completed">Terminé</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>MathSolver - Calculateur Avancé</h3>
+                                <div class="project-type">
+                                    <i class="fas fa-calculator"></i>
+                                    Outil Académique
+                                </div>
+                            </div>
+                            <p class="project-description">
+                                Calculateur mathématique avancé avec résolution d'équations, 
+                                graphiques de fonctions et calcul différentiel/intégral.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Chart.js</span>
+                                <span class="tech-tag">Math.js</span>
+                                <span class="tech-tag">CSS3</span>
+                            </div>
+                            <div class="project-meta">
+                                <div class="project-date">
+                                    <i class="fas fa-calendar"></i>
+                                    Octobre 2023
+                                </div>
+                                <div class="project-duration">
+                                    <i class="fas fa-clock"></i>
+                                    3 semaines
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Projets en Cours -->
+                <div class="current-projects">
+                    <h2>Projets en Cours de Développement</h2>
+                    <div class="current-projects-grid">
+                        <div class="current-project-card">
+                            <div class="project-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="project-info">
+                                <h4>Chatbot IA Éducatif</h4>
+                                <p>Assistant virtuel pour accompagner les étudiants dans leur apprentissage</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                </div>
+                                <span class="progress-text">65% complété</span>
+                                <div class="project-tech">
+                                    <span class="tech-tag small">Python</span>
+                                    <span class="tech-tag small">NLP</span>
+                                    <span class="tech-tag small">TensorFlow</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="current-project-card">
+                            <div class="project-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <div class="project-info">
+                                <h4>Plateforme Cloud Learning</h4>
+                                <p>Plateforme d'apprentissage en ligne avec IA et analytics</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 40%"></div>
+                                </div>
+                                <span class="progress-text">40% complété</span>
+                                <div class="project-tech">
+                                    <span class="tech-tag small">React</span>
+                                    <span class="tech-tag small">AWS</span>
+                                    <span class="tech-tag small">GraphQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="projects-cta">
+                    <div class="cta-content">
+                        <h3>Vous avez un projet en tête ?</h3>
+                        <p>
+                            Je suis toujours intéressé par de nouveaux défis et collaborations. 
+                            N'hésitez pas à me contacter pour discuter de vos idées !
+                        </p>
+                        <div class="cta-buttons">
+                            <a href="contact.html" class="btn btn-primary">
+                                <i class="fas fa-envelope"></i>
+                                Me Contacter
+                            </a>
+                            <a href="#" class="btn btn-secondary">
+                                <i class="fab fa-github"></i>
+                                Voir mon GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Navigation rapide</h4>
+                    <ul>
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="education.html">Éducation</a></li>
+                        <li><a href="skills.html">Compétences</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> votre.email@example.com</p>
+                    <p><i class="fas fa-phone"></i> +229 XX XX XX XX</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Natitingou, Bénin</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Suivez-moi</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Portfolio - Votre Nom. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scripts/navigation.js"></script>
+    <script src="../scripts/pages.js"></script>
+    <script src="../scripts/individual-pages.js"></script>
+</body>
+</html>
