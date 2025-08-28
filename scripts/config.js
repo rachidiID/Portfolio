@@ -49,6 +49,19 @@ class PortfolioConfig {
             link.href = newUrl;
             link.download = 'CV_Rachidi_Idoniyi.pdf';
             link.target = '_blank';
+            
+            // Forcer le téléchargement au lieu de la navigation
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const downloadLink = document.createElement('a');
+                downloadLink.href = newUrl;
+                downloadLink.download = 'CV_Rachidi_Idoniyi.pdf';
+                downloadLink.style.display = 'none';
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            });
+            
             console.log('📄 Lien CV mis à jour:', newUrl);
         });
     }

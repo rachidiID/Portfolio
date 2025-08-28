@@ -3,8 +3,6 @@ name: Deploy Portfolio to GitHub Pages
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 # Permissions nécessaires pour GitHub Pages
 permissions:
@@ -26,7 +24,19 @@ jobs:
     
     steps:
     - name: 📥 Checkout Repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
+      
+    - name: 🔧 Setup Pages
+      uses: actions/configure-pages@v4
+      
+    - name: 📦 Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./
+        
+    - name: 🚀 Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
       
     - name: 🔧 Setup Node.js
       uses: actions/setup-node@v3

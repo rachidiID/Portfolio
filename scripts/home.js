@@ -12,10 +12,10 @@ function initTypingAnimation() {
     if (!typingText) return;
     
     const texts = [
-        'Développeur Full Stack',
+        'Développeur Junior et Data-Scientist Junior',
         'Expert en TIC',
-        'Passionné de Tech',
-        'Créateur d\'Innovation'
+        'Passionné de Technologie',
+        'Diplômé en Mathématiques-Informatique'
     ];
     
     let textIndex = 0;
