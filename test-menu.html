@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Menu</title>
+    <link rel="stylesheet" href="styles/navigation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #87CEEB;
+            --secondary-color: #20B2AA;
+            --accent-color: #7FFFD4;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            margin: 0;
+            padding: 80px 20px 20px;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #87CEEB 0%, #20B2AA 100%);
+            min-height: 100vh;
+        }
+        
+        .test-content {
+            text-align: center;
+            color: white;
+        }
+        
+        .test-content h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .test-button {
+            background: var(--white);
+            color: var(--secondary-color);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Menu Hamburger -->
+    <nav class="hamburger-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Portfolio</h2>
+            </div>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </div>
+        
+        <!-- Menu overlay -->
+        <div class="menu-overlay" id="menu-overlay">
+            <div class="menu-content">
+                <div class="menu-header">
+                    <h3>Navigation</h3>
+                    <button class="close-menu" id="close-menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <ul class="menu-links">
+                    <li><a href="index.html" class="menu-link active"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="pages/about.html" class="menu-link"><i class="fas fa-user"></i> À propos</a></li>
+                    <li><a href="pages/education.html" class="menu-link"><i class="fas fa-graduation-cap"></i> Éducation</a></li>
+                    <li><a href="pages/skills.html" class="menu-link"><i class="fas fa-code"></i> Compétences</a></li>
+                    <li><a href="pages/projects.html" class="menu-link"><i class="fas fa-laptop-code"></i> Projets</a></li>
+                    <li><a href="pages/experience.html" class="menu-link"><i class="fas fa-briefcase"></i> Expérience</a></li>
+                    <li><a href="pages/contact.html" class="menu-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+                <div class="menu-footer">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="test-content">
+        <h1>Test du Menu Hamburger</h1>
+        <p>Cliquez sur les trois barres en haut à droite pour tester le menu</p>
+        
+        <button class="test-button" onclick="testMenu()">Ouvrir Menu via JS</button>
+        <button class="test-button" onclick="console.log('Menu elements:', document.getElementById('hamburger-menu'), document.getElementById('menu-overlay'))">Debug Console</button>
+    </div>
+
+    <script>
+        // Navigation JavaScript simplifié pour test
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page chargée, initialisation du menu...');
+            
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const menuOverlay = document.getElementById('menu-overlay');
+            const closeMenu = document.getElementById('close-menu');
+            const menuLinks = document.querySelectorAll('.menu-link');
+
+            console.log('Éléments trouvés:', {
+                hamburgerMenu,
+                menuOverlay,
+                closeMenu,
+                menuLinks: menuLinks.length
+            });
+
+            if (!hamburgerMenu || !menuOverlay || !closeMenu) {
+                console.error('Éléments manquants!');
+                return;
+            }
+
+            // Ouvrir le menu
+            hamburgerMenu.addEventListener('click', function() {
+                console.log('Clic sur hamburger menu');
+                openMenu();
+            });
+
+            // Fermer le menu avec le bouton X
+            closeMenu.addEventListener('click', function() {
+                console.log('Clic sur fermer menu');
+                closeMenuFunction();
+            });
+
+            // Fermer le menu en cliquant sur l'overlay
+            menuOverlay.addEventListener('click', function(e) {
+                if (e.target === menuOverlay) {
+                    console.log('Clic sur overlay');
+                    closeMenuFunction();
+                }
+            });
+
+            // Fermer le menu en cliquant sur un lien
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    console.log('Clic sur lien menu');
+                    closeMenuFunction();
+                });
+            });
+
+            function openMenu() {
+                console.log('Ouverture du menu...');
+                hamburgerMenu.classList.add('active');
+                menuOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Animation des liens du menu
+                menuLinks.forEach((link, index) => {
+                    link.style.animationDelay = `${index * 0.1}s`;
+                    link.classList.add('animate-in');
+                });
+            }
+
+            function closeMenuFunction() {
+                console.log('Fermeture du menu...');
+                hamburgerMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                // Nettoyer les animations
+                menuLinks.forEach(link => {
+                    link.classList.remove('animate-in');
+                    link.style.animationDelay = '';
+                });
+            }
+
+            // Fonction globale pour test
+            window.testMenu = function() {
+                openMenu();
+            };
+        });
+    </script>
+</body>
+</html>

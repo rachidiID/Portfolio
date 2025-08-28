@@ -1,5 +1,6 @@
 // Navigation JavaScript
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Page chargée, initialisation du menu...');
     initHamburgerMenu();
     initScrollEffects();
 });
@@ -11,57 +12,74 @@ function initHamburgerMenu() {
     const closeMenu = document.getElementById('close-menu');
     const menuLinks = document.querySelectorAll('.menu-link');
 
+    console.log('Éléments trouvés:', {
+        hamburgerMenu,
+        menuOverlay,
+        closeMenu,
+        menuLinks: menuLinks.length
+    });
+
+    if (!hamburgerMenu || !menuOverlay || !closeMenu) {
+        console.error('Éléments du menu manquants!');
+        return;
+    }
+
     // Ouvrir le menu
-    hamburgerMenu.addEventListener('click', () => {
+    hamburgerMenu.addEventListener('click', function() {
+        console.log('Clic sur hamburger menu');
         openMenu();
     });
 
     // Fermer le menu avec le bouton X
-    closeMenu.addEventListener('click', () => {
-        closeMenu();
+    closeMenu.addEventListener('click', function() {
+        console.log('Clic sur fermer menu');
+        closeMenuFunction();
     });
 
     // Fermer le menu en cliquant sur l'overlay
-    menuOverlay.addEventListener('click', (e) => {
+    menuOverlay.addEventListener('click', function(e) {
         if (e.target === menuOverlay) {
-            closeMenu();
+            console.log('Clic sur overlay');
+            closeMenuFunction();
         }
     });
 
     // Fermer le menu en cliquant sur un lien
     menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            closeMenu();
+        link.addEventListener('click', function() {
+            console.log('Clic sur lien menu');
+            closeMenuFunction();
         });
     });
 
     // Fermer avec la touche Échap
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && menuOverlay.classList.contains('active')) {
-            closeMenu();
+            console.log('Fermeture avec Échap');
+            closeMenuFunction();
         }
     });
 
     function openMenu() {
+        console.log('Ouverture du menu...');
         hamburgerMenu.classList.add('active');
         menuOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
         
         // Animation des liens du menu
-        const menuLinks = document.querySelectorAll('.menu-link');
         menuLinks.forEach((link, index) => {
             link.style.animationDelay = `${index * 0.1}s`;
             link.classList.add('animate-in');
         });
     }
 
-    function closeMenu() {
+    function closeMenuFunction() {
+        console.log('Fermeture du menu...');
         hamburgerMenu.classList.remove('active');
         menuOverlay.classList.remove('active');
         document.body.style.overflow = '';
         
         // Nettoyer les animations
-        const menuLinks = document.querySelectorAll('.menu-link');
         menuLinks.forEach(link => {
             link.classList.remove('animate-in');
             link.style.animationDelay = '';

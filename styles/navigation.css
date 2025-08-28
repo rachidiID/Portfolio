@@ -766,3 +766,30 @@
         padding: 1.5rem;
     }
 }
+
+/* Animation CSS pour les liens du menu */
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.menu-link.animate-in {
+    animation: slideInFromRight 0.4s ease forwards;
+}
+
+.menu-link {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.3s ease;
+}
+
+.menu-overlay.active .menu-link {
+    opacity: 1;
+    transform: translateX(0);
+}
