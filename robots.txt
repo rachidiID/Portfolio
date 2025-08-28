@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://YOUR_USERNAME.github.io/portfolio-moderne/sitemap.txt
+Sitemap: https://rachidiID.github.io/portfolio-moderne/sitemap.txt
 
 # Disallow sensitive files
 Disallow: /scripts/
