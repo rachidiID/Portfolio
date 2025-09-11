@@ -52,7 +52,7 @@ git commit -m "🎉 Portfolio moderne - version initiale"
 
 2. **Connecter et pousser :**
 ```bash
-# Remplacer rachidiid par votre nom GitHub
+# Remplacer rachidiid par Rachidi Adébissi IDONIYI GitHub
 git remote add origin https://github.com/rachidiid/portfolio-moderne.git
 git branch -M main
 git push -u origin main

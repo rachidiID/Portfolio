@@ -106,12 +106,17 @@ class PortfolioConfig {
     updateImages() {
         const profileImages = document.querySelectorAll('img[src*="Sout1"], img[alt*="Rachidi"], .profile-photo');
         profileImages.forEach(img => {
+            // Détecter si nous sommes dans une sous-page
+            const isSubPage = window.location.pathname.includes('/pages/');
+            const imagePath = isSubPage ? '../image/Sout1.jpeg' : 'image/Sout1.jpeg';
             const newSrc = this.getAssetUrl(this.profileImagePath);
-            img.src = newSrc;
+            
+            // Utiliser le chemin relatif approprié
+            img.src = isSubPage ? imagePath : newSrc;
             img.alt = 'Rachidi Adébissi IDONIYI';
             
             img.onerror = function() {
-                console.warn('❌ Image non trouvée:', newSrc);
+                console.warn('❌ Image non trouvée:', img.src);
                 img.style.display = 'none';
                 
                 const placeholder = document.createElement('div');
@@ -132,10 +137,10 @@ class PortfolioConfig {
             };
             
             img.onload = function() {
-                console.log('✅ Image chargée:', newSrc);
+                console.log('✅ Image chargée:', img.src);
             };
             
-            console.log('🖼️ Image mise à jour:', newSrc);
+            console.log('🖼️ Image mise à jour:', img.src);
         });
     }
 }

@@ -99,7 +99,7 @@ git commit -m "🎉 Initial commit - Portfolio moderne"
 ### 2. Connecter au Dépôt GitHub
 
 ```bash
-# Remplacer USERNAME par votre nom d'utilisateur GitHub
+# Remplacer USERNAME par Rachidi Adébissi IDONIYI d'utilisateur GitHub
 git remote add origin https://github.com/USERNAME/portfolio-moderne.git
 
 # Pousser le code

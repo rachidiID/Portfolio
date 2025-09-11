@@ -101,7 +101,7 @@ git add .
 # Premier commit
 git commit -m "Initial portfolio commit"
 
-# Ajouter le remote (remplacez USERNAME par votre nom d'utilisateur)
+# Ajouter le remote (remplacez USERNAME par Rachidi Adébissi IDONIYI d'utilisateur)
 git remote add origin https://github.com/USERNAME/portfolio.git
 
 # Pousser vers GitHub
