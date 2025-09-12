@@ -1,5 +1,6 @@
 // Variables globales
 let lastScrollTop = 0;
+let scrollIndicator;
 
 // Initialisation quand le DOM est chargé
 document.addEventListener('DOMContentLoaded', function() {
@@ -8,7 +9,112 @@ document.addEventListener('DOMContentLoaded', function() {
     initSkillBars();
     initContactForm();
     initAnimations();
+    initScrollIndicator();
+    initSmoothScrolling();
+    initTextAnimations();
 });
+
+// Indicateur de progression de scroll
+function initScrollIndicator() {
+    // Créer l'indicateur de progression
+    scrollIndicator = document.createElement('div');
+    scrollIndicator.className = 'scroll-indicator';
+    scrollIndicator.style.transform = 'scaleX(0)';
+    document.body.appendChild(scrollIndicator);
+
+    // Mettre à jour la barre de progression
+    function updateScrollIndicator() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        scrollIndicator.style.transform = `scaleX(${scrolled / 100})`;
+    }
+
+    window.addEventListener('scroll', updateScrollIndicator);
+}
+
+// Défilement fluide amélioré
+function initSmoothScrolling() {
+    // Améliorer les liens d'ancrage
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const offsetTop = target.offsetTop - 80; // Compensation pour la navbar
+                
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+                
+                // Fermer le menu mobile si ouvert
+                const navMenu = document.getElementById('nav-menu');
+                if (navMenu && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    const navToggle = document.getElementById('nav-toggle');
+                    const bars = navToggle.querySelectorAll('.bar');
+                    bars.forEach(bar => {
+                        bar.style.transform = 'none';
+                        bar.style.opacity = '1';
+                    });
+                }
+            }
+        });
+    });
+}
+
+// Animations de texte avancées
+function initTextAnimations() {
+    // Observer pour les animations à l'apparition
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                
+                // Animation spéciale pour les cartes
+                if (entry.target.classList.contains('card')) {
+                    entry.target.style.animation = 'slideInUp 0.6s ease forwards';
+                }
+                
+                // Animation pour les textes
+                if (entry.target.classList.contains('fade-in-text')) {
+                    animateText(entry.target);
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observer tous les éléments animables
+    document.querySelectorAll('.card, .fade-in-text, .project-card, .skill-item').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.6s ease';
+        observer.observe(el);
+    });
+}
+
+// Animation de texte caractère par caractère
+function animateText(element) {
+    const text = element.textContent;
+    element.textContent = '';
+    element.style.opacity = '1';
+    
+    text.split('').forEach((char, index) => {
+        const span = document.createElement('span');
+        span.textContent = char === ' ' ? '\u00A0' : char;
+        span.style.opacity = '0';
+        span.style.animation = `fadeInChar 0.05s ease forwards`;
+        span.style.animationDelay = `${index * 0.03}s`;
+        element.appendChild(span);
+    });
+}
 
 // Navigation
 function initNavigation() {
@@ -149,13 +255,25 @@ function animateSkillBars(skillCategory) {
     });
 }
 
-// Formulaire de contact
+// Formulaire de contact amélioré
 function initContactForm() {
     const contactForm = document.querySelector('.contact-form');
     
     if (contactForm) {
+        // Validation en temps réel
+        const inputs = contactForm.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => validateField(input));
+            input.addEventListener('input', () => clearValidationError(input));
+        });
+
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Validation complète avant soumission
+            if (!validateForm(this)) {
+                return;
+            }
             
             // Récupération des données du formulaire
             const formData = new FormData(this);
@@ -166,21 +284,97 @@ function initContactForm() {
                 message: formData.get('message')
             };
             
-            // Validation simple
-            if (!data.name || !data.email || !data.message) {
-                showNotification('Veuillez remplir tous les champs obligatoires.', 'error');
-                return;
-            }
-            
-            if (!isValidEmail(data.email)) {
-                showNotification('Veuillez entrer une adresse email valide.', 'error');
-                return;
-            }
-            
-            // Simulation d'envoi (à remplacer par votre logique d'envoi)
-            submitContactForm(data);
+            // Soumission avec animation
+            submitContactForm(data, this);
         });
     }
+}
+
+// Validation d'un champ individuel
+function validateField(field) {
+    const value = field.value.trim();
+    let isValid = true;
+    let message = '';
+
+    // Supprimer les classes d'erreur précédentes
+    field.classList.remove('error', 'success');
+
+    switch (field.type) {
+        case 'email':
+            if (!value) {
+                isValid = false;
+                message = 'L\'email est requis';
+            } else if (!isValidEmail(value)) {
+                isValid = false;
+                message = 'Format d\'email invalide';
+            }
+            break;
+        case 'text':
+            if (field.name === 'name' && (!value || value.length < 2)) {
+                isValid = false;
+                message = 'Le nom doit contenir au moins 2 caractères';
+            }
+            break;
+        case 'textarea':
+            if (!value || value.length < 10) {
+                isValid = false;
+                message = 'Le message doit contenir au moins 10 caractères';
+            }
+            break;
+    }
+
+    // Appliquer le style approprié
+    if (value) {
+        field.classList.add(isValid ? 'success' : 'error');
+        showFieldMessage(field, message, isValid);
+    }
+
+    return isValid;
+}
+
+// Supprimer les erreurs de validation
+function clearValidationError(field) {
+    field.classList.remove('error');
+    const errorMsg = field.parentNode.querySelector('.field-error');
+    if (errorMsg) {
+        errorMsg.remove();
+    }
+}
+
+// Afficher un message de validation
+function showFieldMessage(field, message, isValid) {
+    // Supprimer le message précédent
+    const existingMsg = field.parentNode.querySelector('.field-error, .field-success');
+    if (existingMsg) {
+        existingMsg.remove();
+    }
+
+    if (message) {
+        const msgElement = document.createElement('div');
+        msgElement.className = isValid ? 'field-success' : 'field-error';
+        msgElement.textContent = message;
+        msgElement.style.cssText = `
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+            color: ${isValid ? '#27ae60' : '#e74c3c'};
+            animation: slideInDown 0.3s ease;
+        `;
+        field.parentNode.appendChild(msgElement);
+    }
+}
+
+// Validation complète du formulaire
+function validateForm(form) {
+    const inputs = form.querySelectorAll('input[required], textarea[required]');
+    let isValid = true;
+
+    inputs.forEach(input => {
+        if (!validateField(input)) {
+            isValid = false;
+        }
+    });
+
+    return isValid;
 }
 
 // Validation email
@@ -189,9 +383,129 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
-// Soumission du formulaire de contact
-function submitContactForm(data) {
-    // Affichage du loading
+// Soumission du formulaire de contact avec animations
+function submitContactForm(data, form) {
+    // Bouton de soumission
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    
+    // Animation de chargement
+    submitBtn.textContent = 'Envoi en cours...';
+    submitBtn.disabled = true;
+    submitBtn.classList.add('loading');
+    
+    // Ajouter un spinner
+    const spinner = document.createElement('div');
+    spinner.className = 'spinner';
+    spinner.style.cssText = `
+        width: 20px;
+        height: 20px;
+        border: 2px solid #ffffff30;
+        border-top: 2px solid #ffffff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        display: inline-block;
+        margin-left: 10px;
+    `;
+    submitBtn.appendChild(spinner);
+    
+    // Simulation d'envoi (remplacer par votre API)
+    setTimeout(() => {
+        // Supprimer le spinner
+        submitBtn.removeChild(spinner);
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+        
+        // Simuler le succès (90% de chance de succès)
+        const isSuccess = Math.random() > 0.1;
+        
+        if (isSuccess) {
+            submitBtn.textContent = '✓ Message envoyé !';
+            submitBtn.style.backgroundColor = '#27ae60';
+            
+            // Réinitialiser le formulaire
+            form.reset();
+            form.querySelectorAll('.success, .error').forEach(el => {
+                el.classList.remove('success', 'error');
+            });
+            form.querySelectorAll('.field-error, .field-success').forEach(el => {
+                el.remove();
+            });
+            
+            showNotification('Votre message a été envoyé avec succès ! Je vous répondrai bientôt.', 'success');
+            
+            // Animation de succès sur le formulaire
+            form.style.animation = 'pulse 0.6s ease';
+            
+        } else {
+            submitBtn.textContent = '✗ Erreur d\'envoi';
+            submitBtn.style.backgroundColor = '#e74c3c';
+            showNotification('Une erreur est survenue. Veuillez réessayer plus tard.', 'error');
+        }
+        
+        // Restaurer le bouton après 3 secondes
+        setTimeout(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.style.backgroundColor = '';
+        }, 3000);
+        
+    }, 2000); // Simulation de 2 secondes d'envoi
+}
+
+// Système de notifications amélioré
+function showNotification(message, type = 'info') {
+    // Supprimer les notifications précédentes
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(notification => {
+        notification.remove();
+    });
+    
+    // Créer la notification
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    
+    // Styles de la notification
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: ${type === 'success' ? '#27ae60' : type === 'error' ? '#e74c3c' : '#3498db'};
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        z-index: 10000;
+        font-weight: 600;
+        max-width: 400px;
+        word-wrap: break-word;
+        animation: slideInRight 0.5s ease;
+        cursor: pointer;
+    `;
+    
+    // Ajouter au DOM
+    document.body.appendChild(notification);
+    
+    // Auto-suppression après 5 secondes
+    setTimeout(() => {
+        notification.style.animation = 'slideOutRight 0.5s ease forwards';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 500);
+    }, 5000);
+    
+    // Fermeture au clic
+    notification.addEventListener('click', () => {
+        notification.style.animation = 'slideOutRight 0.5s ease forwards';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 500);
+    });
+}
     const submitBtn = document.querySelector('.contact-form .btn-primary');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Envoi en cours...';
@@ -213,6 +527,23 @@ function submitContactForm(data) {
         console.log('Données du formulaire:', data);
     }, 2000);
 }
+
+// Validation email améliorée
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// Fonction utilitaire pour débugger les performances
+function debugPerformance() {
+    if (typeof performance !== 'undefined') {
+        const navigationTiming = performance.getEntriesByType('navigation')[0];
+        console.log('Temps de chargement:', navigationTiming.loadEventEnd - navigationTiming.navigationStart, 'ms');
+    }
+}
+
+// Initialiser le debug des performances
+window.addEventListener('load', debugPerformance);
 
 // Système de notifications
 function showNotification(message, type = 'info') {
