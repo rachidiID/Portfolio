@@ -505,7 +505,6 @@ function showNotification(message, type = 'info') {
             }
         }, 500);
     });
-}
     const submitBtn = document.querySelector('.contact-form .btn-primary');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Envoi en cours...';

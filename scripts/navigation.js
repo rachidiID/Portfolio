@@ -162,7 +162,19 @@ document.addEventListener('click', function(e) {
 
 // Préchargement des pages pour une navigation plus fluide
 function preloadPages() {
-    const pages = [
+    // Détecter si on est sur la page d'accueil ou dans le dossier pages
+    const isOnHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
+    
+    const pages = isOnHomePage ? [
+        // Si on est sur la page d'accueil
+        'pages/about.html',
+        'pages/education.html',
+        'pages/skills.html',
+        'pages/projects.html',
+        'pages/experience.html',
+        'pages/contact.html'
+    ] : [
+        // Si on est dans le dossier pages
         '../index.html',
         'about.html',
         'education.html',
@@ -180,8 +192,8 @@ function preloadPages() {
     });
 }
 
-// Lancer le préchargement après 2 secondes
-setTimeout(preloadPages, 2000);
+// Préchargement désactivé pour éviter les erreurs 404
+// setTimeout(preloadPages, 2000);
 
 // Gestion des erreurs réseau
 window.addEventListener('online', () => {
