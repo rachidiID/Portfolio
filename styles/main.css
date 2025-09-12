@@ -1365,7 +1365,8 @@ img:hover {
     }
 }
 
-/* Mode sombre optionnel */
+/* Mode sombre optionnel - Désactivé par défaut pour éviter les différences de rendu */
+/*
 @media (prefers-color-scheme: dark) {
     :root {
         --background-color: #1e3a8a;
@@ -1390,6 +1391,32 @@ img:hover {
         color: var(--text-color);
         border-color: rgba(135, 206, 235, 0.4);
     }
+}
+*/
+
+/* Alternative: Mode sombre manuel avec classe .dark-theme */
+.dark-theme {
+    --background-color: #1e3a8a;
+    --text-color: #f8fafc;
+    --secondary-color: #e2e8f0;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --shadow-hover: rgba(0, 0, 0, 0.4);
+}
+
+.dark-theme .hamburger-nav {
+    background: rgba(30, 58, 138, 0.95);
+    border-bottom-color: rgba(135, 206, 235, 0.3);
+}
+
+.dark-theme .card {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(70, 130, 180, 0.9));
+    border-color: rgba(135, 206, 235, 0.2);
+}
+
+.dark-theme .form-control {
+    background: rgba(30, 58, 138, 0.5);
+    color: var(--text-color);
+    border-color: rgba(135, 206, 235, 0.4);
 }
 
 /* Optimisations pour écrans haute densité */

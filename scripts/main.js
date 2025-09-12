@@ -118,53 +118,25 @@ function animateText(element) {
 
 // Navigation
 function initNavigation() {
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const navbar = document.getElementById('navbar');
+    // Gestion du scroll pour la navbar seulement
+    const navbar = document.querySelector('.hamburger-nav'); // Utiliser la classe au lieu de l'ID
 
-    // Toggle menu mobile
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        
-        // Animation du burger menu
-        const bars = navToggle.querySelectorAll('.bar');
-        bars.forEach((bar, index) => {
-            if (navMenu.classList.contains('active')) {
-                if (index === 0) bar.style.transform = 'rotate(45deg) translate(5px, 5px)';
-                if (index === 1) bar.style.opacity = '0';
-                if (index === 2) bar.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+    if (navbar) {
+        // Effet scroll sur la navbar
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
             } else {
-                bar.style.transform = 'none';
-                bar.style.opacity = '1';
+                navbar.classList.remove('scrolled');
             }
         });
-    });
-
-    // Fermer le menu quand on clique sur un lien
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            const bars = navToggle.querySelectorAll('.bar');
-            bars.forEach(bar => {
-                bar.style.transform = 'none';
-                bar.style.opacity = '1';
-            });
-        });
-    });
-
-    // Effet scroll sur la navbar
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+    }
 
     // Navigation active selon la section
     updateActiveNavLink();
     window.addEventListener('scroll', updateActiveNavLink);
+    
+    // Note: La gestion du menu hamburger est maintenant dans navigation.js
 }
 
 // Mise à jour du lien actif dans la navigation
