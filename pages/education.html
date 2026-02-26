@@ -1,44 +1,42 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Éducation</title>
-    
-    <!-- Favicons -->
+    <title>Éducation - Rachidi IDONIYI</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="apple-touch-icon" href="../favicon.svg">
-    
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/navigation.css">
     <link rel="stylesheet" href="../styles/pages.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation Menu Hamburger -->
+    <!-- Navigation -->
     <nav class="hamburger-nav">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Portfolio</h2>
-            </div>
-            <div class="hamburger-menu" id="hamburger-menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+            <div class="nav-logo"><a href="../index.html"><h2>R.I</h2></a></div>
+            <ul class="nav-desktop-links">
+                <li><a href="../index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="about.html"><i class="fas fa-user"></i> À propos</a></li>
+                <li><a href="education.html" class="active"><i class="fas fa-graduation-cap"></i> Éducation</a></li>
+                <li><a href="skills.html"><i class="fas fa-code"></i> Compétences</a></li>
+                <li><a href="projects.html"><i class="fas fa-laptop-code"></i> Projets</a></li>
+                <li><a href="experience.html"><i class="fas fa-briefcase"></i> Expérience</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Changer le thème">
+                    <i class="fas fa-sun icon-sun"></i><i class="fas fa-moon icon-moon"></i>
+                </button>
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+                </div>
             </div>
         </div>
-        
-        <!-- Menu overlay -->
         <div class="menu-overlay" id="menu-overlay">
             <div class="menu-content">
-                <div class="menu-header">
-                    <h3>Navigation</h3>
-                    <button class="close-menu" id="close-menu">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
+                <div class="menu-header"><h3>Menu</h3><button class="close-menu" id="close-menu"><i class="fas fa-times"></i></button></div>
                 <ul class="menu-links">
                     <li><a href="../index.html" class="menu-link"><i class="fas fa-home"></i> Accueil</a></li>
                     <li><a href="about.html" class="menu-link"><i class="fas fa-user"></i> À propos</a></li>
@@ -58,9 +56,7 @@
         </div>
     </nav>
 
-    <!-- Page Content -->
     <main class="main-content">
-        <!-- Page Header -->
         <section class="page-header">
             <div class="container">
                 <div class="page-header-content">
@@ -69,63 +65,27 @@
                         <span><i class="fas fa-chevron-right"></i></span>
                         <span>Éducation</span>
                     </div>
-                    <h1 class="page-title">
-                        <i class="fas fa-graduation-cap"></i>
-                        Mon Parcours Éducatif
-                    </h1>
+                    <h1 class="page-title"><i class="fas fa-graduation-cap"></i> Mon Parcours Éducatif</h1>
                     <p class="page-subtitle">Formation académique et développement des compétences</p>
                 </div>
             </div>
         </section>
 
-        <!-- Education Timeline -->
         <section class="education-section">
             <div class="container">
                 <div class="education-intro">
                     <h2>Un parcours académique solide</h2>
                     <p>
-                        Mon parcours éducatif reflète ma passion pour les technologies de l'information et les mathématiques appliquées. 
+                        Mon parcours éducatif reflète ma passion pour les technologies de l'information et les mathématiques appliquées.
                         Chaque étape a contribué à forger mon expertise technique et ma vision professionnelle.
                     </p>
                 </div>
 
                 <div class="timeline-container">
                     <div class="timeline">
-                        <!-- Licence Professionnelle -->
-                        <div class="timeline-item featured">
-                            <div class="timeline-dot">
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <div class="timeline-header">
-                                    <span class="timeline-date">2021 - 2024</span>
-                                    <span class="timeline-status current">Diplômé</span>
-                                </div>
-                                <h3>Licence Professionnelle en Mathématiques-Informatique</h3>
-                                <h4><i class="fas fa-university"></i> École Normale Supérieure de Natitingou</h4>
-                                <div class="timeline-description">
-                                    <p>
-                                        Formation spécialisée combinant les mathématiques appliquées et l'informatique, 
-                                        avec un focus sur le développement d'algorithmes, la programmation et 
-                                        les méthodes numériques.
-                                    </p>
-                                    <div class="subjects-grid">
-                                        <div class="subject-tag">Algorithmes </div>
-                                        <div class="subject-tag">Programmation Orientée Objet</div>
-                                        <div class="subject-tag">Méthodes Numériques</div>
-                                        <div class="subject-tag">Mathématiques générales</div>
-                                    </div>
-                                    <div class="achievements">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <!-- Licence TIC -->
                         <div class="timeline-item featured">
-                            <div class="timeline-dot">
-                                <i class="fas fa-laptop"></i>
-                            </div>
+                            <div class="timeline-dot"><i class="fas fa-laptop"></i></div>
                             <div class="timeline-content">
                                 <div class="timeline-header">
                                     <span class="timeline-date">2024 - 2025</span>
@@ -134,25 +94,43 @@
                                 <h3>Licence en TIC (Techniques d'Information et de Communication)</h3>
                                 <h4><i class="fas fa-university"></i> Institut des Mathématiques et des Sciences Physiques (IMSP)</h4>
                                 <div class="timeline-description">
-                                    <p>
-                                        Formation complète en informatique couvrant le développement web, les réseaux, 
-                                        la gestion de systèmes d'information et les technologies de communication modernes.
-                                    </p>
+                                    <p>Formation complète en informatique couvrant le développement web, les réseaux, la gestion de systèmes d'information.</p>
                                     <div class="subjects-grid">
                                         <div class="subject-tag">Développement Web</div>
                                         <div class="subject-tag">Réseaux Informatiques</div>
                                         <div class="subject-tag">Systèmes d'Information</div>
-                                        <div class="subject-tag">Programmation Web</div>
                                         <div class="subject-tag">Administration Système</div>
                                         <div class="subject-tag">Sécurité Informatique</div>
                                     </div>
                                     <div class="achievements">
                                         <h5><i class="fas fa-trophy"></i> Réalisations principales :</h5>
                                         <ul>
-                                            <li>Création d'un site web de gestion des séminaires avec laravel complet</li>
-                                            <li>Création d'un site web de gestion de stocks avec Django</li>
-                                            <li>Projet de sécurisation de data-for-earth, un site de recueil des données environnementales</li>
+                                            <li>Site web de gestion des séminaires avec Laravel</li>
+                                            <li>Application de gestion de stocks avec Django</li>
+                                            <li>Projet de sécurisation de data-for-earth</li>
                                         </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Licence Professionnelle -->
+                        <div class="timeline-item featured">
+                            <div class="timeline-dot"><i class="fas fa-star"></i></div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <span class="timeline-date">2021 - 2024</span>
+                                    <span class="timeline-status completed">Diplômé</span>
+                                </div>
+                                <h3>Licence Professionnelle en Mathématiques-Informatique</h3>
+                                <h4><i class="fas fa-university"></i> École Normale Supérieure de Natitingou</h4>
+                                <div class="timeline-description">
+                                    <p>Formation spécialisée combinant mathématiques appliquées et informatique, focus sur les algorithmes et la programmation.</p>
+                                    <div class="subjects-grid">
+                                        <div class="subject-tag">Algorithmes</div>
+                                        <div class="subject-tag">POO</div>
+                                        <div class="subject-tag">Méthodes Numériques</div>
+                                        <div class="subject-tag">Mathématiques générales</div>
                                     </div>
                                 </div>
                             </div>
@@ -160,9 +138,7 @@
 
                         <!-- Baccalauréat -->
                         <div class="timeline-item">
-                            <div class="timeline-dot">
-                                <i class="fas fa-certificate"></i>
-                            </div>
+                            <div class="timeline-dot"><i class="fas fa-certificate"></i></div>
                             <div class="timeline-content">
                                 <div class="timeline-header">
                                     <span class="timeline-date">2020</span>
@@ -171,10 +147,7 @@
                                 <h3>Baccalauréat Série C</h3>
                                 <h4><i class="fas fa-school"></i> CEG Danto Akpro-missérété</h4>
                                 <div class="timeline-description">
-                                    <p>
-                                        Baccalauréat scientifique avec spécialisation en mathématiques et sciences physiques, 
-                                        établissant les bases solides pour les études supérieures en informatique et en mathématiques.
-                                    </p>
+                                    <p>Baccalauréat scientifique avec spécialisation en mathématiques et sciences physiques.</p>
                                     <div class="subjects-grid">
                                         <div class="subject-tag">Mathématiques</div>
                                         <div class="subject-tag">Physique-Chimie</div>
@@ -186,92 +159,73 @@
 
                         <!-- BEPC -->
                         <div class="timeline-item">
-                            <div class="timeline-dot">
-                                <i class="fas fa-medal"></i>
-                            </div>
+                            <div class="timeline-dot"><i class="fas fa-medal"></i></div>
                             <div class="timeline-content">
                                 <div class="timeline-header">
                                     <span class="timeline-date">2017</span>
                                     <span class="timeline-status completed">Obtenu</span>
                                 </div>
-                                <h3>BEPC Série MC (Moderne Court)</h3>
+                                <h3>BEPC Série MC</h3>
                                 <h4><i class="fas fa-school"></i> CEG Danto Akpro-missérété</h4>
                                 <div class="timeline-description">
-                                    <p>
-                                        Brevet d'Études du Premier Cycle obtenu avec mention, démontrant déjà un intérêt 
-                                        pour les matières scientifiques et techniques.
-                                    </p>
+                                    <p>Brevet d'Études du Premier Cycle obtenu avec mention, intérêt pour les matières scientifiques.</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- CEP -->
                         <div class="timeline-item">
-                            <div class="timeline-dot">
-                                <i class="fas fa-award"></i>
-                            </div>
+                            <div class="timeline-dot"><i class="fas fa-award"></i></div>
                             <div class="timeline-content">
                                 <div class="timeline-header">
                                     <span class="timeline-date">2013</span>
                                     <span class="timeline-status completed">Obtenu</span>
                                 </div>
                                 <h3>Certificat d'Études Primaires (CEP)</h3>
-                                <h4><i class="fas fa-school"></i> École Primaire Publique zonne résidentielle de Pobè</h4>
+                                <h4><i class="fas fa-school"></i> École Primaire Publique zone résidentielle de Pobè</h4>
                                 <div class="timeline-description">
-                                    <p>
-                                        Premier diplôme du parcours académique, marquant le début d'un parcours 
-                                        d'excellence scolaire.
-                                    </p>
+                                    <p>Premier diplôme du parcours académique, début d'un parcours d'excellence scolaire.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Competences Acquises -->
+                <!-- Compétences Acquises -->
                 <div class="skills-acquired">
                     <h2>Compétences Acquises</h2>
                     <div class="skills-categories">
                         <div class="skill-category-card">
-                            <div class="category-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
+                            <div class="category-icon"><i class="fas fa-code"></i></div>
                             <h3>Programmation</h3>
                             <ul>
                                 <li>Java, Python, C++</li>
                                 <li>JavaScript, PHP</li>
                                 <li>HTML5, CSS3</li>
-                                <li>SQL, ...</li>
+                                <li>SQL</li>
                             </ul>
                         </div>
                         <div class="skill-category-card">
-                            <div class="category-icon">
-                                <i class="fas fa-calculator"></i>
-                            </div>
+                            <div class="category-icon"><i class="fas fa-calculator"></i></div>
                             <h3>Mathématiques</h3>
                             <ul>
                                 <li>Analyse numérique</li>
                                 <li>Statistiques</li>
                                 <li>Algèbre linéaire</li>
                                 <li>Optimisation</li>
-                                <li>...</li>
                             </ul>
                         </div>
                         <div class="skill-category-card">
-                            <div class="category-icon">
-                                <i class="fas fa-network-wired"></i>
-                            </div>
+                            <div class="category-icon"><i class="fas fa-network-wired"></i></div>
                             <h3>Systèmes & Réseaux</h3>
                             <ul>
                                 <li>Administration Linux</li>
                                 <li>Configuration réseau</li>
-                                <li>Sécurité informatique basique</li>
+                                <li>Sécurité informatique</li>
                             </ul>
                         </div>
                         <div class="skill-category-card">
-                            <div class="category-icon">
-                                <i class="fas fa-project-diagram"></i>
-                            </div>
+                            <div class="category-icon"><i class="fas fa-project-diagram"></i></div>
                             <h3>Gestion de Projet</h3>
                             <ul>
                                 <li>Méthodologies Agile</li>
@@ -284,12 +238,11 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Navigation rapide</h4>
+                    <h4>Navigation</h4>
                     <ul>
                         <li><a href="../index.html">Accueil</a></li>
                         <li><a href="about.html">À propos</a></li>
@@ -300,22 +253,20 @@
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <ul>
-                    <li><i class="fas fa-envelope"></i> rachidon2002@gmail.com</p>
-                    <li><i class="fas fa-phone"></i> +229 01 53 39 47 77</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Porto-Novo</li>
+                        <li><i class="fas fa-envelope"></i> rachidon2002@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +229 01 53 39 47 77</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Porto-Novo, Bénin</li>
                     </ul>
                 </div>
                 <div class="footer-section">
+                    <h4>Suivez-moi</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/rachid-idoniyi-02b606268/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/rachidiID/" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Portfolio - Rachidi Adébissi IDONIYI. Tous droits réservés.</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Portfolio - Rachidi Adébissi IDONIYI. Tous droits réservés.</p></div>
         </div>
     </footer>
 

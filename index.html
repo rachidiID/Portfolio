@@ -1,46 +1,59 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light">
-    <meta name="theme-color" content="#87CEEB">
-    <title>Portfolio - Accueil</title>
-    
-    <!-- Favicons -->
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#6C63FF">
+    <title>Rachidi IDONIYI - Portfolio</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" href="favicon.svg">
-    
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/navigation.css">
     <link rel="stylesheet" href="styles/pages.css">
-    <link rel="stylesheet" href="styles/force-consistency.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation Menu Hamburger -->
+    <!-- Navigation -->
     <nav class="hamburger-nav">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2>Portfolio</h2>
+                <a href="index.html"><h2>R.I</h2></a>
             </div>
-            <div class="hamburger-menu" id="hamburger-menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+
+            <!-- Desktop Navigation -->
+            <ul class="nav-desktop-links">
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="pages/about.html"><i class="fas fa-user"></i> À propos</a></li>
+                <li><a href="pages/education.html"><i class="fas fa-graduation-cap"></i> Éducation</a></li>
+                <li><a href="pages/skills.html"><i class="fas fa-code"></i> Compétences</a></li>
+                <li><a href="pages/projects.html"><i class="fas fa-laptop-code"></i> Projets</a></li>
+                <li><a href="pages/experience.html"><i class="fas fa-briefcase"></i> Expérience</a></li>
+                <li><a href="pages/contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="Changer le thème">
+                    <i class="fas fa-sun icon-sun"></i>
+                    <i class="fas fa-moon icon-moon"></i>
+                </button>
+
+                <!-- Hamburger (mobile) -->
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
             </div>
         </div>
-        
-        <!-- Menu overlay -->
+
+        <!-- Menu Overlay Mobile -->
         <div class="menu-overlay" id="menu-overlay">
             <div class="menu-content">
                 <div class="menu-header">
-                    <h3>Navigation</h3>
-                    <button class="close-menu" id="close-menu">
-                        <i class="fas fa-times"></i>
-                    </button>
+                    <h3>Menu</h3>
+                    <button class="close-menu" id="close-menu"><i class="fas fa-times"></i></button>
                 </div>
                 <ul class="menu-links">
                     <li><a href="index.html" class="menu-link active"><i class="fas fa-home"></i> Accueil</a></li>
@@ -53,41 +66,18 @@
                 </ul>
                 <div class="menu-footer">
                     <div class="social-links">
-                        <a href="https://linkedin.com/in/rachidi-idoniyi" class="social-link" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/rachidiID" class="social-link" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/rachid-idoniyi-02b606268/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/rachidiID/" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Section Héro - Page d'accueil -->
+    <!-- HERO SECTION -->
     <main class="main-content">
         <section class="hero-home">
             <div class="hero-container">
-                <!-- Image de profil en haut -->
-                <div class="hero-profile-top">
-                    <div class="image-container">
-                        <div class="image-placeholder">
-                            <img src="image/Sout1.jpeg" alt="Rachidi Adébissi IDONIYI" class="profile-photo">
-                        </div>
-                        <div class="floating-elements">
-                            <div class="floating-icon" style="--delay: 0s">
-                                <i class="fab fa-js-square"></i>
-                            </div>
-                            <div class="floating-icon" style="--delay: 1s">
-                                <i class="fab fa-react"></i>
-                            </div>
-                            <div class="floating-icon" style="--delay: 2s">
-                                <i class="fab fa-python"></i>
-                            </div>
-                            <div class="floating-icon" style="--delay: 3s">
-                                <i class="fab fa-node-js"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
                 <div class="hero-content">
                     <div class="hero-text">
                         <div class="greeting">
@@ -98,12 +88,12 @@
                         </h1>
                         <div class="typing-container">
                             <p class="hero-subtitle">
-                                <span class="typing-text" id="typing-text">Développeur Junior et data-scientist junior</span>
+                                <span class="typing-text" id="typing-text">Développeur Junior & Data Scientist</span>
                                 <span class="cursor">|</span>
                             </p>
                         </div>
                         <p class="hero-description">
-                            Passionné par les technologies de l'information et la création de solutions innovantes. 
+                            Passionné par les technologies de l'information et la création de solutions innovantes.
                             Diplômé en TIC et Mathématiques-Informatique avec une expérience solide en développement web moderne.
                         </p>
                         <div class="hero-stats">
@@ -133,26 +123,37 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Scroll indicator -->
-                <div class="scroll-indicator">
-                    <div class="mouse">
-                        <div class="wheel"></div>
+
+                <!-- Profile Image -->
+                <div class="hero-profile-top">
+                    <div class="image-container">
+                        <div class="image-placeholder">
+                            <img src="image/Sout1.jpeg" alt="Rachidi Adébissi IDONIYI" class="profile-photo">
+                        </div>
+                        <div class="floating-elements">
+                            <div class="floating-icon" style="--delay: 0s"><i class="fab fa-js-square"></i></div>
+                            <div class="floating-icon" style="--delay: 1s"><i class="fab fa-react"></i></div>
+                            <div class="floating-icon" style="--delay: 2s"><i class="fab fa-python"></i></div>
+                            <div class="floating-icon" style="--delay: 3s"><i class="fab fa-node-js"></i></div>
+                        </div>
                     </div>
-                    <p>Explorez mes pages</p>
                 </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <div class="mouse"><div class="wheel"></div></div>
+                <p>Explorez mes pages</p>
             </div>
         </section>
 
-        <!-- Section présentation rapide -->
+        <!-- SECTION PRÉSENTATION RAPIDE -->
         <section class="quick-intro">
             <div class="container">
                 <div class="intro-content">
                     <h2>Qui suis-je ?</h2>
                     <p>
-                        Diplômé d'une licence en Techniques d'Information et de Communication (TIC) à l'Institut des 
-                        Mathématiques et des Sciences Physiques et d'une licence professionnelle en Mathématiques-Informatique 
-                        à l'École Normale Supérieure de Natitingou. Passionné par la technologie et l'innovation.
+                        Diplômé d'une licence en TIC à l'IMSP et d'une licence professionnelle en Mathématiques-Informatique
+                        à l'ENS de Natitingou. Passionné par la technologie, l'innovation et la résolution de problèmes.
                     </p>
                     <div class="quick-links">
                         <a href="pages/about.html" class="quick-link">
@@ -176,12 +177,12 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Navigation rapide</h4>
+                    <h4>Navigation</h4>
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
                         <li><a href="pages/about.html">À propos</a></li>
@@ -192,21 +193,21 @@
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <ul>
-                    <li><i class="fas fa-envelope"></i> rachidon2002@gmail.com</p>
-                    <li><i class="fas fa-phone"></i> +229 01 53 39 47 77</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Porto-Novo</li>
+                        <li><i class="fas fa-envelope"></i> rachidon2002@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +229 01 53 39 47 77</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Porto-Novo, Bénin</li>
                     </ul>
                 </div>
                 <div class="footer-section">
+                    <h4>Suivez-moi</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/rachid-idoniyi-02b606268/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/rachidiID/" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Portfolio - Rachidi Adébissi IDONIYI. Tous droits réservés.</p>
+                <p>&copy; 2025 Portfolio - Rachidi Adébissi IDONIYI. Tous droits réservés.</p>
             </div>
         </div>
     </footer>

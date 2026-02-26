@@ -1,43 +1,47 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - À propos</title>
-    
-    <!-- Favicons -->
+    <title>À propos - Rachidi IDONIYI</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="apple-touch-icon" href="../favicon.svg">
-    
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/navigation.css">
     <link rel="stylesheet" href="../styles/pages.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation Menu Hamburger -->
+    <!-- Navigation -->
     <nav class="hamburger-nav">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Portfolio</h2>
-            </div>
-            <div class="hamburger-menu" id="hamburger-menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+            <div class="nav-logo"><a href="../index.html"><h2>R.I</h2></a></div>
+            <ul class="nav-desktop-links">
+                <li><a href="../index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="about.html" class="active"><i class="fas fa-user"></i> À propos</a></li>
+                <li><a href="education.html"><i class="fas fa-graduation-cap"></i> Éducation</a></li>
+                <li><a href="skills.html"><i class="fas fa-code"></i> Compétences</a></li>
+                <li><a href="projects.html"><i class="fas fa-laptop-code"></i> Projets</a></li>
+                <li><a href="experience.html"><i class="fas fa-briefcase"></i> Expérience</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Changer le thème">
+                    <i class="fas fa-sun icon-sun"></i>
+                    <i class="fas fa-moon icon-moon"></i>
+                </button>
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
             </div>
         </div>
-        
-        <!-- Menu overlay -->
         <div class="menu-overlay" id="menu-overlay">
             <div class="menu-content">
                 <div class="menu-header">
-                    <h3>Navigation</h3>
-                    <button class="close-menu" id="close-menu">
-                        <i class="fas fa-times"></i>
-                    </button>
+                    <h3>Menu</h3>
+                    <button class="close-menu" id="close-menu"><i class="fas fa-times"></i></button>
                 </div>
                 <ul class="menu-links">
                     <li><a href="../index.html" class="menu-link"><i class="fas fa-home"></i> Accueil</a></li>
@@ -58,7 +62,6 @@
         </div>
     </nav>
 
-    <!-- Page Content -->
     <main class="main-content">
         <!-- Page Header -->
         <section class="page-header">
@@ -69,10 +72,7 @@
                         <span><i class="fas fa-chevron-right"></i></span>
                         <span>À propos</span>
                     </div>
-                    <h1 class="page-title">
-                        <i class="fas fa-user"></i>
-                        À propos de moi
-                    </h1>
+                    <h1 class="page-title"><i class="fas fa-user"></i> À propos de moi</h1>
                     <p class="page-subtitle">Découvrez mon parcours, ma passion et ma vision</p>
                 </div>
             </div>
@@ -91,7 +91,7 @@
                         </div>
                         <div class="profile-info">
                             <h2>Rachidi Adébissi IDONIYI</h2>
-                            <p class="profile-title">Développeur  & Junior en TIC et en science de données</p>
+                            <p class="profile-title">Développeur & Junior en TIC et Science de Données</p>
                             <div class="profile-details">
                                 <div class="detail-item">
                                     <i class="fas fa-envelope"></i>
@@ -103,43 +103,40 @@
                                 </div>
                                 <div class="detail-item">
                                     <i class="fas fa-map-marker-alt"></i>
-                                    <span>Porto-Novo</span>
+                                    <span>Porto-Novo, Bénin</span>
                                 </div>
                                 <div class="detail-item">
-                                    <i class="fas fa-calendar"></i>
+                                    <i class="fas fa-calendar-check"></i>
                                     <span>Disponible</span>
                                 </div>
                             </div>
                             <div class="profile-actions">
-                                <a href="contact.html" class="btn btn-primary">
-                                    <i class="fas fa-envelope"></i> Me contacter
-                                </a>
+                                <a href="contact.html" class="btn btn-primary"><i class="fas fa-envelope"></i> Me contacter</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- About Content -->
+                    <!-- About Text -->
                     <div class="about-content">
                         <div class="content-section">
                             <h3><i class="fas fa-user-graduate"></i> Qui suis-je ?</h3>
                             <p>
-                                Diplômé d'une licence en Techniques d'Information et de Communication (TIC) à l'Institut des 
-                                Mathématiques et des Sciences Physiques et d'une licence professionnelle en Mathématiques-Informatique 
+                                Diplômé d'une licence en Techniques d'Information et de Communication (TIC) à l'Institut des
+                                Mathématiques et des Sciences Physiques et d'une licence professionnelle en Mathématiques-Informatique
                                 à l'École Normale Supérieure de Natitingou, je suis passionné par la technologie et l'innovation.
                             </p>
                             <p>
-                                Mon parcours académique solide, complété par des projets pratiques, m'a permis de développer 
-                                une expertise technique approfondie et une passion pour l'innovation technologique. Je suis 
-                                constamment à la recherche de nouveaux défis et d'opportunités d'apprentissage.
+                                Mon parcours académique solide, complété par des projets pratiques, m'a permis de développer
+                                une expertise technique approfondie et une passion pour l'innovation technologique.
                             </p>
                         </div>
 
                         <div class="content-section">
                             <h3><i class="fas fa-bullseye"></i> Ma Mission</h3>
                             <p>
-                                Créer des solutions technologiques innovantes qui résolvent des problèmes réels et améliorent 
-                                la vie des utilisateurs. Je crois en l'importance de combiner expertise technique et créativité 
-                                pour développer des applications web et mobiles performantes et intuitives.
+                                Créer des solutions technologiques innovantes qui résolvent des problèmes réels et améliorent
+                                la vie des utilisateurs. Combiner expertise technique et créativité pour développer des applications
+                                web et mobiles performantes et intuitives.
                             </p>
                         </div>
 
@@ -149,12 +146,12 @@
                                 <div class="passion-item">
                                     <i class="fas fa-code"></i>
                                     <h4>Développement Web</h4>
-                                    <p>Création d'interfaces modernes et responsives, développement d'api avec django et DRF</p>
+                                    <p>Interfaces modernes et APIs avec Django/DRF</p>
                                 </div>
                                 <div class="passion-item">
                                     <i class="fas fa-mobile-alt"></i>
                                     <h4>Applications Mobile</h4>
-                                    <p>Développement d'apps natives et cross-platform</p>
+                                    <p>Apps natives et cross-platform</p>
                                 </div>
                                 <div class="passion-item">
                                     <i class="fas fa-brain"></i>
@@ -173,36 +170,28 @@
                             <h3><i class="fas fa-trophy"></i> Mes Valeurs</h3>
                             <div class="values-list">
                                 <div class="value-item">
-                                    <div class="value-icon">
-                                        <i class="fas fa-gem"></i>
-                                    </div>
+                                    <div class="value-icon"><i class="fas fa-gem"></i></div>
                                     <div class="value-content">
                                         <h4>Excellence</h4>
                                         <p>Je m'efforce toujours de fournir un travail de qualité supérieure.</p>
                                     </div>
                                 </div>
                                 <div class="value-item">
-                                    <div class="value-icon">
-                                        <i class="fas fa-handshake"></i>
-                                    </div>
+                                    <div class="value-icon"><i class="fas fa-handshake"></i></div>
                                     <div class="value-content">
                                         <h4>Intégrité</h4>
                                         <p>L'honnêteté et la transparence guident toutes mes actions.</p>
                                     </div>
                                 </div>
                                 <div class="value-item">
-                                    <div class="value-icon">
-                                        <i class="fas fa-lightbulb"></i>
-                                    </div>
+                                    <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
                                     <div class="value-content">
                                         <h4>Innovation</h4>
                                         <p>Je cherche constamment de nouvelles façons de résoudre les problèmes.</p>
                                     </div>
                                 </div>
                                 <div class="value-item">
-                                    <div class="value-icon">
-                                        <i class="fas fa-graduation-cap"></i>
-                                    </div>
+                                    <div class="value-icon"><i class="fas fa-graduation-cap"></i></div>
                                     <div class="value-content">
                                         <h4>Apprentissage Continu</h4>
                                         <p>Je reste curieux et ouvert aux nouvelles technologies.</p>
@@ -213,45 +202,25 @@
                     </div>
                 </div>
 
-                <!-- Statistics Section -->
+                <!-- Stats -->
                 <div class="stats-section">
                     <h3>Mes Statistiques</h3>
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3>4+</h3>
-                                <p>Années d'études supérieures</p>
-                            </div>
+                            <div class="stat-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="stat-content"><h3>4+</h3><p>Années d'études supérieures</p></div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-laptop-code"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3>4+</h3>
-                                <p>Projets développés</p>
-                            </div>
+                            <div class="stat-icon"><i class="fas fa-laptop-code"></i></div>
+                            <div class="stat-content"><h3>4+</h3><p>Projets développés</p></div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3>5+</h3>
-                                <p>Technologies maîtrisées</p>
-                            </div>
+                            <div class="stat-icon"><i class="fas fa-code"></i></div>
+                            <div class="stat-content"><h3>5+</h3><p>Technologies maîtrisées</p></div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3>2</h3>
-                                <p>Diplômes universitaires</p>
-                            </div>
+                            <div class="stat-icon"><i class="fas fa-certificate"></i></div>
+                            <div class="stat-content"><h3>2</h3><p>Diplômes universitaires</p></div>
                         </div>
                     </div>
                 </div>
@@ -262,23 +231,23 @@
                     <div class="fun-facts-grid">
                         <div class="fun-fact">
                             <i class="fas fa-coffee"></i>
-                            <h4>Bouffe quotidienne</h4>
-                            <p>Je mange en moyenne 3 fois par jour pour coder efficacement</p>
+                            <h4>Productivité</h4>
+                            <p>Je code mieux tôt le matin avec un bon café</p>
                         </div>
                         <div class="fun-fact">
                             <i class="fas fa-book"></i>
                             <h4>Lecture technique</h4>
-                            <p>Je lis au moins 2 articles techniques par semaine pour rester à jour</p>
+                            <p>Je lis au moins 2 articles techniques par semaine</p>
                         </div>
                         <div class="fun-fact">
                             <i class="fas fa-music"></i>
                             <h4>Musique et code</h4>
-                            <p>J'écoute de la musique lo-fi pendant mes sessions de programmation</p>
+                            <p>J'écoute du lo-fi pendant mes sessions de programmation</p>
                         </div>
                         <div class="fun-fact">
-                            <i class="fas fa-gamepad"></i>
-                            <h4>Gaming</h4>
-                            <p>Les jeux vidéo m'inspirent beaucoup ainsi que les matches de football</p>
+                            <i class="fas fa-futbol"></i>
+                            <h4>Sport & Gaming</h4>
+                            <p>Les jeux vidéo et le football m'inspirent beaucoup</p>
                         </div>
                     </div>
                 </div>
@@ -291,7 +260,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Navigation rapide</h4>
+                    <h4>Navigation</h4>
                     <ul>
                         <li><a href="../index.html">Accueil</a></li>
                         <li><a href="about.html">À propos</a></li>
@@ -302,21 +271,21 @@
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <ul>
-                    <li><i class="fas fa-envelope"></i> rachidon2002@gmail.com</p>
-                    <li><i class="fas fa-phone"></i> +229 01 53 39 47 77</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Porto-Novo</li>
+                        <li><i class="fas fa-envelope"></i> rachidon2002@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +229 01 53 39 47 77</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Porto-Novo, Bénin</li>
                     </ul>
                 </div>
                 <div class="footer-section">
+                    <h4>Suivez-moi</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/rachid-idoniyi-02b606268/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/rachidiID/" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Portfolio - Rachidi Adébissi IDONIYI. Tous droits réservés.</p>
+                <p>&copy; 2025 Portfolio - Rachidi Adébissi IDONIYI. Tous droits réservés.</p>
             </div>
         </div>
     </footer>

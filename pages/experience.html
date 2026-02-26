@@ -1,44 +1,41 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Expérience</title>
-    
-    <!-- Favicons -->
+    <title>Expérience - Rachidi IDONIYI</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="apple-touch-icon" href="../favicon.svg">
-    
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/navigation.css">
     <link rel="stylesheet" href="../styles/pages.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation Menu Hamburger -->
     <nav class="hamburger-nav">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Portfolio</h2>
-            </div>
-            <div class="hamburger-menu" id="hamburger-menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+            <div class="nav-logo"><a href="../index.html"><h2>R.I</h2></a></div>
+            <ul class="nav-desktop-links">
+                <li><a href="../index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="about.html"><i class="fas fa-user"></i> À propos</a></li>
+                <li><a href="education.html"><i class="fas fa-graduation-cap"></i> Éducation</a></li>
+                <li><a href="skills.html"><i class="fas fa-code"></i> Compétences</a></li>
+                <li><a href="projects.html"><i class="fas fa-laptop-code"></i> Projets</a></li>
+                <li><a href="experience.html" class="active"><i class="fas fa-briefcase"></i> Expérience</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Changer le thème">
+                    <i class="fas fa-sun icon-sun"></i><i class="fas fa-moon icon-moon"></i>
+                </button>
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+                </div>
             </div>
         </div>
-        
-        <!-- Menu overlay -->
         <div class="menu-overlay" id="menu-overlay">
             <div class="menu-content">
-                <div class="menu-header">
-                    <h3>Navigation</h3>
-                    <button class="close-menu" id="close-menu">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
+                <div class="menu-header"><h3>Menu</h3><button class="close-menu" id="close-menu"><i class="fas fa-times"></i></button></div>
                 <ul class="menu-links">
                     <li><a href="../index.html" class="menu-link"><i class="fas fa-home"></i> Accueil</a></li>
                     <li><a href="about.html" class="menu-link"><i class="fas fa-user"></i> À propos</a></li>
@@ -48,20 +45,15 @@
                     <li><a href="experience.html" class="menu-link active"><i class="fas fa-briefcase"></i> Expérience</a></li>
                     <li><a href="contact.html" class="menu-link"><i class="fas fa-envelope"></i> Contact</a></li>
                 </ul>
-                <div class="menu-footer">
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
+                <div class="menu-footer"><div class="social-links">
+                    <a href="https://www.linkedin.com/in/rachid-idoniyi-02b606268/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/rachidiID/" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                </div></div>
             </div>
         </div>
     </nav>
 
-    <!-- Page Content -->
     <main class="main-content">
-        <!-- Page Header -->
         <section class="page-header">
             <div class="container">
                 <div class="page-header-content">
@@ -70,176 +62,157 @@
                         <span><i class="fas fa-chevron-right"></i></span>
                         <span>Expérience</span>
                     </div>
-                    <h1 class="page-title">
-                        <i class="fas fa-briefcase"></i>
-                        Mon Expérience Professionnelle
-                    </h1>
-                    <p class="page-subtitle">Parcours professionnel et réalisations marquantes</p>
+                    <h1 class="page-title"><i class="fas fa-briefcase"></i> Mon Expérience Professionnelle</h1>
+                    <p class="page-subtitle">Parcours professionnel et réalisations</p>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Content -->
         <section class="experience-section">
             <div class="container">
-                <!-- Résumé de l'expérience -->
-                <div class="experience-summary">
-                    <div class="summary-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">3+</div>
-                            <div class="stat-label">Années d'expérience</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">4+</div>
-                            <div class="stat-label">Projets livrés</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">5</div>
-                            <div class="stat-label">Technologies maîtrisées</div>
-                        </div>
-                    </div>
-                    <div class="summary-text">
-                        <p>
-                            Passionné par l'innovation technologique et l'impact social, j'ai développé 
-                            une expertise solide en développement web et analyse de données. Mon parcours 
-                            combine expérience pratique et formation académique approfondie.
-                        </p>
-                    </div>
+                <div class="experience-intro">
+                    <h2>Début de carrière prometteur</h2>
+                    <p>En tant que jeune développeur passionné, je construis activement mon expérience professionnelle à travers des projets ambitieux et des collaborations au sein d'équipes dynamiques.</p>
                 </div>
 
-                <!-- Timeline d'expérience -->
                 <div class="experience-timeline">
-                    <h2>Parcours Professionnel</h2>
-                    
-                    <!-- Expérience 1 -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <div class="timeline-icon">
-                                <i class="fas fa-laptop-code"></i>
-                            </div>
-                            <div class="timeline-date">Juin 2025 - Présent</div>
+                    <!-- Expérience actuelle -->
+                    <div class="experience-card current">
+                        <div class="experience-marker">
+                            <div class="marker-dot"><i class="fas fa-briefcase"></i></div>
+                            <div class="marker-line"></div>
                         </div>
-                        <div class="timeline-content">
+                        <div class="experience-content">
                             <div class="experience-header">
-                                <h3>Développeur Full-Stack Junior</h3>
-                                <div class="company-info">
-                                    <span class="company-name">TechInnovate Solutions</span>
-                                    <span class="location">Cotonou, Bénin</span>
-                                    <span class="duration">3 mois</span>
+                                <div class="header-top">
+                                    <span class="experience-date"><i class="fas fa-calendar"></i> Juin 2025 - Présent</span>
+                                    <span class="experience-status active"><i class="fas fa-circle"></i> En poste</span>
                                 </div>
+                                <h3>Développeur Full-Stack Junior</h3>
+                                <h4><i class="fas fa-building"></i> TechInnovate Solutions — Cotonou, Bénin</h4>
                             </div>
-                            <div class="experience-description">
-                                <p>
-                                    Développement d'applications web modernes et responsives et sécurisées avec API pour des clients 
-                                    locaux et internationaux. Collaboration étroite avec l'équipe design.
+                            <div class="experience-body">
+                                <p class="experience-description">
+                                    Participation active au développement d'applications web modernes au sein d'une équipe agile. Contribution à toutes les phases du cycle de développement, de la conception à la mise en production.
                                 </p>
-                            </div>
-                            <div class="experience-achievements">
-                                <h4>Réalisations clés :</h4>
-                                <ul>
-                                    <li>Développement d'une application web data-for-earth avec Django et DRF</li>
-                                    <li>Implémentation d'un système de sécurité pour data-for-earth</li>
-                                </ul>
-                            </div>
-                            <div class="experience-tech">
-                                <span class="tech-badge">Django</span>
-                                <span class="tech-badge">DRF</span>
-                                <span class="tech-badge">PostgreSQL</span>
-                                <span class="tech-badge">Docker</span>
-                                <span class="tech-badge">Git</span>
+                                <div class="responsibilities">
+                                    <h5><i class="fas fa-tasks"></i> Responsabilités principales :</h5>
+                                    <ul>
+                                        <li>Développement d'APIs RESTful avec Django REST Framework</li>
+                                        <li>Conception et gestion de bases de données PostgreSQL</li>
+                                        <li>Conteneurisation des applications avec Docker et Docker Compose</li>
+                                        <li>Implémentation de tests automatisés et CI/CD</li>
+                                        <li>Collaboration en équipe via Git/GitHub</li>
+                                        <li>Participation aux revues de code et sprints agiles</li>
+                                    </ul>
+                                </div>
+                                <div class="technologies-used">
+                                    <h5><i class="fas fa-tools"></i> Technologies utilisées :</h5>
+                                    <div class="tech-badges">
+                                        <span class="tech-badge"><i class="fab fa-python"></i> Django/DRF</span>
+                                        <span class="tech-badge"><i class="fas fa-database"></i> PostgreSQL</span>
+                                        <span class="tech-badge"><i class="fab fa-docker"></i> Docker</span>
+                                        <span class="tech-badge"><i class="fab fa-github"></i> GitHub Actions</span>
+                                        <span class="tech-badge"><i class="fab fa-linux"></i> Linux</span>
+                                        <span class="tech-badge"><i class="fas fa-terminal"></i> Shell</span>
+                                    </div>
+                                </div>
+                                <div class="achievements-list">
+                                    <h5><i class="fas fa-trophy"></i> Réalisations :</h5>
+                                    <div class="achievement-badges">
+                                        <div class="achievement-badge">
+                                            <i class="fas fa-rocket"></i>
+                                            <span>Contribution principale à 2 API en production</span>
+                                        </div>
+                                        <div class="achievement-badge">
+                                            <i class="fas fa-shield-alt"></i>
+                                            <span>Implémentation sécurité JWT et permissions avancées</span>
+                                        </div>
+                                        <div class="achievement-badge">
+                                            <i class="fas fa-code-branch"></i>
+                                            <span>Mise en place des pipelines CI/CD</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                <!-- Compétences développées -->
-                <div class="skills-developed">
-                    <h2>Compétences Développées en Entreprise</h2>
-                    <div class="skills-grid">
-                        <div class="skill-category-card">
-                            <div class="skill-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <h4>Leadership & Management</h4>
-                            <ul>
-                                <li>Travail en équipe de développement</li>
-                                <li>Mentorat de développeurs juniors</li>
-                                <li>Coordination de projets multi-équipes</li>
-                            </ul>
+
+                    <!-- Projets académiques -->
+                    <div class="experience-card">
+                        <div class="experience-marker">
+                            <div class="marker-dot"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="marker-line"></div>
                         </div>
-                        
-                        <div class="skill-category-card">
-                            <div class="skill-icon">
-                                <i class="fas fa-cogs"></i>
+                        <div class="experience-content">
+                            <div class="experience-header">
+                                <div class="header-top">
+                                    <span class="experience-date"><i class="fas fa-calendar"></i> 2021 - 2025</span>
+                                    <span class="experience-status completed"><i class="fas fa-check-circle"></i> Terminé</span>
+                                </div>
+                                <h3>Projets Académiques</h3>
+                                <h4><i class="fas fa-university"></i> IMSP & ENS Natitingou</h4>
                             </div>
-                            <h4>Méthodologies Agiles</h4>
-                            <ul>
-                                <li>Intégration et déploiement continus</li>
-                                <li>Tests automatisés</li>
-                                <li>Code review et pair programming</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="skill-category-card">
-                            <div class="skill-icon">
-                                <i class="fas fa-chart-bar"></i>
+                            <div class="experience-body">
+                                <p class="experience-description">
+                                    Durant mes années de formation universitaire, j'ai développé plusieurs projets pratiques qui ont renforcé mes compétences et mis en pratique les connaissances acquises.
+                                </p>
+                                <div class="responsibilities">
+                                    <h5><i class="fas fa-project-diagram"></i> Projets réalisés :</h5>
+                                    <ul>
+                                        <li>Application web de gestion des séminaires (Laravel/PHP)</li>
+                                        <li>Système de gestion de stocks (Django/Python)</li>
+                                        <li>Plateforme data-for-earth (Django REST Framework)</li>
+                                    </ul>
+                                </div>
+                                <div class="technologies-used">
+                                    <h5><i class="fas fa-tools"></i> Technologies utilisées :</h5>
+                                    <div class="tech-badges">
+                                        <span class="tech-badge"><i class="fab fa-laravel"></i> Laravel</span>
+                                        <span class="tech-badge"><i class="fab fa-python"></i> Django</span>
+                                        <span class="tech-badge"><i class="fas fa-database"></i> MySQL</span>
+                                    </div>
+                                </div>
                             </div>
-                            <h4>Analyse & Optimisation</h4>
-                            <ul>
-                                <li>Analyse de performance</li>
-                                <li>Optimisation de bases de données</li>
-                                <li>Monitoring et debugging</li>
-                                <li>Architecture scalable</li>
-                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Objectifs professionnels -->
-                <div class="career-goals">
-                    <h2>Objectifs Professionnels</h2>
-                    <div class="goals-content">
-                        <div class="goals-text">
-                            <h3>Vision à Court Terme (1-2 ans)</h3>
-                            <ul>
-                                <li>Approfondir l'expertise en architecture cloud (AWS, Azure)</li>
-                                <li>Obtenir des certifications en DevOps et sécurité</li>
-                                <li>Contribuer à des projets open source significatifs</li>
-                                <li>Développer des compétences en intelligence artificielle</li>
-                            </ul>
-                            
-                            <h3>Vision à Long Terme (3-5 ans)</h3>
-                            <ul>
-                                <li>Évoluer vers un poste de Tech Lead ou Architecte Solution</li>
-                                <li>Créer une startup technologique à impact social</li>
-                                <li>Contribuer à l'écosystème tech béninois</li>
-                                <li>Encadrer et former la nouvelle génération de développeurs</li>
-                            </ul>
+                <!-- What I Bring -->
+                <div class="what-i-bring">
+                    <h2>Ce que j'apporte</h2>
+                    <div class="bring-grid">
+                        <div class="bring-card">
+                            <div class="bring-icon"><i class="fas fa-rocket"></i></div>
+                            <h4>Motivation</h4>
+                            <p>Passionné par le code et toujours prêt à relever de nouveaux défis techniques.</p>
                         </div>
-                        
-                        <div class="goals-visual">
-                            <div class="goal-milestone">
-                                <div class="milestone-icon">
-                                    <i class="fas fa-cloud"></i>
-                                </div>
-                                <h4>Expertise Cloud</h4>
-                                <p>Certification AWS/Azure</p>
-                            </div>
-                            
-                            <div class="goal-milestone">
-                                <div class="milestone-icon">
-                                    <i class="fas fa-rocket"></i>
-                                </div>
-                                <h4>Leadership Technique</h4>
-                                <p>Tech Lead position</p>
-                            </div>
-                            
-                            <div class="goal-milestone">
-                                <div class="milestone-icon">
-                                    <i class="fas fa-lightbulb"></i>
-                                </div>
-                                <h4>Innovation</h4>
-                                <p>Startup à impact</p>
-                            </div>
+                        <div class="bring-card">
+                            <div class="bring-icon"><i class="fas fa-book-open"></i></div>
+                            <h4>Apprentissage Rapide</h4>
+                            <p>Capacité à assimiler rapidement de nouvelles technologies et méthodologies.</p>
+                        </div>
+                        <div class="bring-card">
+                            <div class="bring-icon"><i class="fas fa-cogs"></i></div>
+                            <h4>Rigueur Technique</h4>
+                            <p>Code propre, testé et bien documenté pour une maintenance optimale.</p>
+                        </div>
+                        <div class="bring-card">
+                            <div class="bring-icon"><i class="fas fa-handshake"></i></div>
+                            <h4>Esprit d'Équipe</h4>
+                            <p>Collaboration efficace avec les développeurs, designers et chefs de projet.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="experience-cta">
+                    <div class="cta-card">
+                        <h3>Intéressé par mon profil ?</h3>
+                        <p>Téléchargez mon CV ou contactez-moi directement pour discuter d'opportunités.</p>
+                        <div class="cta-buttons">
+                            <a href="../docs/Cv_Rach.pdf" download class="btn btn-primary"><i class="fas fa-download"></i> Télécharger CV</a>
+                            <a href="contact.html" class="btn btn-outline"><i class="fas fa-envelope"></i> Me Contacter</a>
                         </div>
                     </div>
                 </div>
@@ -247,38 +220,14 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Navigation rapide</h4>
-                    <ul>
-                        <li><a href="../index.html">Accueil</a></li>
-                        <li><a href="about.html">À propos</a></li>
-                        <li><a href="education.html">Éducation</a></li>
-                        <li><a href="projects.html">Projets</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <ul>
-                    <li><i class="fas fa-envelope"></i> rachidon2002@gmail.com</p>
-                    <li><i class="fas fa-phone"></i> +229 01 53 39 47 77</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Porto-Novo</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
+                <div class="footer-section"><h4>Navigation</h4><ul><li><a href="../index.html">Accueil</a></li><li><a href="about.html">À propos</a></li><li><a href="education.html">Éducation</a></li><li><a href="projects.html">Projets</a></li></ul></div>
+                <div class="footer-section"><h4>Contact</h4><ul><li><i class="fas fa-envelope"></i> rachidon2002@gmail.com</li><li><i class="fas fa-phone"></i> +229 01 53 39 47 77</li><li><i class="fas fa-map-marker-alt"></i> Porto-Novo, Bénin</li></ul></div>
+                <div class="footer-section"><h4>Suivez-moi</h4><div class="social-links"><a href="https://www.linkedin.com/in/rachid-idoniyi-02b606268/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a><a href="https://github.com/rachidiID/" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></div></div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Portfolio - Rachidi Adébissi IDONIYI. Tous droits réservés.</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Portfolio - Rachidi Adébissi IDONIYI. Tous droits réservés.</p></div>
         </div>
     </footer>
 

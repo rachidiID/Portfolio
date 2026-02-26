@@ -1,44 +1,41 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Projets</title>
-    
-    <!-- Favicons -->
+    <title>Projets - Rachidi IDONIYI</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="apple-touch-icon" href="../favicon.svg">
-    
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/navigation.css">
     <link rel="stylesheet" href="../styles/pages.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation Menu Hamburger -->
     <nav class="hamburger-nav">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Portfolio</h2>
-            </div>
-            <div class="hamburger-menu" id="hamburger-menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+            <div class="nav-logo"><a href="../index.html"><h2>R.I</h2></a></div>
+            <ul class="nav-desktop-links">
+                <li><a href="../index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="about.html"><i class="fas fa-user"></i> À propos</a></li>
+                <li><a href="education.html"><i class="fas fa-graduation-cap"></i> Éducation</a></li>
+                <li><a href="skills.html"><i class="fas fa-code"></i> Compétences</a></li>
+                <li><a href="projects.html" class="active"><i class="fas fa-laptop-code"></i> Projets</a></li>
+                <li><a href="experience.html"><i class="fas fa-briefcase"></i> Expérience</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Changer le thème">
+                    <i class="fas fa-sun icon-sun"></i><i class="fas fa-moon icon-moon"></i>
+                </button>
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+                </div>
             </div>
         </div>
-        
-        <!-- Menu overlay -->
         <div class="menu-overlay" id="menu-overlay">
             <div class="menu-content">
-                <div class="menu-header">
-                    <h3>Navigation</h3>
-                    <button class="close-menu" id="close-menu">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
+                <div class="menu-header"><h3>Menu</h3><button class="close-menu" id="close-menu"><i class="fas fa-times"></i></button></div>
                 <ul class="menu-links">
                     <li><a href="../index.html" class="menu-link"><i class="fas fa-home"></i> Accueil</a></li>
                     <li><a href="about.html" class="menu-link"><i class="fas fa-user"></i> À propos</a></li>
@@ -48,20 +45,15 @@
                     <li><a href="experience.html" class="menu-link"><i class="fas fa-briefcase"></i> Expérience</a></li>
                     <li><a href="contact.html" class="menu-link"><i class="fas fa-envelope"></i> Contact</a></li>
                 </ul>
-                <div class="menu-footer">
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
+                <div class="menu-footer"><div class="social-links">
+                    <a href="https://www.linkedin.com/in/rachid-idoniyi-02b606268/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/rachidiID/" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                </div></div>
             </div>
         </div>
     </nav>
 
-    <!-- Page Content -->
     <main class="main-content">
-        <!-- Page Header -->
         <section class="page-header">
             <div class="container">
                 <div class="page-header-content">
@@ -70,275 +62,193 @@
                         <span><i class="fas fa-chevron-right"></i></span>
                         <span>Projets</span>
                     </div>
-                    <h1 class="page-title">
-                        <i class="fas fa-laptop-code"></i>
-                        Mes Projets
-                    </h1>
-                    <p class="page-subtitle">Découvrez mes réalisations et projets techniques</p>
+                    <h1 class="page-title"><i class="fas fa-laptop-code"></i> Mes Projets</h1>
+                    <p class="page-subtitle">Applications et solutions que j'ai développées</p>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Content -->
         <section class="projects-section">
             <div class="container">
-                <!-- Filtres de projets -->
-                <div class="projects-filters">
-                    <button class="filter-btn active" data-filter="all">
-                        <i class="fas fa-th-large"></i>
-                        Tous les projets
-                    </button>
-                    <button class="filter-btn" data-filter="web">
-                        <i class="fas fa-globe"></i>
-                        Web Development
-                    </button>
-                    <button class="filter-btn" data-filter="mobile">
-                        <i class="fas fa-mobile-alt"></i>
-                        Applications Mobile
-                    </button>
-                    <button class="filter-btn" data-filter="data">
-                        <i class="fas fa-chart-bar"></i>
-                        Data Science
-                    </button>
-                    <button class="filter-btn" data-filter="academic">
-                        <i class="fas fa-graduation-cap"></i>
-                        Projets Académiques
-                    </button>
+                <!-- Filter Buttons -->
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> Tous</button>
+                    <button class="filter-btn" data-filter="web"><i class="fas fa-globe"></i> Web</button>
+                    <button class="filter-btn" data-filter="backend"><i class="fas fa-server"></i> Backend</button>
+                    <button class="filter-btn" data-filter="fullstack"><i class="fas fa-layer-group"></i> Full-Stack</button>
                 </div>
 
-                <!-- Statistiques des projets -->
-                <div class="projects-stats">
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-project-diagram"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h3>8+</h3>
-                            <p>Projets réalisés</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-code-branch"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h3>4</h3>
-                            <p>Projets open source</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h3>1</h3>
-                            <p>Projets en équipe</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h3>10+</h3>
-                            <p>Technologies utilisées</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Grille de projets -->
                 <div class="projects-grid">
-                    <!-- Projet 1 - Application E-commerce -->
+                    <!-- Projet 1 : Gestion de séminaire -->
+                    <div class="project-card" data-category="fullstack">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="overlay-actions">
+                                    <a href="https://github.com/rachidiID/" target="_blank" rel="noopener" class="overlay-btn"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                            <div class="project-placeholder">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>Gestion de Séminaire</h3>
+                                <span class="project-status completed">Terminé</span>
+                            </div>
+                            <p>Site web de gestion d'un séminaire scientifique avec gestion des participants, des sessions, des inscriptions et génération d'attestations.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag"><i class="fab fa-laravel"></i> Laravel</span>
+                                <span class="tech-tag"><i class="fab fa-php"></i> PHP</span>
+                                <span class="tech-tag"><i class="fas fa-database"></i> MySQL</span>
+                                <span class="tech-tag"><i class="fab fa-html5"></i> Blade</span>
+                            </div>
+                            <div class="project-features">
+                                <h4>Fonctionnalités principales :</h4>
+                                <ul>
+                                    <li>Inscription et authentification des participants</li>
+                                    <li>Gestion des sessions et planning</li>
+                                    <li>Soumission et validation d'articles</li>
+                                    <li>Génération automatique d'attestations</li>
+                                    <li>Tableau de bord administrateur</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet 2 : Gestion de stocks -->
+                    <div class="project-card" data-category="backend">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="overlay-actions">
+                                    <a href="https://github.com/rachidiID/" target="_blank" rel="noopener" class="overlay-btn"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                            <div class="project-placeholder">
+                                <i class="fas fa-warehouse"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>Gestion de Stocks</h3>
+                                <span class="project-status completed">Terminé</span>
+                            </div>
+                            <p>Application web de gestion des stocks avec suivi en temps réel des entrées et sorties, alertes de seuil, et rapports analytiques.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag"><i class="fab fa-python"></i> Django</span>
+                                <span class="tech-tag"><i class="fas fa-database"></i> SQLite</span>
+                                <span class="tech-tag"><i class="fab fa-html5"></i> Templates Django</span>
+                                <span class="tech-tag"><i class="fas fa-chart-bar"></i> Chart.js</span>
+                            </div>
+                            <div class="project-features">
+                                <h4>Fonctionnalités principales :</h4>
+                                <ul>
+                                    <li>Gestion des produits et catégories</li>
+                                    <li>Suivi des mouvements de stock</li>
+                                    <li>Alertes de stock minimum</li>
+                                    <li>Rapports de vente et statistiques</li>
+                                    <li>Interface responsive</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet 3 : Data for Earth -->
+                    <div class="project-card" data-category="backend">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="overlay-actions">
+                                    <a href="https://github.com/rachidiID/" target="_blank" rel="noopener" class="overlay-btn"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                            <div class="project-placeholder">
+                                <i class="fas fa-globe-africa"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>Data for Earth</h3>
+                                <span class="project-status in-progress">En cours</span>
+                            </div>
+                            <p>Plateforme de collecte et sécurisation de données environnementales avec API REST, authentification avancée et documentation complète.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag"><i class="fab fa-python"></i> Django/DRF</span>
+                                <span class="tech-tag"><i class="fas fa-database"></i> PostgreSQL</span>
+                                <span class="tech-tag"><i class="fab fa-docker"></i> Docker</span>
+                                <span class="tech-tag"><i class="fas fa-book"></i> Swagger</span>
+                            </div>
+                            <div class="project-features">
+                                <h4>Fonctionnalités principales :</h4>
+                                <ul>
+                                    <li>API RESTful documentée avec Swagger</li>
+                                    <li>Authentification JWT sécurisée</li>
+                                    <li>Conteneurisation Docker complète</li>
+                                    <li>Tests automatisés</li>
+                                    <li>CI/CD avec GitHub Actions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet 4 : Portfolio -->
                     <div class="project-card" data-category="web">
                         <div class="project-image">
                             <div class="project-overlay">
-                                <div class="project-actions">
-                                    <a href="#" class="action-btn" title="Voir le code">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" class="action-btn" title="Démo live">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                    <button class="action-btn project-details-btn" title="Plus de détails">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button>
+                                <div class="overlay-actions">
+                                    <a href="https://github.com/rachidiID/" target="_blank" rel="noopener" class="overlay-btn"><i class="fab fa-github"></i> Code</a>
                                 </div>
                             </div>
-                            <img src="https://via.placeholder.com/400x250/87CEEB/FFFFFF?text=Gestion+de+Séminaire" alt="Application Gestion de Séminaire">
-                            <div class="project-status">
-                                <span class="status-badge completed">Terminé</span>
+                            <div class="project-placeholder">
+                                <i class="fas fa-user-circle"></i>
                             </div>
                         </div>
                         <div class="project-info">
                             <div class="project-header">
-                                <h3>Plateforme de gestion de séminaire</h3>
-                                <div class="project-type">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Application Web
-                                </div>
+                                <h3>Portfolio Personnel</h3>
+                                <span class="project-status completed">Terminé</span>
                             </div>
-                            <p class="project-description">
-                                Application pour gérer les séminaires du personnel administratif de l'IMSP, 
-                                système de reservation automatique.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Laravel</span>
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">PostgreSQL</span>
-                                <span class="tech-tag">PHP</span>
+                            <p>Portfolio professionnel moderne avec thème clair/sombre, animations, menu responsive et design attractif sans aucun framework CSS.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
+                                <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                                <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
                             </div>
-                            <div class="project-meta">
-                                <div class="project-date">
-                                    <i class="fas fa-calendar"></i>
-                                    Mars 2025
-                                </div>
-                                <div class="project-duration">
-                                    <i class="fas fa-clock"></i>
-                                    1 mois
-                                </div>
+                            <div class="project-features">
+                                <h4>Fonctionnalités principales :</h4>
+                                <ul>
+                                    <li>Design responsive mobile-first</li>
+                                    <li>Mode clair / sombre</li>
+                                    <li>Animations et transitions CSS/JS</li>
+                                    <li>Navigation hamburger adaptée</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Projet 2 - Application Mobile -->
-                    <div class="project-card" data-category="mobile">
-                        <div class="project-image">
-                            <div class="project-overlay">
-                                <div class="project-actions">
-                                    <a href="#" class="action-btn" title="Voir le code">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" class="action-btn" title="Play Store">
-                                        <i class="fab fa-google-play"></i>
-                                    </a>
-                                    <button class="action-btn project-details-btn" title="Plus de détails">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <img src="https://via.placeholder.com/400x250/20B2AA/FFFFFF?text=Task+Manager+App" alt="Application de gestion de stocks">
-                            <div class="project-status">
-                                <span class="status-badge completed">Terminé</span>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <div class="project-header">
-                                <h3>Gestion de stocks</h3>
-                                <div class="project-type">
-                                    <i class="fas fa-mobile-alt"></i>
-                                    App web
-                                </div>
-                            </div>
-                            <p class="project-description">
-                                Application web de gestion de stocks avec fonctionnalités de suivi des produits, 
-                                alertes de réapprovisionnement et rapports de vente.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Django</span>
-                                <span class="tech-tag">sqlLite</span>
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">Push Notifications</span>
-                            </div>
-                            <div class="project-meta">
-                                <div class="project-date">
-                                    <i class="fas fa-calendar"></i>
-                                    Juin 2025
-                                </div>
-                                <div class="project-duration">
-                                    <i class="fas fa-clock"></i>
-                                    1 mois
-                                </div>
-                            </div>
+                <!-- CTA -->
+                <div class="projects-cta">
+                    <div class="cta-content">
+                        <h3>Envie de collaborer ?</h3>
+                        <p>N'hésitez pas à me contacter pour discuter de nouveaux projets ou de collaborations potentielles.</p>
+                        <div class="cta-actions">
+                            <a href="contact.html" class="btn btn-primary"><i class="fas fa-envelope"></i> Me Contacter</a>
+                            <a href="https://github.com/rachidiID/" target="_blank" rel="noopener" class="btn btn-outline"><i class="fab fa-github"></i> Voir GitHub</a>
                         </div>
                     </div>
-
-                    <!-- Projet 3 - Analyse de Données -->
-                    <div class="project-card" data-category="data">
-                        <div class="project-image">
-                            <div class="project-overlay">
-                                <div class="project-actions">
-                                    <a href="#" class="action-btn" title="Voir le code">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" class="action-btn" title="Notebook Jupyter">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                    <button class="action-btn project-details-btn" title="Plus de détails">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <img src="https://via.placeholder.com/400x250/7FFFD4/000000?text=Data+Analysis" alt="Data-for-earth">
-                            <div class="project-status">
-                                <span class="status-badge completed">Terminé</span>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <div class="project-header">
-                                <h3>Développement d'une Application Web data-for-earth</h3>
-                                <div class="project-type">
-                                    <i class="fas fa-chart-line"></i>
-                                    Gestion de données environnementales
-                                </div>
-                            </div>
-                            <p class="project-description">
-                                Stockage et mise à disposition des données environnementales collectées en ligne
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Django</span>
-                                <span class="tech-tag">Django Rest Framework</span>
-                                <span class="tech-tag">PostgreSQL</span>
-                            </div>
-                            <div class="project-meta">
-                                <div class="project-date">
-                                    <i class="fas fa-calendar"></i>
-                                    Juin 2025 à Septembre 2025
-                                </div>
-                                <div class="project-duration">
-                                    <i class="fas fa-clock"></i>
-                                    3 mois
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Navigation rapide</h4>
-                    <ul>
-                        <li><a href="../index.html">Accueil</a></li>
-                        <li><a href="about.html">À propos</a></li>
-                        <li><a href="skills.html">Compétences</a></li>
-                        <li><a href="projects.html">Projets</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p><i class="fas fa-envelope"></i> rachidon2002@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +229 01 53 39 47 77</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Porto-Novo</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Suivez-moi</h4>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/rachid-idoniyi-02b606268/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/rachidiID/" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
+                <div class="footer-section"><h4>Navigation</h4><ul><li><a href="../index.html">Accueil</a></li><li><a href="about.html">À propos</a></li><li><a href="education.html">Éducation</a></li><li><a href="projects.html">Projets</a></li></ul></div>
+                <div class="footer-section"><h4>Contact</h4><ul><li><i class="fas fa-envelope"></i> rachidon2002@gmail.com</li><li><i class="fas fa-phone"></i> +229 01 53 39 47 77</li><li><i class="fas fa-map-marker-alt"></i> Porto-Novo, Bénin</li></ul></div>
+                <div class="footer-section"><h4>Suivez-moi</h4><div class="social-links"><a href="https://www.linkedin.com/in/rachid-idoniyi-02b606268/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a><a href="https://github.com/rachidiID/" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></div></div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Portfolio - Rachidi Adébissi IDONIYI. Tous droits réservés.</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Portfolio - Rachidi Adébissi IDONIYI. Tous droits réservés.</p></div>
         </div>
     </footer>
 

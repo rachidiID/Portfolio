@@ -1,219 +1,226 @@
-// Navigation JavaScript
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Page chargée, initialisation du menu...');
-    initHamburgerMenu();
-    initScrollEffects();
-});
+/**
+ * Navigation JavaScript - Hamburger Menu, Theme Toggle & Scroll Effects
+ * Portfolio - Rachidi Adébissi IDONIYI
+ */
 
-// Initialisation du menu hamburger
-function initHamburgerMenu() {
+(function () {
+    'use strict';
+
+    // ========================================
+    // DOM Elements
+    // ========================================
     const hamburgerMenu = document.getElementById('hamburger-menu');
     const menuOverlay = document.getElementById('menu-overlay');
     const closeMenu = document.getElementById('close-menu');
+    const themeToggle = document.getElementById('theme-toggle');
+    const nav = document.querySelector('.hamburger-nav');
     const menuLinks = document.querySelectorAll('.menu-link');
+    const html = document.documentElement;
 
-    console.log('Éléments trouvés:', {
-        hamburgerMenu,
-        menuOverlay,
-        closeMenu,
-        menuLinks: menuLinks.length
-    });
+    // ========================================
+    // Theme Management
+    // ========================================
+    const ThemeManager = {
+        STORAGE_KEY: 'portfolio-theme',
+        LIGHT: 'light',
+        DARK: 'dark',
 
-    if (!hamburgerMenu || !menuOverlay || !closeMenu) {
-        console.error('Éléments du menu manquants!');
-        return;
-    }
+        init() {
+            const savedTheme = localStorage.getItem(this.STORAGE_KEY);
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (prefersDark ? this.DARK : this.LIGHT);
+            this.apply(theme);
 
-    // Ouvrir le menu
-    hamburgerMenu.addEventListener('click', function() {
-        console.log('Clic sur hamburger menu');
-        openMenu();
-    });
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => this.toggle());
+            }
 
-    // Fermer le menu avec le bouton X
-    closeMenu.addEventListener('click', function() {
-        console.log('Clic sur fermer menu');
-        closeMenuFunction();
-    });
+            // Listen for system preference changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                if (!localStorage.getItem(this.STORAGE_KEY)) {
+                    this.apply(e.matches ? this.DARK : this.LIGHT);
+                }
+            });
+        },
 
-    // Fermer le menu en cliquant sur l'overlay
-    menuOverlay.addEventListener('click', function(e) {
-        if (e.target === menuOverlay) {
-            console.log('Clic sur overlay');
-            closeMenuFunction();
+        apply(theme) {
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem(this.STORAGE_KEY, theme);
+
+            if (themeToggle) {
+                themeToggle.classList.toggle('active', theme === this.DARK);
+            }
+        },
+
+        toggle() {
+            const current = html.getAttribute('data-theme');
+            const next = current === this.DARK ? this.LIGHT : this.DARK;
+            this.apply(next);
+
+            // Add a brief animation class
+            themeToggle.classList.add('toggling');
+            setTimeout(() => themeToggle.classList.remove('toggling'), 300);
         }
-    });
+    };
 
-    // Fermer le menu en cliquant sur un lien
-    menuLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            console.log('Clic sur lien menu');
-            closeMenuFunction();
-        });
-    });
+    // ========================================
+    // Mobile Menu Management
+    // ========================================
+    const MenuManager = {
+        isOpen: false,
 
-    // Fermer avec la touche Échap
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && menuOverlay.classList.contains('active')) {
-            console.log('Fermeture avec Échap');
-            closeMenuFunction();
-        }
-    });
+        init() {
+            if (hamburgerMenu) {
+                hamburgerMenu.addEventListener('click', () => this.toggle());
+            }
+            if (closeMenu) {
+                closeMenu.addEventListener('click', () => this.close());
+            }
+            if (menuOverlay) {
+                menuOverlay.addEventListener('click', (e) => {
+                    if (e.target === menuOverlay) this.close();
+                });
+            }
 
-    function openMenu() {
-        console.log('Ouverture du menu...');
-        hamburgerMenu.classList.add('active');
-        menuOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        
-        // Animation des liens du menu
-        menuLinks.forEach((link, index) => {
-            link.style.animationDelay = `${index * 0.1}s`;
-            link.classList.add('animate-in');
-        });
-    }
+            // Close on menu link click
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    setTimeout(() => this.close(), 150);
+                });
+            });
 
-    function closeMenuFunction() {
-        console.log('Fermeture du menu...');
-        hamburgerMenu.classList.remove('active');
-        menuOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-        
-        // Nettoyer les animations
-        menuLinks.forEach(link => {
-            link.classList.remove('animate-in');
-            link.style.animationDelay = '';
-        });
-    }
-}
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && this.isOpen) this.close();
+            });
 
-// Effets de scroll
-function initScrollEffects() {
-    const navbar = document.querySelector('.hamburger-nav');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-}
+            // Close on window resize to desktop
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768 && this.isOpen) this.close();
+            });
+        },
 
-// Animation CSS pour les liens du menu
-const menuAnimationCSS = `
-@keyframes slideInFromRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+        toggle() {
+            this.isOpen ? this.close() : this.open();
+        },
 
-.menu-link.animate-in {
-    animation: slideInFromRight 0.4s ease forwards;
-}
-`;
+        open() {
+            this.isOpen = true;
+            if (hamburgerMenu) hamburgerMenu.classList.add('active');
+            if (menuOverlay) menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
 
-// Ajouter les styles d'animation
-const style = document.createElement('style');
-style.textContent = menuAnimationCSS;
-document.head.appendChild(style);
+            // Stagger animate menu links
+            menuLinks.forEach((link, index) => {
+                link.style.opacity = '0';
+                link.style.transform = 'translateX(30px)';
+                setTimeout(() => {
+                    link.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                    link.style.opacity = '1';
+                    link.style.transform = 'translateX(0)';
+                }, 100 + index * 60);
+            });
+        },
 
-// Gestion des pages actives
-function setActivePage() {
-    const currentPage = window.location.pathname.split('/').pop();
-    const menuLinks = document.querySelectorAll('.menu-link');
-    
-    menuLinks.forEach(link => {
-        link.classList.remove('active');
-        const linkPage = link.getAttribute('href').split('/').pop();
-        
-        if (linkPage === currentPage || 
-            (currentPage === '' && linkPage === 'index.html') ||
-            (currentPage === 'index.html' && linkPage === 'index.html')) {
-            link.classList.add('active');
-        }
-    });
-}
+        close() {
+            this.isOpen = false;
+            if (hamburgerMenu) hamburgerMenu.classList.remove('active');
+            if (menuOverlay) menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
 
-// Appeler au chargement
-setActivePage();
-
-// Navigation fluide pour les liens internes
-document.addEventListener('click', function(e) {
-    if (e.target.matches('a[href^="#"]')) {
-        e.preventDefault();
-        const target = document.querySelector(e.target.getAttribute('href'));
-        if (target) {
-            const navHeight = document.querySelector('.hamburger-nav').offsetHeight;
-            const targetPosition = target.offsetTop - navHeight;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
+            menuLinks.forEach(link => {
+                link.style.opacity = '';
+                link.style.transform = '';
+                link.style.transition = '';
             });
         }
-    }
-});
+    };
 
-// Préchargement des pages pour une navigation plus fluide
-function preloadPages() {
-    // Détecter si on est sur la page d'accueil ou dans le dossier pages
-    const isOnHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
-    
-    const pages = isOnHomePage ? [
-        // Si on est sur la page d'accueil
-        'pages/about.html',
-        'pages/education.html',
-        'pages/skills.html',
-        'pages/projects.html',
-        'pages/experience.html',
-        'pages/contact.html'
-    ] : [
-        // Si on est dans le dossier pages
-        '../index.html',
-        'about.html',
-        'education.html',
-        'skills.html',
-        'projects.html',
-        'experience.html',
-        'contact.html'
-    ];
-    
-    pages.forEach(page => {
-        const link = document.createElement('link');
-        link.rel = 'prefetch';
-        link.href = page;
-        document.head.appendChild(link);
-    });
-}
+    // ========================================
+    // Scroll Effects
+    // ========================================
+    const ScrollEffects = {
+        lastScrollY: 0,
 
-// Préchargement désactivé pour éviter les erreurs 404
-// setTimeout(preloadPages, 2000);
+        init() {
+            window.addEventListener('scroll', () => this.onScroll(), { passive: true });
+            this.onScroll(); // Initial check
+        },
 
-// Gestion des erreurs réseau
-window.addEventListener('online', () => {
-    console.log('Connexion internet rétablie');
-});
+        onScroll() {
+            const scrollY = window.scrollY;
 
-window.addEventListener('offline', () => {
-    console.log('Connexion internet perdue');
-    // Optionnel: afficher un message à l'utilisateur
-});
+            // Navbar background on scroll
+            if (nav) {
+                if (scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
 
-// Performance monitoring
-if ('PerformanceObserver' in window) {
-    const observer = new PerformanceObserver((list) => {
-        list.getEntries().forEach((entry) => {
-            if (entry.entryType === 'navigation') {
-                console.log(`Page loaded in ${entry.loadEventEnd - entry.loadEventStart}ms`);
+                // Auto-hide on mobile when scrolling down
+                if (window.innerWidth <= 768) {
+                    if (scrollY > this.lastScrollY && scrollY > 200) {
+                        nav.style.transform = 'translateY(-100%)';
+                    } else {
+                        nav.style.transform = 'translateY(0)';
+                    }
+                } else {
+                    nav.style.transform = '';
+                }
             }
-        });
+
+            // Scroll progress indicator
+            const scrollIndicator = document.getElementById('scroll-indicator');
+            if (scrollIndicator) {
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = maxScroll > 0 ? (scrollY / maxScroll) * 100 : 0;
+                scrollIndicator.style.width = progress + '%';
+            }
+
+            this.lastScrollY = scrollY;
+        }
+    };
+
+    // ========================================
+    // Active Page Detection
+    // ========================================
+    const ActivePage = {
+        init() {
+            const currentPath = window.location.pathname;
+            const filename = currentPath.split('/').pop() || 'index.html';
+
+            // Desktop links
+            document.querySelectorAll('.nav-desktop-links a').forEach(link => {
+                const href = link.getAttribute('href');
+                const linkFile = href.split('/').pop();
+                if (linkFile === filename || (filename === '' && linkFile === 'index.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // Mobile links
+            document.querySelectorAll('.menu-link').forEach(link => {
+                const href = link.getAttribute('href');
+                const linkFile = href.split('/').pop();
+                if (linkFile === filename || (filename === '' && linkFile === 'index.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+    };
+
+    // ========================================
+    // Initialize Everything
+    // ========================================
+    document.addEventListener('DOMContentLoaded', () => {
+        ThemeManager.init();
+        MenuManager.init();
+        ScrollEffects.init();
+        ActivePage.init();
     });
-    
-    observer.observe({ entryTypes: ['navigation'] });
-}
+})();

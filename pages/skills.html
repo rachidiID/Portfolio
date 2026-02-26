@@ -1,44 +1,41 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Compétences</title>
-    
-    <!-- Favicons -->
+    <title>Compétences - Rachidi IDONIYI</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="apple-touch-icon" href="../favicon.svg">
-    
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/navigation.css">
     <link rel="stylesheet" href="../styles/pages.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation Menu Hamburger -->
     <nav class="hamburger-nav">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Portfolio</h2>
-            </div>
-            <div class="hamburger-menu" id="hamburger-menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+            <div class="nav-logo"><a href="../index.html"><h2>R.I</h2></a></div>
+            <ul class="nav-desktop-links">
+                <li><a href="../index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="about.html"><i class="fas fa-user"></i> À propos</a></li>
+                <li><a href="education.html"><i class="fas fa-graduation-cap"></i> Éducation</a></li>
+                <li><a href="skills.html" class="active"><i class="fas fa-code"></i> Compétences</a></li>
+                <li><a href="projects.html"><i class="fas fa-laptop-code"></i> Projets</a></li>
+                <li><a href="experience.html"><i class="fas fa-briefcase"></i> Expérience</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Changer le thème">
+                    <i class="fas fa-sun icon-sun"></i><i class="fas fa-moon icon-moon"></i>
+                </button>
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+                </div>
             </div>
         </div>
-        
-        <!-- Menu overlay -->
         <div class="menu-overlay" id="menu-overlay">
             <div class="menu-content">
-                <div class="menu-header">
-                    <h3>Navigation</h3>
-                    <button class="close-menu" id="close-menu">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
+                <div class="menu-header"><h3>Menu</h3><button class="close-menu" id="close-menu"><i class="fas fa-times"></i></button></div>
                 <ul class="menu-links">
                     <li><a href="../index.html" class="menu-link"><i class="fas fa-home"></i> Accueil</a></li>
                     <li><a href="about.html" class="menu-link"><i class="fas fa-user"></i> À propos</a></li>
@@ -48,20 +45,15 @@
                     <li><a href="experience.html" class="menu-link"><i class="fas fa-briefcase"></i> Expérience</a></li>
                     <li><a href="contact.html" class="menu-link"><i class="fas fa-envelope"></i> Contact</a></li>
                 </ul>
-                <div class="menu-footer">
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
+                <div class="menu-footer"><div class="social-links">
+                    <a href="https://www.linkedin.com/in/rachid-idoniyi-02b606268/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/rachidiID/" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                </div></div>
             </div>
         </div>
     </nav>
 
-    <!-- Page Content -->
     <main class="main-content">
-        <!-- Page Header -->
         <section class="page-header">
             <div class="container">
                 <div class="page-header-content">
@@ -70,103 +62,57 @@
                         <span><i class="fas fa-chevron-right"></i></span>
                         <span>Compétences</span>
                     </div>
-                    <h1 class="page-title">
-                        <i class="fas fa-code"></i>
-                        Mes Compétences Techniques
-                    </h1>
+                    <h1 class="page-title"><i class="fas fa-code"></i> Mes Compétences Techniques</h1>
                     <p class="page-subtitle">Technologies, langages et outils que je maîtrise</p>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Content -->
         <section class="skills-section">
             <div class="container">
-                <!-- Overview -->
                 <div class="skills-overview">
                     <h2>Vue d'ensemble</h2>
-                    <p>
-                        Fort de ma formation en TIC et Mathématiques-Informatique, j'ai développé une expertise 
-                        technique diversifiée couvrant le développement web, les mathématiques appliquées, 
-                        et les technologies modernes. Voici un aperçu détaillé de mes compétences.
-                    </p>
+                    <p>Fort de ma formation en TIC et Mathématiques-Informatique, j'ai développé une expertise technique diversifiée couvrant le développement web, les mathématiques appliquées, et les technologies modernes.</p>
                 </div>
 
-                <!-- Skills Grid -->
                 <div class="skills-grid">
-                    <!-- Langages de Programmation -->
+                    <!-- Langages -->
                     <div class="skill-category">
                         <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
+                            <div class="category-icon"><i class="fas fa-code"></i></div>
                             <h3>Langages de Programmation</h3>
                         </div>
                         <div class="skills-list">
                             <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">JavaScript</span>
-                                    <span class="skill-level"><base href="base"></span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="base"></div>
-                                </div>
+                                <div class="skill-info"><span class="skill-name">JavaScript</span><span class="skill-level">Intermédiaire</span></div>
+                                <div class="skill-bar"><div class="skill-progress" data-width="70%"></div></div>
                                 <div class="skill-details">
                                     <span class="experience-badge">3 ans</span>
-                                    <div class="skill-tags">
-                                        <span class="tag">ES6+</span>
-                                        <span class="tag">Async/Await</span>
-                                        <span class="tag">DOM</span>
-                                    </div>
+                                    <div class="skill-tags"><span class="tag">ES6+</span><span class="tag">Async/Await</span><span class="tag">DOM</span></div>
                                 </div>
                             </div>
-                            
                             <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Python</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="base"></div>
-                                </div>
+                                <div class="skill-info"><span class="skill-name">Python</span><span class="skill-level">Intermédiaire</span></div>
+                                <div class="skill-bar"><div class="skill-progress" data-width="75%"></div></div>
                                 <div class="skill-details">
                                     <span class="experience-badge">2 ans</span>
-                                    <div class="skill-tags">
-                                        <span class="tag">Django</span>
-                                        <span class="tag">NumPy</span>
-                                        <span class="tag">Pandas</span>
-                                    </div>
+                                    <div class="skill-tags"><span class="tag">Django</span><span class="tag">NumPy</span><span class="tag">Pandas</span></div>
                                 </div>
                             </div>
-                            
                             <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Java</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="base"></div>
-                                </div>
+                                <div class="skill-info"><span class="skill-name">Java</span><span class="skill-level">Intermédiaire</span></div>
+                                <div class="skill-bar"><div class="skill-progress" data-width="65%"></div></div>
                                 <div class="skill-details">
                                     <span class="experience-badge">2 ans</span>
-                                    <div class="skill-tags">
-                                        <span class="tag">OOP</span>
-                                        <span class="tag">Spring</span>
-                                        <span class="tag">JPA</span>
-                                    </div>
+                                    <div class="skill-tags"><span class="tag">OOP</span><span class="tag">Spring</span><span class="tag">JPA</span></div>
                                 </div>
                             </div>
-                            
                             <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">C++</span>
-                                </div>
-                                <div class="skill-bar">
-                                </div>
+                                <div class="skill-info"><span class="skill-name">C++</span><span class="skill-level">Basique</span></div>
+                                <div class="skill-bar"><div class="skill-progress" data-width="50%"></div></div>
                                 <div class="skill-details">
                                     <span class="experience-badge">1.5 ans</span>
-                                    <div class="skill-tags">
-                                        <span class="tag">STL</span>
-                                        <span class="tag">Algorithmes</span>
-                                    </div>
+                                    <div class="skill-tags"><span class="tag">STL</span><span class="tag">Algorithmes</span></div>
                                 </div>
                             </div>
                         </div>
@@ -175,233 +121,177 @@
                     <!-- Technologies Web -->
                     <div class="skill-category">
                         <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas fa-laptop-code"></i>
-                            </div>
+                            <div class="category-icon"><i class="fas fa-laptop-code"></i></div>
                             <h3>Technologies Web</h3>
                         </div>
                         <div class="skills-list">
                             <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">HTML5/CSS3</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="base"></div>
-                                </div>
+                                <div class="skill-info"><span class="skill-name">HTML5/CSS3</span><span class="skill-level">Intermédiaire</span></div>
+                                <div class="skill-bar"><div class="skill-progress" data-width="80%"></div></div>
                                 <div class="skill-details">
                                     <span class="experience-badge">1 an</span>
-                                    <div class="skill-tags">
-                                        <span class="tag">Responsive</span>
-                                        <span class="tag">Flexbox</span>
-                                        <span class="tag">Grid</span>
-                                    </div>
+                                    <div class="skill-tags"><span class="tag">Responsive</span><span class="tag">Flexbox</span><span class="tag">Grid</span></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span class="skill-name">Django/DRF</span><span class="skill-level">Intermédiaire</span></div>
+                                <div class="skill-bar"><div class="skill-progress" data-width="70%"></div></div>
+                                <div class="skill-details">
+                                    <span class="experience-badge">1 an</span>
+                                    <div class="skill-tags"><span class="tag">REST API</span><span class="tag">ORM</span><span class="tag">Auth</span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Bases de Données -->
+                    <!-- BDD -->
                     <div class="skill-category">
                         <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
+                            <div class="category-icon"><i class="fas fa-database"></i></div>
                             <h3>Bases de Données</h3>
                         </div>
                         <div class="skills-list">
                             <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">MySQL</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="85%"></div>
-                                </div>
+                                <div class="skill-info"><span class="skill-name">MySQL</span></div>
+                                <div class="skill-bar"><div class="skill-progress" data-width="85%"></div></div>
                                 <div class="skill-details">
                                     <span class="experience-badge">1.5 ans</span>
-                                    <div class="skill-tags">
-                                        <span class="tag">Optimisation</span>
-                                        <span class="tag">Procédures</span>
-                                    </div>
+                                    <div class="skill-tags"><span class="tag">Optimisation</span><span class="tag">Procédures</span></div>
                                 </div>
                             </div>
-                            
                             <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">PostgreSQL</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="70%"></div>
-                                </div>
+                                <div class="skill-info"><span class="skill-name">PostgreSQL</span></div>
+                                <div class="skill-bar"><div class="skill-progress" data-width="70%"></div></div>
                                 <div class="skill-details">
                                     <span class="experience-badge">1 an</span>
-                                    <div class="skill-tags">
-                                        <span class="tag">JSON</span>
-                                        <span class="tag">Extensions</span>
-                                    </div>
+                                    <div class="skill-tags"><span class="tag">JSON</span><span class="tag">Extensions</span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Outils & DevOps -->
+                    <!-- Outils -->
                     <div class="skill-category">
                         <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas fa-tools"></i>
-                            </div>
+                            <div class="category-icon"><i class="fas fa-tools"></i></div>
                             <h3>Outils & DevOps</h3>
                         </div>
                         <div class="skills-list">
                             <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Git/GitHub</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="90%"></div>
-                                </div>
-                                <div class="skill-details">
-                                    <span class="experience-badge">1 ans</span>
-                                    <div class="skill-tags">
-                                        <span class="tag">Branching</span>
-                                        <span class="tag">CI/CD</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Docker</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="70%"></div>
-                                </div>
+                                <div class="skill-info"><span class="skill-name">Git/GitHub</span></div>
+                                <div class="skill-bar"><div class="skill-progress" data-width="90%"></div></div>
                                 <div class="skill-details">
                                     <span class="experience-badge">1 an</span>
-                                    <div class="skill-tags">
-                                        <span class="tag">Containers</span>
-                                        <span class="tag">Compose</span>
-                                    </div>
+                                    <div class="skill-tags"><span class="tag">Branching</span><span class="tag">CI/CD</span></div>
                                 </div>
                             </div>
-                            
                             <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Linux</span>
+                                <div class="skill-info"><span class="skill-name">Docker</span></div>
+                                <div class="skill-bar"><div class="skill-progress" data-width="70%"></div></div>
+                                <div class="skill-details">
+                                    <span class="experience-badge">1 an</span>
+                                    <div class="skill-tags"><span class="tag">Containers</span><span class="tag">Compose</span></div>
                                 </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="75%"></div>
-                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span class="skill-name">Linux</span></div>
+                                <div class="skill-bar"><div class="skill-progress" data-width="75%"></div></div>
                                 <div class="skill-details">
                                     <span class="experience-badge">3 ans</span>
-                                    <div class="skill-tags">
-                                        <span class="tag">Shell</span>
-                                        <span class="tag">Serveurs</span>
-                                    </div>
+                                    <div class="skill-tags"><span class="tag">Shell</span><span class="tag">Serveurs</span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Compétences Soft -->
+                <!-- Soft Skills -->
                 <div class="soft-skills-section">
                     <h2>Compétences Transversales</h2>
                     <div class="soft-skills-grid">
                         <div class="soft-skill-card">
-                            <div class="soft-skill-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
+                            <div class="soft-skill-icon"><i class="fas fa-users"></i></div>
                             <h4>Travail d'équipe</h4>
-                            <p>Collaboration efficace en équipe agile et gestion de projets collaboratifs</p>
+                            <p>Collaboration efficace en équipe agile</p>
                             <div class="skill-level-indicator">
-                                <div class="level-dot active"></div>
-                                <div class="level-dot active"></div>
-                                <div class="level-dot active"></div>
-                                <div class="level-dot active"></div>
-                                <div class="level-dot"></div>
+                                <div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot"></div>
                             </div>
                         </div>
-                        
                         <div class="soft-skill-card">
-                            <div class="soft-skill-icon">
-                                <i class="fas fa-puzzle-piece"></i>
-                            </div>
+                            <div class="soft-skill-icon"><i class="fas fa-puzzle-piece"></i></div>
                             <h4>Résolution de problèmes</h4>
-                            <p>Analyse critique et approche méthodique pour résoudre les défis techniques</p>
+                            <p>Approche méthodique des défis techniques</p>
                             <div class="skill-level-indicator">
-                                <div class="level-dot active"></div>
-                                <div class="level-dot active"></div>
-                                <div class="level-dot active"></div>
-                                <div class="level-dot active"></div>
-                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div>
                             </div>
                         </div>
-                        
                         <div class="soft-skill-card">
-                            <div class="soft-skill-icon">
-                                <i class="fas fa-comments"></i>
-                            </div>
+                            <div class="soft-skill-icon"><i class="fas fa-comments"></i></div>
                             <h4>Communication</h4>
-                            <p>Communication claire avec les équipes techniques et non-techniques</p>
+                            <p>Communication claire avec tous les profils</p>
                             <div class="skill-level-indicator">
-                                <div class="level-dot active"></div>
-                                <div class="level-dot active"></div>
-                                <div class="level-dot active"></div>
-                                <div class="level-dot active"></div>
-                                <div class="level-dot"></div>
+                                <div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot"></div>
                             </div>
                         </div>
-                        
                         <div class="soft-skill-card">
-                            <div class="soft-skill-icon">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <h4>Adaptabilité</h4>
-                            <p>Capacité d'apprentissage rapide et adaptation aux nouvelles technologies</p>
+                            <div class="soft-skill-icon"><i class="fas fa-book-reader"></i></div>
+                            <h4>Auto-apprentissage</h4>
+                            <p>Capacité à apprendre rapidement de nouvelles technologies</p>
                             <div class="skill-level-indicator">
-                                <div class="level-dot active"></div>
-                                <div class="level-dot active"></div>
-                                <div class="level-dot active"></div>
-                                <div class="level-dot active"></div>
-                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Navigation rapide</h4>
-                    <ul>
-                        <li><a href="../index.html">Accueil</a></li>
-                        <li><a href="about.html">À propos</a></li>
-                        <li><a href="education.html">Éducation</a></li>
-                        <li><a href="projects.html">Projets</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <ul>
-                    <li><i class="fas fa-envelope"></i> rachidon2002@gmail.com</p>
-                    <li><i class="fas fa-phone"></i> +229 01 53 39 47 77</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Porto-Novo</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                <!-- Career Goals -->
+                <div class="career-goals">
+                    <h2>Objectifs Professionnels</h2>
+                    <div class="goals-content">
+                        <div class="goals-text">
+                            <h3>Court Terme (1-2 ans)</h3>
+                            <ul>
+                                <li>Approfondir l'expertise en architecture cloud (AWS, Azure)</li>
+                                <li>Obtenir des certifications en DevOps et sécurité</li>
+                                <li>Contribuer à des projets open source</li>
+                                <li>Développer des compétences en intelligence artificielle</li>
+                            </ul>
+                            <h3>Long Terme (3-5 ans)</h3>
+                            <ul>
+                                <li>Évoluer vers un poste de Tech Lead</li>
+                                <li>Créer une startup technologique à impact social</li>
+                                <li>Contribuer à l'écosystème tech béninois</li>
+                                <li>Former la nouvelle génération de développeurs</li>
+                            </ul>
+                        </div>
+                        <div class="goals-visual">
+                            <div class="goal-milestone">
+                                <div class="milestone-icon"><i class="fas fa-cloud"></i></div>
+                                <div><h4>Expertise Cloud</h4><p>Certification AWS/Azure</p></div>
+                            </div>
+                            <div class="goal-milestone">
+                                <div class="milestone-icon"><i class="fas fa-rocket"></i></div>
+                                <div><h4>Leadership Technique</h4><p>Tech Lead position</p></div>
+                            </div>
+                            <div class="goal-milestone">
+                                <div class="milestone-icon"><i class="fas fa-lightbulb"></i></div>
+                                <div><h4>Innovation</h4><p>Startup à impact</p></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Portfolio - Rachidi Adébissi IDONIYI. Tous droits réservés.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section"><h4>Navigation</h4><ul><li><a href="../index.html">Accueil</a></li><li><a href="about.html">À propos</a></li><li><a href="education.html">Éducation</a></li><li><a href="projects.html">Projets</a></li></ul></div>
+                <div class="footer-section"><h4>Contact</h4><ul><li><i class="fas fa-envelope"></i> rachidon2002@gmail.com</li><li><i class="fas fa-phone"></i> +229 01 53 39 47 77</li><li><i class="fas fa-map-marker-alt"></i> Porto-Novo, Bénin</li></ul></div>
+                <div class="footer-section"><h4>Suivez-moi</h4><div class="social-links"><a href="https://www.linkedin.com/in/rachid-idoniyi-02b606268/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a><a href="https://github.com/rachidiID/" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></div></div>
             </div>
+            <div class="footer-bottom"><p>&copy; 2025 Portfolio - Rachidi Adébissi IDONIYI. Tous droits réservés.</p></div>
         </div>
     </footer>
 
