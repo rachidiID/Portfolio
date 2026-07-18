@@ -27,6 +27,7 @@ export default function Navbar() {
   }, [open])
 
   return (
+    <>
     <header className="navbar">
       <div className="container navbar__inner">
         <NavLink to="/" className="navbar__logo" end>
@@ -57,6 +58,7 @@ export default function Navbar() {
           </button>
         </div>
       </div>
+    </header>
 
       <div className={`drawer-backdrop ${open ? 'open' : ''}`} onClick={() => setOpen(false)} />
       <aside className={`drawer ${open ? 'open' : ''}`} aria-hidden={!open}>
@@ -86,6 +88,6 @@ export default function Navbar() {
           </a>
         </div>
       </aside>
-    </header>
+    </>
   )
 }
