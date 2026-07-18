@@ -14,8 +14,9 @@ export const profile = {
   ),
   location: L('Porto-Novo, Bénin', 'Porto-Novo, Benin'),
   email: 'rachidon2002@gmail.com',
+  emailPro: 'adebissi.idoniyi@imsp-uac.org',
   phone: '+229 01 53 39 47 77',
-  cv: 'docs/Cv_Rach.pdf',
+  cv: 'docs/CV_Rachidi_IDONIYI.pdf',
   socials: {
     github: 'https://github.com/rachidiID',
     linkedin: 'https://www.linkedin.com/in/rachid-idoniyi-02b606268/',

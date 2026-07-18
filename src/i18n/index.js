@@ -104,6 +104,7 @@ export const ui = {
       "Let's talk about your project or a collaboration."
     ),
     email: L('E-mail', 'Email'),
+    emailPro: L('E-mail institutionnel', 'Institutional email'),
     phone: L('Téléphone', 'Phone'),
     location: L('Localisation', 'Location'),
   },

@@ -8,6 +8,7 @@ export default function Contact() {
 
   const cards = [
     { icon: 'fa-solid fa-envelope', title: pick(ui.contact.email, lang), value: profile.email, href: `mailto:${profile.email}` },
+    { icon: 'fa-solid fa-building-columns', title: pick(ui.contact.emailPro, lang), value: profile.emailPro, href: `mailto:${profile.emailPro}` },
     { icon: 'fa-solid fa-phone', title: pick(ui.contact.phone, lang), value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, '')}` },
     { icon: 'fa-solid fa-location-dot', title: pick(ui.contact.location, lang), value: pick(profile.location, lang), href: null },
     { icon: 'fa-brands fa-linkedin-in', title: 'LinkedIn', value: 'Rachid IDONIYI', href: profile.socials.linkedin },

@@ -48,6 +48,7 @@ export default function Footer() {
             <h4>{pick(ui.footer.contact, lang)}</h4>
             <ul className="footer__contact">
               <li><i className="fa-solid fa-envelope" /> {profile.email}</li>
+              <li><i className="fa-solid fa-building-columns" /> {profile.emailPro}</li>
               <li><i className="fa-solid fa-phone" /> {profile.phone}</li>
               <li><i className="fa-solid fa-location-dot" /> {pick(profile.location, lang)}</li>
             </ul>

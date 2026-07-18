@@ -26,6 +26,7 @@ export default function About() {
                 <h2>{profile.name}</h2>
                 <p className="about-card__role">{pick(profile.role, lang)}</p>
                 <div className="about-detail"><i className="fa-solid fa-envelope" /> {profile.email}</div>
+                <div className="about-detail"><i className="fa-solid fa-building-columns" /> {profile.emailPro}</div>
                 <div className="about-detail"><i className="fa-solid fa-phone" /> {profile.phone}</div>
                 <div className="about-detail"><i className="fa-solid fa-location-dot" /> {pick(profile.location, lang)}</div>
                 <div className="about-detail"><i className="fa-solid fa-circle-check" /> {pick(ui.about.available, lang)}</div>
