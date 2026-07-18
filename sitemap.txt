@@ -1,9 +1,0 @@
-# Portfolio Moderne - Sitemap
-
-https://rachidiid.github.io/portfolio-moderne/
-https://rachidiid.github.io/portfolio-moderne/pages/about.html
-https://rachidiid.github.io/portfolio-moderne/pages/education.html
-https://rachidiid.github.io/portfolio-moderne/pages/skills.html
-https://rachidiid.github.io/portfolio-moderne/pages/projects.html
-https://rachidiid.github.io/portfolio-moderne/pages/experience.html
-https://rachidiid.github.io/portfolio-moderne/pages/contact.html

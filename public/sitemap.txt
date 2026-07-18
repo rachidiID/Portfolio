@@ -1,0 +1,10 @@
+# Portfolio — Rachidi Adébissi IDONIYI
+# Application monopage (React) : les sections sont accessibles via des ancres #/
+
+https://rachidiid.github.io/Portfolio/
+https://rachidiid.github.io/Portfolio/#/about
+https://rachidiid.github.io/Portfolio/#/education
+https://rachidiid.github.io/Portfolio/#/skills
+https://rachidiid.github.io/Portfolio/#/projects
+https://rachidiid.github.io/Portfolio/#/experience
+https://rachidiid.github.io/Portfolio/#/contact
