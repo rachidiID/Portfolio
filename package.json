@@ -1,9 +1,9 @@
 {
   "name": "portfolio-rachidi-idoniyi",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
-  "description": "Portfolio de Rachidi Adébissi IDONIYI — Développeur & Data Scientist",
+  "description": "Portfolio de Rachidi Adébissi IDONIYI — Développeur Full-Stack & Data Scientist",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -11,8 +11,7 @@
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.2"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",

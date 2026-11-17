@@ -1,47 +1,83 @@
-import { createContext, useContext, useEffect, useState, useCallback } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { pick } from '../i18n.js'
 
 const AppContext = createContext(null)
 
-const getInitialTheme = () => {
-  if (typeof window === 'undefined') return 'light'
-  const saved = localStorage.getItem('theme')
-  if (saved === 'light' || saved === 'dark') return saved
-  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+const read = (key) => {
+  try {
+    return localStorage.getItem(key)
+  } catch {
+    return null
+  }
+}
+const write = (key, value) => {
+  try {
+    localStorage.setItem(key, value)
+  } catch {
+    /* stockage indisponible (navigation privée) : on ignore */
+  }
 }
 
-const getInitialLang = () => {
-  if (typeof window === 'undefined') return 'fr'
-  const saved = localStorage.getItem('lang')
-  if (saved === 'fr' || saved === 'en') return saved
-  return navigator.language?.toLowerCase().startsWith('en') ? 'en' : 'fr'
+const systemDark = () => typeof window !== 'undefined' && window.matchMedia?.('(prefers-color-scheme: dark)').matches
+
+const TITLES = {
+  fr: 'Rachidi Adébissi IDONIYI | Développeur Full-Stack & Data Scientist',
+  en: 'Rachidi Adébissi IDONIYI | Full-Stack Developer & Data Scientist',
 }
 
 export function AppProvider({ children }) {
-  const [theme, setTheme] = useState(getInitialTheme)
-  const [lang, setLang] = useState(getInitialLang)
+  // Langue : français par défaut, choix mémorisé
+  const [lang, setLang] = useState(() => (read('lang') === 'en' ? 'en' : 'fr'))
+  // Thème : suit le système tant que l'utilisateur n'a rien choisi
+  const [stored, setStored] = useState(() => {
+    const t = read('theme')
+    return t === 'light' || t === 'dark' ? t : null
+  })
+  const [system, setSystem] = useState(systemDark() ? 'dark' : 'light')
+  const theme = stored ?? system
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
-  }, [theme])
+    const mq = window.matchMedia?.('(prefers-color-scheme: dark)')
+    if (!mq) return
+    const onChange = (e) => setSystem(e.matches ? 'dark' : 'light')
+    mq.addEventListener?.('change', onChange)
+    return () => mq.removeEventListener?.('change', onChange)
+  }, [])
 
   useEffect(() => {
-    document.documentElement.setAttribute('lang', lang)
-    localStorage.setItem('lang', lang)
+    const root = document.documentElement
+    if (stored) root.setAttribute('data-theme', stored)
+    else root.removeAttribute('data-theme')
+  }, [stored])
+
+  useEffect(() => {
+    document.documentElement.lang = lang
+    document.title = TITLES[lang]
   }, [lang])
 
-  const toggleTheme = useCallback(() => setTheme((t) => (t === 'light' ? 'dark' : 'light')), [])
-  const toggleLang = useCallback(() => setLang((l) => (l === 'fr' ? 'en' : 'fr')), [])
+  const toggleTheme = useCallback(() => {
+    const next = theme === 'dark' ? 'light' : 'dark'
+    setStored(next)
+    write('theme', next)
+  }, [theme])
 
-  return (
-    <AppContext.Provider value={{ theme, toggleTheme, lang, setLang, toggleLang }}>
-      {children}
-    </AppContext.Provider>
+  const toggleLang = useCallback(() => {
+    setLang((l) => {
+      const next = l === 'fr' ? 'en' : 'fr'
+      write('lang', next)
+      return next
+    })
+  }, [])
+
+  const value = useMemo(
+    () => ({ lang, t: (v) => pick(v, lang), theme, toggleTheme, toggleLang }),
+    [lang, theme, toggleTheme, toggleLang]
   )
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>
 }
 
 export const useApp = () => {
   const ctx = useContext(AppContext)
-  if (!ctx) throw new Error('useApp must be used within AppProvider')
+  if (!ctx) throw new Error('useApp doit être utilisé dans <AppProvider>')
   return ctx
 }

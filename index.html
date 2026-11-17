@@ -2,27 +2,110 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/Portfolio/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0f766e" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rachidi Adébissi IDONIYI | Développeur Full-Stack &amp; Data Scientist</title>
     <meta
       name="description"
-      content="Rachidi Adébissi IDONIYI — Développeur web/mobile & Data Scientist. Master 1 Data Science à l'IMSP, Secrétaire Général du Club IA. Projets à impact en IA, agriculture et environnement."
+      content="Développeur full-stack (Django, React) et data scientist en Master 2 TIC à l'IMSP-UAC, Bénin. Site de l'IMSP, ResearchHub, Data for Earth, modèle de détection de maladies des plantes. CV et contact."
     />
-    <title>Rachidi Adébissi IDONIYI — Développeur & Data Scientist</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
-      rel="stylesheet"
+    <meta name="author" content="Rachidi Adébissi IDONIYI" />
+    <link rel="canonical" href="https://rachidiid.github.io/Portfolio/" />
+    <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f1312" media="(prefers-color-scheme: dark)" />
+
+    <!-- Partage (WhatsApp, LinkedIn, Facebook…) -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Rachidi Adébissi IDONIYI" />
+    <meta property="og:title" content="Rachidi Adébissi IDONIYI | Développeur Full-Stack & Data Scientist" />
+    <meta
+      property="og:description"
+      content="Je construis des applications web avec Django et React, et je travaille aussi sur le machine learning. Projets, CV et contact."
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    <meta property="og:url" content="https://rachidiid.github.io/Portfolio/" />
+    <meta property="og:image" content="https://rachidiid.github.io/Portfolio/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Rachidi Adébissi IDONIYI, développeur full-stack et data scientist" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta property="profile:first_name" content="Rachidi" />
+    <meta property="profile:last_name" content="IDONIYI" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rachidi Adébissi IDONIYI | Développeur Full-Stack & Data Scientist" />
+    <meta
+      name="twitter:description"
+      content="Je construis des applications web avec Django et React, et je travaille aussi sur le machine learning."
     />
+    <meta name="twitter:image" content="https://rachidiid.github.io/Portfolio/og-image.jpg" />
+
+    <link rel="icon" href="%BASE_URL%favicon.ico" sizes="32x32" />
+    <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png" />
+
+    <!-- Polices auto-hébergées (licence SIL OFL) -->
+    <link rel="preload" href="%BASE_URL%fonts/ibm-plex-sans-wght.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="%BASE_URL%fonts/fraunces-wght.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+      @font-face {
+        font-family: 'IBM Plex Sans';
+        src: url('%BASE_URL%fonts/ibm-plex-sans-wght.woff2') format('woff2');
+        font-weight: 100 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Fraunces';
+        src: url('%BASE_URL%fonts/fraunces-wght.woff2') format('woff2');
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+
+    <!-- Thème mémorisé appliqué avant l'affichage (évite un flash) -->
+    <script>
+      document.documentElement.classList.add('js')
+      try {
+        var t = localStorage.getItem('theme')
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t)
+        if (localStorage.getItem('lang') === 'en') document.documentElement.lang = 'en'
+      } catch (e) {}
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Rachidi Adébissi IDONIYI",
+        "givenName": "Rachidi",
+        "familyName": "IDONIYI",
+        "jobTitle": "Développeur Full-Stack & Data Scientist",
+        "url": "https://rachidiid.github.io/Portfolio/",
+        "image": "https://rachidiid.github.io/Portfolio/rachidi-idoniyi.jpg",
+        "address": { "@type": "PostalAddress", "addressLocality": "Porto-Novo", "addressCountry": "BJ" },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Institut de Mathématiques et de Sciences Physiques (IMSP), Université d'Abomey-Calavi" },
+          { "@type": "CollegeOrUniversity", "name": "École Normale Supérieure de Natitingou" }
+        ],
+        "knowsAbout": ["Django", "Django REST Framework", "React", "Python", "PostgreSQL", "Docker", "Machine Learning", "Deep Learning", "Data Science"],
+        "knowsLanguage": ["fr", "en"],
+        "sameAs": ["https://github.com/rachidiID", "https://www.linkedin.com/in/rachid-idoniyi", "https://huggingface.co/Adebissi"]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <div style="max-width: 40rem; margin: 2rem auto; padding: 0 1rem; font-family: system-ui, sans-serif; line-height: 1.6">
+        <h1>Rachidi Adébissi IDONIYI</h1>
+        <p>Développeur Full-Stack &amp; Data Scientist, Master 2 TIC à l'IMSP-UAC (Bénin).</p>
+        <p>
+          <a href="assets/CV_Rachidi_IDONIYI_FullStack.pdf">CV (PDF)</a> ·
+          <a href="https://github.com/rachidiID">GitHub</a> ·
+          <a href="https://www.linkedin.com/in/rachid-idoniyi">LinkedIn</a>
+        </p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
