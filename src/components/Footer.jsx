@@ -19,7 +19,7 @@ export default function Footer() {
           </a>{' '}
           · {t(ui.footer.updated)}
         </p>
-        <a href="#accueil" className="site-footer__top">
+        <a href="#main" className="site-footer__top">
           <Icon name="arrowUp" size={18} /> {t(ui.footer.top)}
         </a>
       </div>

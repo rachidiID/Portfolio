@@ -1,4 +1,5 @@
 import { useApp } from '../context/AppContext.jsx'
+import { Link } from '../router.jsx'
 import { ui, filled } from '../i18n.js'
 import {
   config,
@@ -39,32 +40,74 @@ function ExtLink({ href, className, children }) {
   )
 }
 
-function SectionHead({ id, num, title, intro }) {
+// En-tête de page (h1) ou de bloc (h2)
+function PageHead({ num, title, intro, as: Tag = 'h1' }) {
   return (
     <div className="sec-head reveal">
-      <span className="sec-num" aria-hidden="true">
-        {num}
-      </span>
-      <h2 id={`${id}-titre`}>{title}</h2>
+      {num && (
+        <span className="sec-num" aria-hidden="true">
+          {num}
+        </span>
+      )}
+      <Tag>{title}</Tag>
       {intro && <p>{intro}</p>}
     </div>
   )
 }
 
-// ---------- 1. Accueil ----------
-export function Hero() {
+function CvButton({ file, label, variant = 'primary' }) {
+  return (
+    <a className={`btn btn--${variant}`} href={asset(file)} target="_blank" rel="noopener" type="application/pdf">
+      <Icon name="download" /> {label}
+    </a>
+  )
+}
+
+function ContactCta({ title, text }) {
+  const { t } = useApp()
+  const wa = config.whatsapp ? waLink(t(ui.contact.waProject)) : ''
+  return (
+    <div className="cta reveal">
+      <div>
+        <h2>{title}</h2>
+        <p>{text}</p>
+      </div>
+      <div className="cta__actions">
+        {wa ? (
+          <ExtLink href={wa} className="btn btn--light">
+            <Icon name="whatsapp" /> {t(ui.services.cta)}
+          </ExtLink>
+        ) : (
+          <Link to="contact" className="btn btn--light">
+            <Icon name="mail" /> {t(ui.services.cta)}
+          </Link>
+        )}
+        {config.email && (
+          <a href={`mailto:${config.email}`} className="cta__mail">
+            <Icon name="mail" size={18} /> {config.email}
+          </a>
+        )}
+      </div>
+    </div>
+  )
+}
+
+// =====================================================================
+//  ACCUEIL
+// =====================================================================
+function Hero() {
   const { t, lang } = useApp()
   const cvMain = lang === 'en' ? config.cv.en : config.cv.fr
   const cvOther = lang === 'en' ? config.cv.fr : config.cv.en
 
   return (
-    <section id="accueil" className="hero" aria-labelledby="accueil-titre">
+    <section className="hero" aria-labelledby="accueil-titre">
       <div className="wrap hero__grid">
         <div className="hero__photo">
           <img
             src={portrait520}
             srcSet={`${portrait520} 520w, ${portrait900} 900w`}
-            sizes="(min-width: 900px) 420px, 76px"
+            sizes="(min-width: 1200px) 520px, (min-width: 900px) 40vw, 76px"
             width="900"
             height="1080"
             alt={t(ui.hero.photoAlt)}
@@ -93,12 +136,10 @@ export function Hero() {
           )}
 
           <div className="hero__actions">
-            <a className="btn btn--primary" href={asset(cvMain)} target="_blank" rel="noopener" type="application/pdf">
-              <Icon name="download" /> {t(ui.hero.cv)}
-            </a>
-            <a className="btn btn--secondary" href="#contact">
+            <CvButton file={cvMain} label={t(ui.hero.cv)} />
+            <Link to="contact" className="btn btn--secondary">
               {t(ui.hero.contact)} <Icon name="arrowRight" />
-            </a>
+            </Link>
           </div>
 
           <p className="hero__links">
@@ -118,8 +159,7 @@ export function Hero() {
   )
 }
 
-// ---------- 2. Preuves rapides ----------
-export function Proofs() {
+function Proofs() {
   const { t } = useApp()
   const items = proofs.filter((p) => filled(p.value) && filled(p.label))
   if (!items.length) return null
@@ -137,20 +177,73 @@ export function Proofs() {
   )
 }
 
-// ---------- 3. Projets ----------
-function Shot({ project }) {
+function Featured() {
+  const { t } = useApp()
+  return (
+    <section className="section" aria-labelledby="recents-titre">
+      <div className="wrap">
+        <div className="sec-head sec-head--row reveal">
+          <div>
+            <h2 id="recents-titre">{t(ui.home.featured)}</h2>
+            <p>{t(ui.home.featuredIntro)}</p>
+          </div>
+          <Link to="projets" className="link-btn link-btn--strong">
+            {t(ui.home.allProjects)} <Icon name="arrowRight" size={18} />
+          </Link>
+        </div>
+        <ul className="featured">
+          {caseStudies.map((p) => (
+            <li key={p.id} className="feat reveal">
+              <Shot project={p} compact />
+              <p className="kicker">{t(p.kicker)}</p>
+              <h3>{t(p.name)}</h3>
+              <p>{t(p.summary)}</p>
+              <Link to="projets" hash={`cas-${p.id}`} className="feat__more">
+                {t(ui.home.seeProject)} <Icon name="arrowRight" size={17} />
+                <span className="sr-only"> : {t(p.name)}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}
+
+export function HomePage() {
+  const { t } = useApp()
+  return (
+    <>
+      <Hero />
+      <Proofs />
+      <Featured />
+      <section className="section section--tight" aria-label={t(ui.nav.contact)}>
+        <div className="wrap">
+          <ContactCta title={t(ui.home.ctaTitle)} text={t(ui.home.ctaText)} />
+        </div>
+      </section>
+    </>
+  )
+}
+
+// =====================================================================
+//  PROJETS
+// =====================================================================
+function Shot({ project, compact = false }) {
   const { t } = useApp()
   const domain = hostOf(project.links.live)
   return (
-    <div className={`shot${project.image ? '' : ' shot--cover'}`}>
-      <div className="shot__bar" aria-hidden="true">
-        <span className="shot__url">{domain || ' '}</span>
-      </div>
+    <div className={`shot${project.image ? '' : ' shot--cover'}${compact ? ' shot--compact' : ''}`}>
+      {!compact && (
+        <div className="shot__bar" aria-hidden="true">
+          <span className="shot__url">{domain || ' '}</span>
+        </div>
+      )}
       {project.image ? (
         <img
           src={project.image.src}
           srcSet={project.image.srcSet}
-          sizes="(min-width: 900px) 560px, calc(100vw - 32px)"
+          sizes={compact ? '(min-width: 1200px) 25vw, (min-width: 640px) 50vw, 100vw' : '(min-width: 900px) 50vw, 100vw'}
           width={project.image.width}
           height={project.image.height}
           loading="lazy"
@@ -190,11 +283,11 @@ function CaseStudy({ project }) {
   const { t } = useApp()
   const results = project.results.filter(filled)
   return (
-    <article className="case reveal" aria-labelledby={`cas-${project.id}`}>
+    <article id={`cas-${project.id}`} className="case reveal" aria-labelledby={`cas-${project.id}-titre`}>
       <Shot project={project} />
       <div className="case__body">
         <p className="kicker">{t(project.kicker)}</p>
-        <h3 id={`cas-${project.id}`}>{t(project.name)}</h3>
+        <h2 id={`cas-${project.id}-titre`}>{t(project.name)}</h2>
         <p className="case__summary">{t(project.summary)}</p>
         <dl className="facts">
           <div>
@@ -239,19 +332,19 @@ function CaseStudy({ project }) {
   )
 }
 
-export function Projects() {
+export function ProjectsPage() {
   const { t } = useApp()
   return (
-    <section id="projets" className="section" aria-labelledby="projets-titre">
+    <section className="section">
       <div className="wrap">
-        <SectionHead id="projets" num="01" title={t(ui.projects.title)} intro={t(ui.projects.intro)} />
+        <PageHead num="01" title={t(ui.projects.title)} intro={t(ui.projects.intro)} />
         <div className="cases">
           {caseStudies.map((p) => (
             <CaseStudy key={p.id} project={p} />
           ))}
         </div>
 
-        <h3 className="sub-title reveal">{t(ui.projects.others)}</h3>
+        <h2 className="sub-title reveal">{t(ui.projects.others)}</h2>
         <ul className="others">
           {otherProjects.map((p, i) => (
             <li key={i} className="other reveal">
@@ -260,7 +353,7 @@ export function Projects() {
                   className="other__img"
                   src={p.image.src}
                   srcSet={p.image.srcSet}
-                  sizes="(min-width: 900px) 360px, calc(100vw - 32px)"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   width={p.image.width}
                   height={p.image.height}
                   loading="lazy"
@@ -268,7 +361,7 @@ export function Projects() {
                   alt={`${t(ui.projects.screenshot)} ${t(p.name)}`}
                 />
               )}
-              <h4>{t(p.name)}</h4>
+              <h3>{t(p.name)}</h3>
               <p>{t(p.text)}</p>
               <p className="other__stack">{p.stack.join(', ')}</p>
               <ProjectLinks links={p.links} />
@@ -280,23 +373,20 @@ export function Projects() {
   )
 }
 
-// ---------- 4. Services ----------
-export function Services() {
+// =====================================================================
+//  SERVICES
+// =====================================================================
+export function ServicesPage() {
   const { t } = useApp()
   const list = filled(config.mobileTech) ? [...services, mobileService(config.mobileTech)] : services
-  const ctaHref = config.whatsapp
-    ? waLink(t(ui.contact.waProject))
-    : config.email
-      ? `mailto:${config.email}`
-      : '#contact'
   return (
-    <section id="services" className="section section--alt" aria-labelledby="services-titre">
+    <section className="section">
       <div className="wrap">
-        <SectionHead id="services" num="02" title={t(ui.services.title)} intro={t(ui.services.intro)} />
+        <PageHead num="02" title={t(ui.services.title)} intro={t(ui.services.intro)} />
         <ol className="services">
           {list.map((s) => (
             <li key={s.id} className="service reveal">
-              <h3>{t(s.title)}</h3>
+              <h2>{t(s.title)}</h2>
               <dl>
                 <dt>{t(ui.services.deliver)}</dt>
                 <dd>{t(s.deliver)}</dd>
@@ -323,44 +413,25 @@ export function Services() {
           </ul>
         )}
 
-        <div className="cta reveal">
-          <div>
-            <h3>{t(ui.services.ctaTitle)}</h3>
-            <p>{t(ui.services.ctaText)}</p>
-          </div>
-          <div className="cta__actions">
-            {ctaHref.startsWith('http') ? (
-              <ExtLink href={ctaHref} className="btn btn--light">
-                <Icon name="whatsapp" /> {t(ui.services.cta)}
-              </ExtLink>
-            ) : (
-              <a href={ctaHref} className="btn btn--light">
-                <Icon name="mail" /> {t(ui.services.cta)}
-              </a>
-            )}
-            {config.whatsapp && config.email && (
-              <a href={`mailto:${config.email}`} className="cta__mail">
-                <Icon name="mail" size={18} /> {config.email}
-              </a>
-            )}
-          </div>
-        </div>
+        <ContactCta title={t(ui.services.ctaTitle)} text={t(ui.services.ctaText)} />
       </div>
     </section>
   )
 }
 
-// ---------- 5. Compétences ----------
-export function Skills() {
+// =====================================================================
+//  COMPÉTENCES
+// =====================================================================
+export function SkillsPage() {
   const { t } = useApp()
   return (
-    <section id="competences" className="section" aria-labelledby="competences-titre">
+    <section className="section">
       <div className="wrap">
-        <SectionHead id="competences" num="03" title={t(ui.skills.title)} intro={t(ui.skills.intro)} />
+        <PageHead num="03" title={t(ui.skills.title)} intro={t(ui.skills.intro)} />
         <div className="skills">
           {skillGroups.map((g) => (
             <div key={t(g.title)} className="skill reveal">
-              <h3>{t(g.title)}</h3>
+              <h2>{t(g.title)}</h2>
               <ul className="tags">
                 {g.items.map((s) => (
                   <li key={s}>{s}</li>
@@ -389,12 +460,14 @@ export function Skills() {
   )
 }
 
-// ---------- 6. Parcours ----------
+// =====================================================================
+//  PARCOURS
+// =====================================================================
 function Timeline({ title, items }) {
   const { t } = useApp()
   return (
     <div className="timeline reveal">
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       <ol>
         {items.map((it, i) => (
           <li key={i}>
@@ -403,7 +476,7 @@ function Timeline({ title, items }) {
               {it.ongoing && <em> · {t(ui.journey.ongoing)}</em>}
             </span>
             <div>
-              <h4>{t(it.title)}</h4>
+              <h3>{t(it.title)}</h3>
               <p className="timeline__place">{t(it.place)}</p>
               {filled(it.text) && <p>{t(it.text)}</p>}
               {filled(it.facts) && <p className="timeline__facts">{t(it.facts)}</p>}
@@ -415,12 +488,12 @@ function Timeline({ title, items }) {
   )
 }
 
-export function Journey() {
+export function JourneyPage() {
   const { t } = useApp()
   return (
-    <section id="parcours" className="section section--alt" aria-labelledby="parcours-titre">
+    <section className="section">
       <div className="wrap">
-        <SectionHead id="parcours" num="04" title={t(ui.journey.title)} intro={t(ui.journey.intro)} />
+        <PageHead num="04" title={t(ui.journey.title)} intro={t(ui.journey.intro)} />
         <div className="journey">
           <Timeline title={t(ui.journey.experience)} items={experience} />
           <Timeline title={t(ui.journey.education)} items={education} />
@@ -430,8 +503,10 @@ export function Journey() {
   )
 }
 
-// ---------- 7. Contact ----------
-export function Contact() {
+// =====================================================================
+//  CONTACT
+// =====================================================================
+export function ContactPage() {
   const { t } = useApp()
   const rows = [
     config.whatsapp && {
@@ -442,14 +517,26 @@ export function Contact() {
       external: true,
     },
     config.email && { icon: 'mail', label: t(ui.contact.email), value: config.email, href: `mailto:${config.email}` },
-    { icon: 'linkedin', label: 'LinkedIn', value: hostOf(config.linkedin) + new URL(config.linkedin).pathname.replace(/\/$/, ''), href: config.linkedin, external: true },
-    { icon: 'github', label: 'GitHub', value: hostOf(config.github) + new URL(config.github).pathname, href: config.github, external: true },
+    {
+      icon: 'linkedin',
+      label: 'LinkedIn',
+      value: hostOf(config.linkedin) + new URL(config.linkedin).pathname.replace(/\/$/, ''),
+      href: config.linkedin,
+      external: true,
+    },
+    {
+      icon: 'github',
+      label: 'GitHub',
+      value: hostOf(config.github) + new URL(config.github).pathname,
+      href: config.github,
+      external: true,
+    },
   ].filter(Boolean)
 
   return (
-    <section id="contact" className="section" aria-labelledby="contact-titre">
+    <section className="section">
       <div className="wrap contact">
-        <SectionHead id="contact" num="05" title={t(ui.contact.title)} intro={t(ui.contact.intro)} />
+        <PageHead num="05" title={t(ui.contact.title)} intro={t(ui.contact.intro)} />
         <ul className="contact__list reveal">
           {rows.map((r) => {
             const inner = (
@@ -480,16 +567,29 @@ export function Contact() {
           })}
         </ul>
         <div className="contact__cv reveal">
-          <h3>{t(ui.contact.cvTitle)}</h3>
+          <h2>{t(ui.contact.cvTitle)}</h2>
           <p>
-            <a className="btn btn--primary" href={asset(config.cv.fr)} target="_blank" rel="noopener" type="application/pdf">
-              <Icon name="download" /> {t(ui.contact.cvFr)}
-            </a>
-            <a className="btn btn--secondary" href={asset(config.cv.en)} target="_blank" rel="noopener" type="application/pdf">
-              <Icon name="download" /> {t(ui.contact.cvEn)}
-            </a>
+            <CvButton file={config.cv.fr} label={t(ui.contact.cvFr)} />
+            <CvButton file={config.cv.en} label={t(ui.contact.cvEn)} variant="secondary" />
           </p>
         </div>
+      </div>
+    </section>
+  )
+}
+
+// =====================================================================
+//  PAGE INTROUVABLE
+// =====================================================================
+export function NotFoundPage() {
+  const { t } = useApp()
+  return (
+    <section className="section">
+      <div className="wrap">
+        <PageHead title={t(ui.notFound.title)} intro={t(ui.notFound.text)} />
+        <Link to="" className="btn btn--primary">
+          {t(ui.notFound.back)} <Icon name="arrowRight" />
+        </Link>
       </div>
     </section>
   )

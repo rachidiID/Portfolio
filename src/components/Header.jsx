@@ -1,20 +1,25 @@
 import { useEffect, useRef, useState } from 'react'
 import { useApp } from '../context/AppContext.jsx'
+import { Link, useRouter } from '../router.jsx'
 import { ui } from '../i18n.js'
 import Icon from './Icon.jsx'
 
-export const SECTIONS = [
-  { id: 'projets', key: 'projects' },
-  { id: 'services', key: 'services' },
-  { id: 'competences', key: 'skills' },
-  { id: 'parcours', key: 'journey' },
-  { id: 'contact', key: 'contact' },
+const NAV = [
+  { to: 'projets', key: 'projects' },
+  { to: 'services', key: 'services' },
+  { to: 'competences', key: 'skills' },
+  { to: 'parcours', key: 'journey' },
+  { to: 'contact', key: 'contact' },
 ]
 
 export default function Header() {
   const { t, theme, toggleTheme, toggleLang } = useApp()
+  const { key } = useRouter()
   const [open, setOpen] = useState(false)
   const toggleRef = useRef(null)
+
+  // Le menu se ferme à chaque changement de page
+  useEffect(() => setOpen(false), [key])
 
   // Échap ferme le menu et rend le focus au bouton
   useEffect(() => {
@@ -34,24 +39,21 @@ export default function Header() {
     }
   }, [open])
 
-  const links = (onClick) =>
-    SECTIONS.map((s) => (
-      <li key={s.id}>
-        <a href={`#${s.id}`} onClick={onClick}>
-          {t(ui.nav[s.key])}
-        </a>
-      </li>
-    ))
-
   return (
     <header className="site-header">
       <div className="wrap site-header__inner">
-        <a href="#accueil" className="brand">
+        <Link to="" className="brand" aria-label={`Rachidi IDONIYI, ${t(ui.nav.home)}`}>
           Rachidi <span>IDONIYI</span>
-        </a>
+        </Link>
 
         <nav className="nav-desktop" aria-label={t(ui.nav.main)}>
-          <ul>{links()}</ul>
+          <ul>
+            {NAV.map((n) => (
+              <li key={n.to}>
+                <Link to={n.to}>{t(ui.nav[n.key])}</Link>
+              </li>
+            ))}
+          </ul>
         </nav>
 
         <div className="controls">
@@ -82,7 +84,16 @@ export default function Header() {
 
       <div id="menu-mobile" className="mobile-menu" hidden={!open}>
         <nav className="wrap" aria-label={t(ui.nav.main)}>
-          <ul>{links(() => setOpen(false))}</ul>
+          <ul>
+            <li>
+              <Link to="">{t(ui.nav.home)}</Link>
+            </li>
+            {NAV.map((n) => (
+              <li key={n.to}>
+                <Link to={n.to}>{t(ui.nav[n.key])}</Link>
+              </li>
+            ))}
+          </ul>
         </nav>
       </div>
     </header>

@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
 
 // Fait apparaître doucement les éléments .reveal quand ils entrent à l'écran.
-// Sans JavaScript ou avec « réduire les animations », tout reste visible (voir CSS).
-export function useReveal() {
+// Relancé à chaque changement de page (dep). Sans JavaScript ou avec
+// « réduire les animations », tout reste visible (voir CSS).
+export function useReveal(dep) {
   useEffect(() => {
-    const els = document.querySelectorAll('.reveal')
+    const els = document.querySelectorAll('.reveal:not(.is-in)')
     if (!('IntersectionObserver' in window)) {
       els.forEach((el) => el.classList.add('is-in'))
       return
@@ -22,5 +23,5 @@ export function useReveal() {
     )
     els.forEach((el) => io.observe(el))
     return () => io.disconnect()
-  }, [])
+  }, [dep])
 }

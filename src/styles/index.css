@@ -332,6 +332,14 @@ main:focus {
   color: var(--ink);
   background: var(--bg-alt);
 }
+.nav-desktop a[aria-current='page'] {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.mobile-menu a[aria-current='page'] {
+  color: var(--accent);
+  font-weight: 600;
+}
 .controls {
   display: flex;
   align-items: center;
@@ -585,8 +593,14 @@ main:focus {
 }
 
 /* ---------- Sections ---------- */
+main {
+  min-height: calc(100vh - var(--header-h) - 140px);
+}
 .section {
   padding: 56px 0;
+}
+.section--tight {
+  padding-top: 0;
 }
 .section--alt {
   background: var(--bg-alt);
@@ -609,8 +623,12 @@ main:focus {
   color: var(--accent);
   margin-bottom: 6px;
 }
+.sec-head h1,
 .sec-head h2 {
   font-size: clamp(2rem, 1.5rem + 2.2vw, 3rem);
+}
+.sec-head h1 {
+  font-size: clamp(2.3rem, 1.6rem + 3vw, 3.6rem);
 }
 .sec-head p {
   margin-top: 12px;
@@ -688,7 +706,7 @@ main:focus {
   letter-spacing: 0.02em;
   color: var(--warm);
 }
-.case h3 {
+.case h2 {
   margin-top: 6px;
   font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.1rem);
 }
@@ -776,7 +794,7 @@ main:focus {
   object-position: top;
   border-bottom: 1px solid var(--line);
 }
-.other h4 {
+.other h3 {
   font-size: 1.3rem;
 }
 .other p {
@@ -827,7 +845,7 @@ main:focus {
   color: var(--accent);
   margin-bottom: 8px;
 }
-.service h3 {
+.service h2 {
   font-size: 1.45rem;
   margin-bottom: 14px;
 }
@@ -874,7 +892,7 @@ main:focus {
   background: var(--cta-bg);
   color: var(--cta-ink);
 }
-.cta h3 {
+.cta h2 {
   font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.2rem);
   color: inherit;
 }
@@ -920,7 +938,7 @@ main:focus {
   border-radius: var(--radius);
   background: var(--surface);
 }
-.skill h3 {
+.skill h2 {
   font-size: 1.3rem;
   margin-bottom: 14px;
 }
@@ -957,7 +975,7 @@ main:focus {
   display: grid;
   gap: 40px;
 }
-.timeline h3 {
+.timeline h2 {
   font-size: 1.4rem;
   margin-bottom: 8px;
 }
@@ -977,7 +995,7 @@ main:focus {
   font-style: normal;
   color: var(--warm);
 }
-.timeline h4 {
+.timeline h3 {
   font-family: var(--font-body);
   font-size: 1.08rem;
   font-weight: 600;
@@ -1055,7 +1073,7 @@ main:focus {
 .contact__cv {
   margin-top: 36px;
 }
-.contact__cv h3 {
+.contact__cv h2 {
   font-size: 1.4rem;
   margin-bottom: 14px;
 }
@@ -1092,6 +1110,72 @@ main:focus {
   min-height: 44px;
   justify-self: start;
   font-weight: 500;
+}
+
+/* ---------- Accueil : projets récents ---------- */
+.sec-head--row {
+  max-width: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 32px;
+}
+.sec-head--row > div {
+  max-width: 44rem;
+}
+.featured {
+  display: grid;
+  gap: 18px;
+}
+.feat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.feat .shot {
+  margin-bottom: 8px;
+}
+.feat h3 {
+  font-size: 1.4rem;
+}
+.feat p:not(.kicker) {
+  color: var(--ink-2);
+}
+.feat__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  margin-top: auto;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  text-underline-offset: 4px;
+}
+.feat__more:hover {
+  text-decoration-color: currentColor;
+}
+.shot--compact .cover {
+  padding: 16px;
+}
+.shot--compact .cover__name {
+  font-size: 1.35rem;
+}
+.shot--compact .cover__kind {
+  font-size: 0.82rem;
+}
+@media (min-width: 640px) {
+  .featured {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 22px;
+  }
+}
+@media (min-width: 1200px) {
+  .featured {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 /* ---------- Grands écrans : occuper toute la largeur ---------- */

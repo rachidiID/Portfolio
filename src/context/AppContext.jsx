@@ -20,11 +20,6 @@ const write = (key, value) => {
 
 const systemDark = () => typeof window !== 'undefined' && window.matchMedia?.('(prefers-color-scheme: dark)').matches
 
-const TITLES = {
-  fr: 'Rachidi Adébissi IDONIYI | Développeur Full-Stack & Data Scientist',
-  en: 'Rachidi Adébissi IDONIYI | Full-Stack Developer & Data Scientist',
-}
-
 export function AppProvider({ children }) {
   // Langue : français par défaut, choix mémorisé
   const [lang, setLang] = useState(() => (read('lang') === 'en' ? 'en' : 'fr'))
@@ -52,7 +47,6 @@ export function AppProvider({ children }) {
 
   useEffect(() => {
     document.documentElement.lang = lang
-    document.title = TITLES[lang]
   }, [lang])
 
   const toggleTheme = useCallback(() => {

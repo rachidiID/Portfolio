@@ -6,7 +6,7 @@
   "description": "Portfolio de Rachidi Adébissi IDONIYI — Développeur Full-Stack & Data Scientist",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/pages-statiques.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -21,6 +21,7 @@ export const filled = (value) => {
 export const ui = {
   skip: L('Aller au contenu', 'Skip to content'),
   nav: {
+    home: L('Accueil', 'Home'),
     projects: L('Projets', 'Work'),
     services: L('Services', 'Services'),
     skills: L('Compétences', 'Skills'),
@@ -49,6 +50,25 @@ export const ui = {
     ),
   },
   proofs: L('En bref', 'At a glance'),
+  home: {
+    featured: L('Projets récents', 'Recent work'),
+    featuredIntro: L(
+      'Des applications en ligne et un modèle de machine learning. Chaque projet est détaillé sur la page Projets.',
+      'Live web applications and a machine learning model. Each project is described in detail on the Work page.'
+    ),
+    seeProject: L('Lire le projet', 'Read more'),
+    allProjects: L('Tous les projets', 'All projects'),
+    ctaTitle: L('Un stage, un poste ou un projet ?', 'An internship, a job or a project?'),
+    ctaText: L(
+      'Écrivez-moi sur WhatsApp ou par e-mail. Mon CV est aussi disponible en PDF.',
+      'Message me on WhatsApp or by email. My CV is also available as a PDF.'
+    ),
+  },
+  notFound: {
+    title: L('Page introuvable', 'Page not found'),
+    text: L("Cette page n'existe pas ou a été déplacée.", 'This page does not exist or has moved.'),
+    back: L("Retour à l'accueil", 'Back to the home page'),
+  },
   projects: {
     title: L('Projets', 'Selected work'),
     intro: L(

@@ -1,13 +1,14 @@
 # Portfolio — Rachidi Adébissi IDONIYI
 
 Portfolio de Rachidi Adébissi IDONIYI, développeur full-stack (Django, React) et data scientist.
-Le site est une page unique, bilingue FR/EN, avec un thème clair et un thème sombre, publiée sur GitHub Pages.
+Le site compte six pages (accueil, projets, services, compétences, parcours, contact). Il est bilingue FR/EN, avec un thème clair et un thème sombre, et publié sur GitHub Pages.
 
 En ligne : https://rachidiid.github.io/Portfolio/
 
 ## Stack
 
-- React 18 et Vite 5, sans routeur : une seule page avec des ancres.
+- React 18 et Vite 5, avec un petit routeur maison (`src/router.jsx`, sans dépendance) et des adresses propres : `/Portfolio/projets/`, etc.
+- Après le build, `scripts/pages-statiques.mjs` crée un `index.html` par page, avec son titre et sa description, plus un `404.html`. Un lien direct vers une page fonctionne donc sur GitHub Pages.
 - CSS maison ; icônes en SVG inline ; polices auto-hébergées (Fraunces, IBM Plex Sans, licence SIL OFL).
 - Aucune dépendance d'interface ni aucun CDN.
 - CV en LaTeX dans `cv/`.
@@ -18,6 +19,8 @@ En ligne : https://rachidiid.github.io/Portfolio/
 |---|---|
 | `src/data/site.js` | Tout le contenu du site : identité, contact, projets, services, compétences, parcours. Une valeur vide est masquée. |
 | `src/i18n.js` | Libellés d'interface (menus, boutons). |
+| `src/components/Sections.jsx` | Les six pages. |
+| `scripts/pages-statiques.mjs` | Titres et descriptions des pages pour Google et les aperçus de liens. |
 | `cv/donnees.tex` | Données du CV (chiffres, disponibilité…). |
 | `TODO_A_COMPLETER.md` | Liste des données encore vides, avec l'emplacement de chaque champ et un exemple. |
 
