@@ -47,7 +47,7 @@ export default function Header() {
     <header className="site-header">
       <div className="wrap site-header__inner">
         <a href="#accueil" className="brand">
-          Rachidi <span>Idoniyi</span>
+          Rachidi <span>IDONIYI</span>
         </a>
 
         <nav className="nav-desktop" aria-label={t(ui.nav.main)}>

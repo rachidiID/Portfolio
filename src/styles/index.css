@@ -177,20 +177,15 @@ main:focus {
   top: 10px;
 }
 
+/* Pleine largeur : les marges suivent la taille de l'écran
+   (16 px sur téléphone, jusqu'à 96 px sur grand écran). */
 .wrap {
   width: 100%;
-  max-width: 1120px;
-  margin-inline: auto;
   padding-inline: var(--gutter);
 }
 @media (min-width: 640px) {
   :root {
-    --gutter: 24px;
-  }
-}
-@media (min-width: 1024px) {
-  :root {
-    --gutter: 32px;
+    --gutter: clamp(24px, 4.5vw, 96px);
   }
 }
 
@@ -1097,6 +1092,62 @@ main:focus {
   min-height: 44px;
   justify-self: start;
   font-weight: 500;
+}
+
+/* ---------- Grands écrans : occuper toute la largeur ---------- */
+@media (min-width: 1200px) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 520px);
+    column-gap: clamp(56px, 6vw, 140px);
+  }
+  .hero h1 {
+    font-size: clamp(4.1rem, 1.6rem + 3.4vw, 5.6rem);
+  }
+  .hero__tagline {
+    font-size: 1.2rem;
+    max-width: 38em;
+  }
+  .cases {
+    gap: 112px;
+  }
+  .case {
+    gap: clamp(48px, 5vw, 110px);
+  }
+  .contact {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    column-gap: clamp(48px, 5vw, 110px);
+    align-items: start;
+  }
+  .contact .sec-head {
+    grid-column: 1 / -1;
+  }
+  .contact__list {
+    max-width: none;
+  }
+  .contact__cv {
+    margin-top: 0;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg-alt);
+  }
+  .site-footer__inner {
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    column-gap: 32px;
+  }
+}
+@media (min-width: 1440px) {
+  body {
+    font-size: 1.125rem;
+  }
+  .sec-head {
+    max-width: 50rem;
+  }
+  .skills {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 }
 
 /* ---------- Apparition au défilement ---------- */

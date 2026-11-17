@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useApp } from './context/AppContext.jsx'
 import { ui } from './i18n.js'
 import { useReveal } from './hooks/useReveal.js'
@@ -8,6 +9,14 @@ import { Hero, Proofs, Projects, Services, Skills, Journey, Contact } from './co
 export default function App() {
   const { t } = useApp()
   useReveal()
+
+  // Lien direct vers une section (ex. …/Portfolio/#contact) : le contenu étant
+  // rendu par React après le chargement, on fait défiler une fois la page prête.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1))
+    const el = id && document.getElementById(id)
+    if (el) requestAnimationFrame(() => el.scrollIntoView({ behavior: 'instant', block: 'start' }))
+  }, [])
   return (
     <>
       <a className="skip-link" href="#main">
