@@ -1,63 +1,41 @@
 # Portfolio — Rachidi Adébissi IDONIYI
 
-Portfolio personnel (développeur web/mobile & data scientist), construit avec **React + Vite**,
-bilingue **FR / EN**, thème clair/sombre, et déployé sur **GitHub Pages**.
+Portfolio de Rachidi Adébissi IDONIYI, développeur full-stack (Django, React) et data scientist.
+Le site est une page unique, bilingue FR/EN, avec un thème clair et un thème sombre, publiée sur GitHub Pages.
 
-🔗 En ligne : https://rachidiid.github.io/Portfolio/
+En ligne : https://rachidiid.github.io/Portfolio/
 
 ## Stack
 
-- **React 18** + **React Router** (HashRouter, compatible GitHub Pages)
-- **Vite** (build statique)
-- CSS « maison » (design system, aucune dépendance UI lourde)
-- i18n interne (`src/i18n`) — tout le contenu est bilingue
-- Drapeaux en **SVG inline** (rendu identique sur Windows/macOS/Linux)
-
-## Démarrer en local
-
-```bash
-npm install     # une seule fois
-npm run dev     # serveur de développement (http://localhost:5173)
-npm run build   # build de production -> dist/
-npm run preview # prévisualiser le build
-```
+- React 18 et Vite 5, sans routeur : une seule page avec des ancres.
+- CSS maison ; icônes en SVG inline ; polices auto-hébergées (Fraunces, IBM Plex Sans, licence SIL OFL).
+- Aucune dépendance d'interface ni aucun CDN.
+- CV en LaTeX dans `cv/`.
 
 ## Modifier le contenu
 
-Tout le contenu est centralisé dans `src/data/` (source unique de vérité) :
-
 | Fichier | Contenu |
 |---|---|
-| `src/data/profile.js` | Identité, tagline, stats, réseaux |
-| `src/data/projects.js` | Projets (impact, stack, liens) |
-| `src/data/experience.js` | Expériences & points forts |
-| `src/data/education.js` | Formation, compétences, valeurs |
-| `src/data/about.js` | Textes « À propos » |
-| `src/i18n/index.js` | Libellés d'interface (nav, boutons…) |
+| `src/data/site.js` | Tout le contenu du site : identité, contact, projets, services, compétences, parcours. Une valeur vide est masquée. |
+| `src/i18n.js` | Libellés d'interface (menus, boutons). |
+| `cv/donnees.tex` | Données du CV (chiffres, disponibilité…). |
+| `TODO_A_COMPLETER.md` | Liste des données encore vides, avec l'emplacement de chaque champ et un exemple. |
 
-Chaque texte est un objet `L('français', 'english')`. Pour ajouter un projet, il suffit
-d'ajouter un objet dans le tableau `projects`.
+## Commandes
+
+```bash
+npm install       # une seule fois
+npm run dev       # développement : http://localhost:5173/Portfolio/
+npm run build     # build de production dans dist/
+npm run preview   # tester le build : http://localhost:4173/Portfolio/
+./cv/build.sh     # recompiler les CV (LaTeX), copiés ensuite dans public/assets/
+```
 
 ## Déploiement
 
-Le déploiement est **automatique** via GitHub Actions (`.github/workflows/deploy.yml`) :
-à chaque `push` sur `main`, le site est buildé et publié sur GitHub Pages.
+Chaque `push` sur `main` déclenche `.github/workflows/deploy.yml`, qui construit le site et le publie sur GitHub Pages.
+Réglage à faire une seule fois dans le dépôt : **Settings → Pages → Source = GitHub Actions**.
 
-> ⚙️ Réglage unique à faire dans le dépôt GitHub :
-> **Settings → Pages → Build and deployment → Source = GitHub Actions**.
+Le site est servi sous `/Portfolio/` (option `base` dans `vite.config.js`). Les chemins du HTML utilisent `%BASE_URL%` et ceux du code `import.meta.env.BASE_URL`.
 
-## Structure
-
-```
-src/
-  assets/       photo de profil optimisée
-  components/   Navbar, Footer, cartes, contrôles (thème/langue), drapeaux
-  context/      contexte global (thème + langue, persistés)
-  data/         contenu bilingue centralisé
-  hooks/        animations au scroll
-  i18n/         helper + libellés d'interface
-  pages/        Accueil, Projets, Expérience, Parcours, Compétences, À propos, Contact
-  styles/       design system CSS
-```
-
-L'ancien site statique (HTML/CSS/JS) est conservé dans `_legacy/` pour référence.
+La version précédente du site est conservée sous le tag `v1-avant-refonte`.
