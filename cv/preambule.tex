@@ -3,7 +3,7 @@
 %  Design partagé par toutes les versions (FullStack, DataScience, EN).
 %  Ne contient AUCUN contenu : uniquement la mise en page et les macros.
 % =====================================================================
-\documentclass[10pt,a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 \makeatletter
 
 % ---------- Compatibilité ATS : texte sélectionnable et copiable ----------
@@ -20,7 +20,7 @@
   \usepackage[french]{babel}
 \fi
 
-\usepackage[a4paper,left=1.45cm,right=1.45cm,top=1.05cm,bottom=1.0cm]{geometry}
+\usepackage[a4paper,left=1.8cm,right=1.8cm,top=1.3cm,bottom=1.25cm]{geometry}
 \usepackage{xcolor}
 \usepackage{fontawesome5}
 \usepackage{accsupp}                 % icônes ignorées par les ATS (ActualText vide)
@@ -34,7 +34,7 @@
 \urlstyle{same}
 
 % ---------- Couleurs (accent du CV d'origine conservé) ----------
-\definecolor{accent}{HTML}{6C63FF}     % couleur d'origine : titres, icônes, filets
+\definecolor{accent}{HTML}{6C63FF}      % couleur d'origine : titres, icônes, filets
 \definecolor{accentfonce}{HTML}{4A42D6} % même teinte, plus foncée : liens (lisibles imprimés)
 \definecolor{encre}{HTML}{1E1E28}       % texte principal
 \definecolor{sourd}{HTML}{5A5A66}       % texte secondaire (dates, établissements)
@@ -43,7 +43,7 @@
 \color{encre}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
-\linespread{1.04}
+\linespread{1.05}
 \pagestyle{empty}
 \raggedbottom
 
@@ -58,7 +58,7 @@
 
 \newcommand\cvset[2]{\csdef{cvd@#1}{#2}}
 \newcommand\cvget[1]{\csuse{cvd@#1}}
-\newcommand\cvtodobox[1]{\ifcvdraft{\setlength\fboxsep{1pt}\colorbox{todo}{\color{black}\sffamily\scriptsize\strut[#1]}}\fi}
+\newcommand\cvtodobox[1]{\ifcvdraft{\setlength\fboxsep{1pt}\colorbox{todo}{\color{black}\sffamily\footnotesize\strut[#1]}}\fi}
 
 % \TODO{description}           -> surligné en brouillon, rien en final
 % \TODO[clé]{description}      -> valeur de la clé si renseignée, sinon comme ci-dessus
@@ -76,52 +76,50 @@
 % ---------- Liens : texte visible + cliquable ----------
 \newcommand\cvlink[2]{\href{#1}{\mbox{\color{accentfonce}#2}}}
 \newcommand\cvmail[1]{\edef\cv@tmp{\noexpand\href{mailto:#1}}\cv@tmp{{\color{accentfonce}#1}}}
+% Ligne de lien sous un projet : \cvweb{libellé}{url}{texte affiché}
+\newcommand\cvweb[3]{{\small\cvicon{\faExternalLink*}~#1~\cvlink{#2}{#3}}\par}
 
 % ---------- Titres de section : icône + titre coloré + filet ----------
-\titleformat{\section}{\needspace{4\baselineskip}\large\bfseries\color{accent}}{}{0pt}{}
-  [\vspace{1.5pt}{\color{accent!70}\titlerule[0.6pt]}]
-\titlespacing*{\section}{0pt}{6pt}{3.5pt}
-\newcommand\cvsection[2]{\section*{\cvicon{#1}\hspace{6pt}#2}}
+\titleformat{\section}{\Large\bfseries\color{accent}}{}{0pt}{}
+  [\vspace{2pt}{\color{accent!70}\titlerule[0.6pt]}]
+\titlespacing*{\section}{0pt}{10pt}{5.5pt}
+\newcommand\cvsection[2]{\section*{\cvicon{#1}\hspace{7pt}#2}}
 
 % ---------- Listes (tiret d'origine, en couleur d'accent) ----------
-\setlist[itemize]{label={\color{accent}\textendash}, leftmargin=1.05em, labelsep=0.45em,
-  itemsep=0.6pt, parsep=0pt, topsep=1.5pt, partopsep=0pt}
+\setlist[itemize]{label={\color{accent}\textendash}, leftmargin=1.15em, labelsep=0.5em,
+  itemsep=1.6pt, parsep=0pt, topsep=4pt, partopsep=0pt}
 
 % Bloc insécable : une entrée et sa liste ne sont jamais coupées entre deux pages
-\newenvironment{cvblock}{\par\noindent\begin{minipage}[t]{\linewidth}}{\end{minipage}\par\vspace{3.6pt}}
+\newenvironment{cvblock}{\par\noindent\begin{minipage}[t]{\linewidth}}{\end{minipage}\par\vspace{7pt}}
 
-% \cventry{intitulé}{dates}{organisation, lieu}  (une seule ligne)
-\newcommand\cventry[3]{%
-  {\textbf{#1}}\ifblank{#3}{}{\hspace{0.4em}{\small\itshape\color{sourd}— #3}}\hfill{\small\itshape\color{sourd}#2}\par}
+% \cventry{intitulé}{dates}{organisation}{lieu}  — format d'origine sur deux lignes
+\newcommand\cventry[4]{%
+  {\textbf{#1}}\hfill{\itshape\color{sourd}#2}\par
+  \ifblank{#3#4}{}{{\itshape\color{sourd}#3}\hfill{\itshape\color{sourd}#4}\par}}
 
-% \cvdegree{diplôme}{établissement}{dates}  (formation, une ligne)
-\newcommand\cvdegree[3]{%
-  {\textbf{#1}}\ifblank{#2}{}{\hspace{0.35em}{\small\itshape\color{sourd}— #2}}\hfill{\small\itshape\color{sourd}#3}\par}
-\newcommand\cvdesc[1]{{\small #1}\par}
-
-% \cvproject{nom}{lien affiché à côté du nom (ou vide)}{technologies}
-\newcommand\cvproject[3]{%
-  {\textbf{#1}}\ifblank{#2}{}{\hspace{0.5em}{\small\cvicon{\faExternalLink*}~#2}}\hfill{\small\itshape\color{sourd}#3}\par}
+% \cvproject{nom}{technologies}
+\newcommand\cvproject[2]{{\textbf{#1}}\hfill{\itshape\color{sourd}#2}\par\vspace{1.5pt}}
+\newcommand\cvdesc[1]{#1\par}
 
 % Lignes de compétences
-\newenvironment{cvskills}{\small\renewcommand\arraystretch{1.1}\tabularx{\linewidth}{@{}>{\bfseries}p{3.65cm}@{}X@{}}}{\endtabularx\par}
+\newenvironment{cvskills}{\renewcommand\arraystretch{1.32}\tabularx{\linewidth}{@{}>{\bfseries}p{4.15cm}@{}X@{}}}{\endtabularx\par}
 
 % ---------- En-tête avec QR code vers le portfolio ----------
 % \cventete{nom}{titre}{ligne de contacts 1}{ligne de contacts 2}{disponibilité}{légende QR}
 \newcommand\cventete[6]{%
   \noindent
-  \begin{minipage}[c]{2.15cm}\mbox{}\end{minipage}%
-  \begin{minipage}[c]{\dimexpr\linewidth-4.3cm\relax}\centering
-    {\fontsize{25}{29}\selectfont #1}\par\vspace{3pt}
-    {\large\color{accent}#2}\par\vspace{5pt}
-    {\small #3}\par\vspace{1.5pt}
+  \begin{minipage}[c]{2.3cm}\mbox{}\end{minipage}%
+  \begin{minipage}[c]{\dimexpr\linewidth-4.6cm\relax}\centering
+    {\fontsize{28}{33}\selectfont #1}\par\vspace{5pt}
+    {\large\color{accent}#2}\par\vspace{8pt}
+    {\small #3}\par\vspace{3pt}
     {\small #4}\par
     #5%
   \end{minipage}%
-  \begin{minipage}[c]{2.15cm}\raggedleft
-    \edef\cv@qr{\noexpand\qrcode[height=1.95cm,level=M]{\cvget{portfolio}}}\cv@qr\par\vspace{1pt}
-    {\makebox[1.95cm][c]{\scriptsize\color{sourd}#6}}
-  \end{minipage}\par\vspace{2pt}}
-\newcommand\cvsep{\hspace{0.55em}{\color{accent!55}\textbar}\hspace{0.55em}}
+  \begin{minipage}[c]{2.3cm}\raggedleft
+    \edef\cv@qr{\noexpand\qrcode[height=2.15cm,level=M]{\cvget{portfolio}}}\cv@qr\par\vspace{2pt}
+    {\makebox[2.15cm][c]{\scriptsize\color{sourd}#6}}
+  \end{minipage}\par\vspace{4pt}}
+\newcommand\cvsep{\hspace{0.6em}{\color{accent!55}\textbar}\hspace{0.6em}}
 
 \makeatother

@@ -1,7 +1,7 @@
 % =====================================================================
 %  CONTENU FRANÇAIS — faits communs aux versions FullStack et DataScience.
-%  \ifFS ... \else ... \fi : seuls le titre, le profil, l'ordre et les
-%  puces mises en avant changent ; les faits restent identiques.
+%  \ifFS ... \else ... \fi : seuls le titre, le profil et l'ordre changent ;
+%  les faits restent identiques.
 % =====================================================================
 
 % ---------- En-tête ----------
@@ -14,150 +14,162 @@
      \cvicon{\faPhone}~\cvget{telephone}\cvsep
      \cvicon{\faEnvelope}~\cvmail{\cvget{email}}}
     {\cvicon{\faLinkedin}~\cvlink{https://www.\cvget{linkedin}}{\cvget{linkedin}}\cvsep
-     \cvicon{\faGithub}~\cvlink{https://\cvget{github}}{\cvget{github}}\cvsep
+     \cvicon{\faGithub}~\cvlink{https://\cvget{github}}{\cvget{github}}\par\vspace{3pt}
      \cvicon{\faGlobe}~\cvlink{\cvget{portfolio}}{\cvget{portfolioCourt}}}
-    {\cvif{dispo}{\par\vspace{4pt}{\small\cvicon{\faCalendarCheck[regular]}~\textbf{Disponibilité :} \TODO[dispo]{disponibilité, ex. stage 6 mois dès janvier 2027}}}}
+    {\cvif{dispo}{\par\vspace{6pt}{\small\cvicon{\faCalendarCheck[regular]}~\textbf{Disponibilité :} \TODO[dispo]{disponibilité, ex. stage de 6 mois dès janvier 2027}}}}
     {Portfolio}}
 
-% ---------- Profil (3 lignes maximum) ----------
+% ---------- Profil ----------
 \newcommand\Profil{%
   \cvsection{\faUser}{Profil}
   \ifFS
-    Développeur full-stack en Master 2 TIC (IMSP-UAC), je conçois et déploie des plateformes web à impact
-    (environnement, éducation, recherche\cvifoui{stockmairieCitable}{, administration publique}), de l'API
-    \textbf{Django REST} (\textbf{Docker}, \textbf{CI/CD}) à l'interface \textbf{React}. En ligne : site de l'IMSP, ResearchHub,
-    Data for Earth. \cvif{objectifFS}{Je recherche \TODO[objectifFS]{objectif}.}
+    Développeur en Master 2 TIC à l'IMSP, je construis des applications web avec Django et React et je
+    travaille aussi sur le machine learning. J'ai réalisé le site de l'IMSP, la plateforme ResearchHub et
+    Data for Earth, tous en ligne aujourd'hui.
+    \cvif{objectifFS}{Je cherche \TODO[objectifFS]{un stage / un premier poste} pour continuer à construire des outils
+    que les gens utilisent vraiment.}
   \else
-    Data scientist et développeur en Master 2 TIC Data Science (IMSP-UAC), je construis des modèles de
-    machine learning et je les mets en service : \textbf{CNN} de détection de maladies des plantes en démo
-    publique, \textbf{système de recommandation}, API \textbf{Django REST}. Secrétaire Général du Club IA.
-    \cvif{objectifDS}{Je recherche \TODO[objectifDS]{objectif}.}
+    Étudiant en Master 2 TIC option Data Science à l'IMSP, je travaille sur le machine learning et je construis
+    aussi les applications web qui le rendent utilisable, avec Django et React. J'ai réalisé un modèle de
+    détection de maladies des plantes, accessible en ligne, et un système de recommandation d'exercices au sein
+    du Club IA, que je coordonne aujourd'hui.
+    \cvif{objectifDS}{Je cherche \TODO[objectifDS]{un stage / un premier poste} pour continuer à construire des outils
+    que les gens utilisent vraiment.}
   \fi\par}
 
 % ---------- Expérience ----------
 \newcommand\ExpInov{%
   \begin{cvblock}
-  \cventry{Stagiaire Développeur Backend}{\cvif{inovMois}{\TODO[inovMois]{mois début – fin} }2025}{Inov Services Bénin}
+  \cventry{Stagiaire Développeur Backend}{\cvif{inovMois}{\TODO[inovMois]{mois de début et de fin} }2025}{Inov Services Bénin}{Bénin}
   \begin{itemize}
-    \item Développé des services back-end pour \textbf{Data for Earth}
-      (\cvlink{https://dataforearth.inovservices.com}{dataforearth.inovservices.com}), plateforme de données
-      environnementales en ligne\cvif{inovUtilisateurs}{ utilisée par \TODO[inovUtilisateurs]{nombre} utilisateurs}.
-    \ifFS
-    \item Conçu des \textbf{API REST} avec \textbf{Django REST Framework}\cvif{inovEndpoints}{ (\TODO[inovEndpoints]{nombre} endpoints)},
-      documentées avec \textbf{Swagger}.
-    \item Sécurisé l'accès par \textbf{authentification JWT} et gestion avancée des permissions.
-    \item Conteneurisé l'application avec \textbf{Docker} et automatisé le déploiement (\textbf{CI/CD GitHub Actions})%
-      \cvif{inovDeploiement}{ : mise en production en \TODO[inovDeploiement]{durée}}\cvif{inovTests}{, \TODO[inovTests]{x}~\% de
-      couverture de tests}.
-    \else
-    \item Conçu des \textbf{API REST} (DRF, JWT, Swagger)\cvif{inovEndpoints}{ :
-      \TODO[inovEndpoints]{nombre} endpoints}, conteneurisées avec \textbf{Docker} et livrées en CI/CD.
-    \fi
+    \item Développement de services back-end pour \textbf{Data for Earth}
+      (\cvlink{https://dataforearth.inovservices.com}{dataforearth.inovservices.com}), une plateforme de données
+      environnementales\cvif{inovUtilisateurs}{ utilisée par \TODO[inovUtilisateurs]{nombre} personnes}.
+    \item Conception d'API REST avec \textbf{Django REST Framework}, documentées avec \textbf{Swagger}%
+      \cvif{inovEndpoints}{ (\TODO[inovEndpoints]{nombre} endpoints)}.
+    \item Mise en place de l'authentification \textbf{JWT} et de la gestion des permissions.
+    \item Conteneurisation avec \textbf{Docker} et déploiement automatisé avec \textbf{GitHub Actions}%
+      \cvif{inovDeploiement}{ : mise en production en \TODO[inovDeploiement]{durée}}\cvif{inovTests}{, couverture de
+      tests de \TODO[inovTests]{x}~\%}.
   \end{itemize}
   \end{cvblock}}
 
 \newcommand\ExpClub{%
   \begin{cvblock}
-  \cventry{Secrétaire Général — Club d'Intelligence Artificielle}{2025 – présent}{IMSP-UAC, Dangbo}
+  \cventry{Coordonnateur du Club d'Intelligence Artificielle}{2026 – 2027}{IMSP, après un an comme Secrétaire Général (2025 – 2026)}{Dangbo, Bénin}
   \begin{itemize}
-    \item Coordonne les sessions de formation en IA et machine learning\cvif{clubSessions}{ (\TODO[clubSessions]{nombre} sessions)}%
-      \cvif{clubMembres}{ d'un club de \TODO[clubMembres]{nombre} membres}.
-    \item Encadre les membres dans la réalisation de leurs projets de machine learning.
-    \item Organise des événements de sensibilisation à l'intelligence artificielle\cvif{clubEvenements}{
+    \item Coordination des sessions de formation en IA et en machine learning\cvif{clubSessions}{
+      (\TODO[clubSessions]{nombre} sessions)}.
+    \item Encadrement des membres dans leurs projets de machine learning\cvif{clubMembres}{ ; le club compte
+      \TODO[clubMembres]{nombre} membres}.
+    \item Organisation d'événements de sensibilisation à l'intelligence artificielle\cvif{clubEvenements}{
       (\TODO[clubEvenements]{nombre} événements)}.
   \end{itemize}
   \end{cvblock}}
 
 \newcommand\ExpClasse{%
   \begin{cvblock}
-  \cventry{Responsable de classe — Master 1 puis Master 2 TIC}{2025 – présent}{IMSP-UAC, Dangbo}
+  \cventry{Responsable de classe, Master 1 puis Master 2 TIC}{2025 – présent}{IMSP}{Dangbo, Bénin}
   \begin{itemize}
-    \item Représente la promotion\cvif{promoEffectif}{ (\TODO[promoEffectif]{effectif} étudiants)} auprès des enseignants :
-      relais d'information, logistique, communication interne.
+    \item Représentation de la promotion\cvif{promoEffectif}{ de \TODO[promoEffectif]{effectif} étudiants} : relais entre
+      étudiants et enseignants, coordination logistique et communication interne.
   \end{itemize}
   \end{cvblock}}
 
 % ---------- Projets ----------
-\newcommand\ProjPlantes{%
-  \begin{cvblock}
-  \cvproject{Détection de maladies des plantes (CNN)}{}{Python · TensorFlow/Keras}
-  Modèle de deep learning qui identifie la maladie d'une plante à partir d'une photo de feuille, en appui au
-  diagnostic agricole\cvif{cnnImages}{ ; entraîné sur \TODO[cnnImages]{nombre} images}\cvif{cnnClasses}{,
-  \TODO[cnnClasses]{nombre} classes}\cvif{cnnPrecision}{, précision de \TODO[cnnPrecision]{x}~\% en test}.
-  Démo publique : \cvlink{https://huggingface.co/spaces/Adebissi/Detection_maladie_plante}{huggingface.co/spaces/Adebissi/Detection\_maladie\_plante}
-  \end{cvblock}}
-
 \newcommand\ProjIMSP{%
   \begin{cvblock}
-  \cvproject{Site officiel de l'IMSP}{\cvlink{https://www.imsp-uac.org}{www.imsp-uac.org}}{React · Django · PostgreSQL}
-  Développement full-stack du site institutionnel : présentation des formations, actualités, gestion de contenu\cvif{imspChiffre}{ (\TODO[imspChiffre]{pages / visiteurs})}.\cvif{roleIMSP}{ Rôle : \TODO[roleIMSP]{rôle exact}.}
+  \cvproject{Site officiel de l'IMSP}{React, Django, PostgreSQL}
+  Développement full-stack du site de l'Institut : présentation des formations, actualités et gestion de
+  contenu\cvif{imspChiffre}{ (\TODO[imspChiffre]{pages ou visiteurs})}.\cvif{roleIMSP}{ Rôle : \TODO[roleIMSP]{rôle exact}.}\par
+  \cvweb{Site :}{https://www.imsp-uac.org}{www.imsp-uac.org}
   \end{cvblock}}
 
 \newcommand\ProjResearchHub{%
   \begin{cvblock}
-  \cvproject{ResearchHub}{\cvlink{https://researchhub.imsp-uac.org}{researchhub.imsp-uac.org}}{React · Django REST Framework · PostgreSQL}
-  Plateforme qui diffuse et valorise les travaux de recherche de l'IMSP et facilite l'accès aux publications\cvif{rhPublications}{ (\TODO[rhPublications]{nombre} publications)}.\cvif{roleRH}{ Rôle : \TODO[roleRH]{rôle exact}.}
+  \cvproject{ResearchHub}{React, Django REST Framework, PostgreSQL}
+  Plateforme de diffusion et de valorisation des travaux de recherche de l'IMSP, qui facilite l'accès aux
+  publications scientifiques\cvif{rhPublications}{ (\TODO[rhPublications]{nombre} publications)}.\cvif{roleRH}{ Rôle :
+  \TODO[roleRH]{rôle exact}.}\par
+  \cvweb{Site :}{https://researchhub.imsp-uac.org}{researchhub.imsp-uac.org}
   \end{cvblock}}
 
 \newcommand\ProjStockMairie{%
   \cvifoui{stockmairieCitable}{%
   \begin{cvblock}
-  \cvproject{StockMairie — Mairie de Porto-Novo\ifcsstring{cvd@stockmairieCitable}{oui}{}{ \TODO{citable ? mettre « oui »}}}{}{Django REST · React · PostgreSQL · Docker}
+  \cvproject{StockMairie, Mairie de Porto-Novo\ifcsstring{cvd@stockmairieCitable}{oui}{}{ \TODO{citable ? mettre « oui »}}}{Django REST Framework, React, PostgreSQL, Docker}
   Logiciel de comptabilité matières : entrées et sorties de matériel avec circuit de validation, suivi des
-  équipements, alertes de seuil et gestion des rôles ; en réseau (Docker) ou en logiciel Windows
+  équipements, alertes de seuil et gestion des rôles. Il fonctionne en réseau ou comme logiciel Windows
   autonome.\cvif{stockmairieRole}{ Rôle : \TODO[stockmairieRole]{rôle}.}\cvif{stockmairieUtilisateurs}{
-  \TODO[stockmairieUtilisateurs]{nombre} utilisateurs.}
+  Utilisé par \TODO[stockmairieUtilisateurs]{nombre} agents.}\par
   \end{cvblock}}}
+
+\newcommand\ProjPlantes{%
+  \begin{cvblock}
+  \cvproject{Détection de maladies des plantes}{Python, TensorFlow, Keras}
+  Modèle de deep learning (CNN) qui reconnaît les maladies des plantes à partir de photos de feuilles, pour
+  aider au diagnostic agricole\cvif{cnnImages}{. Entraîné sur \TODO[cnnImages]{nombre} images}\cvif{cnnClasses}{
+  et \TODO[cnnClasses]{nombre} classes}\cvif{cnnPrecision}{, avec une précision de \TODO[cnnPrecision]{x}~\% en test}.\par
+  \cvweb{Démo :}{https://huggingface.co/spaces/Adebissi/Detection_maladie_plante}{huggingface.co/spaces/Adebissi/Detection\_maladie\_plante}
+  \end{cvblock}}
 
 \newcommand\ProjBanque{%
   \begin{cvblock}
-  \cvproject{Banque d'épreuves intelligente}{\cvlink{https://github.com/rachidiID/Banque_epreuve}{github.com/rachidiID/Banque\_epreuve}}{Python · scikit-learn · Pandas}
-  Système de recommandation qui suggère à chaque étudiant des exercices adaptés à son niveau (projet du Club IA).
+  \cvproject{Banque d'épreuves intelligente}{Python, scikit-learn, Pandas}
+  Système de recommandation qui propose à l'étudiant des exercices adaptés à son niveau. Réalisé au sein
+  du Club IA de l'IMSP.\par
+  \cvweb{Code :}{https://github.com/rachidiID/Banque_epreuve}{github.com/rachidiID/Banque\_epreuve}
   \end{cvblock}}
 
 \newcommand\ProjAutres{%
   \begin{cvblock}
-  \cvproject{Autres projets}{}{Laravel · Django}
-  Gestion de séminaire scientifique (inscriptions, soumission d'articles, attestations) ; gestion de stocks
-  en temps réel (alertes de seuil, rapports analytiques).
+  \cvproject{Autres projets}{Laravel, Django}
+  Gestion de séminaire scientifique : inscriptions, soumission d'articles et attestations. Gestion de stocks
+  en temps réel avec alertes de seuil et rapports.\par
   \end{cvblock}}
 
 % ---------- Compétences (5 lignes, la plus forte en premier) ----------
-\newcommand\SkLangages{Langages & Python, JavaScript (ES6+), SQL, PHP\cvif{langagesSecondaires}{, \cvget{langagesSecondaires}}\TODO{garder Java et C++ ?}\\}
-\newcommand\SkWeb{Backend / Frontend & Django, Django REST Framework, API REST (JWT, Swagger), React, Laravel, HTML5 / CSS3\\}
-\newcommand\SkData{Data \& ML & scikit-learn, TensorFlow / Keras, Pandas, NumPy, Matplotlib, Seaborn\\}
+\newcommand\SkLangages{Langages & Python, JavaScript, SQL, PHP\cvif{langagesSecondaires}{, \cvget{langagesSecondaires}}\TODO{garder Java et C++ ?}\\}
+\newcommand\SkWeb{Backend / Frontend & Django, Django REST Framework, Laravel, React, HTML, CSS, API REST, JWT, Swagger\\}
+\newcommand\SkData{Data \& ML & scikit-learn, TensorFlow, Keras, Pandas, NumPy, Matplotlib, Seaborn\\}
 \newcommand\SkBD{Bases de données & PostgreSQL, MySQL, SQLite\\}
-\newcommand\SkDevOps{DevOps / Systèmes & Git, GitHub Actions (CI/CD), Docker, Docker Compose, Linux (shell, serveurs)\\}
+\newcommand\SkDevOps{DevOps / Systèmes & Git, GitHub Actions, Docker, Docker Compose, Linux\\}
 \newcommand\Competences{%
   \cvsection{\faCogs}{Compétences techniques}
   \ifFS \def\SkOrdre{\SkWeb\SkLangages\SkBD\SkDevOps\SkData}%
   \else \def\SkOrdre{\SkData\SkLangages\SkWeb\SkBD\SkDevOps}\fi
   \begin{cvskills}\SkOrdre\end{cvskills}}
 
-% ---------- Formation (concise) ----------
+% ---------- Formation ----------
 \newcommand\Formation{%
   \cvsection{\faGraduationCap}{Formation}
   \begin{cvblock}
-  \cvdegree{Master 2 TIC — option Data Science}{IMSP, Université d'Abomey-Calavi}{2026 – 2027 · en cours}
-  \cvdegree{Master 1 TIC — option Data Science}{IMSP, Université d'Abomey-Calavi}{2025 – 2026}
-  \ifFS\else\cvdesc{Machine learning, deep learning, statistiques avancées, traitement et visualisation de données.}\fi
-  \cvdegree{Licence en TIC}{IMSP, Dangbo}{2024 – 2025}
-  \ifFS\cvdesc{Développement web, systèmes d'information, réseaux, administration système, sécurité informatique.}\fi
-  \cvdegree{Licence professionnelle Mathématiques-Informatique}{ENS de Natitingou}{2021 – 2024}
+  \cventry{Master 2 TIC, option Data Science}{2026 – 2027, en cours}{Institut de Mathématiques et de Sciences Physiques (IMSP), UAC}{Dangbo, Bénin}
+  \end{cvblock}
+  \begin{cvblock}
+  \cventry{Master 1 TIC, option Data Science}{2025 – 2026}{IMSP, Université d'Abomey-Calavi}{Dangbo, Bénin}
+  \cvdesc{\ifFS Machine learning, traitement et visualisation de données.%
+          \else Machine learning, deep learning, statistiques avancées, traitement et visualisation de données.\fi}
+  \end{cvblock}
+  \begin{cvblock}
+  \cventry{Licence en TIC}{2024 – 2025}{IMSP, Université d'Abomey-Calavi}{Dangbo, Bénin}
+  \cvdesc{Développement web, réseaux, systèmes d'information, administration système et sécurité informatique.}
+  \end{cvblock}
+  \begin{cvblock}
+  \cventry{Licence professionnelle en Mathématiques-Informatique}{2021 – 2024}{École Normale Supérieure de Natitingou}{Natitingou, Bénin}
   \cvdesc{\ifFS Algorithmique, programmation orientée objet, méthodes numériques.%
           \else Algorithmique, méthodes numériques, algèbre, analyse et statistiques.\fi}
-  \cvdegree{Baccalauréat série C}{CEG Danto, Akpro-Missérété}{2020}
+  \end{cvblock}
+  \begin{cvblock}
+  \cventry{Baccalauréat série C}{2020}{CEG Danto}{Akpro-Missérété, Bénin}
   \end{cvblock}}
 
-% ---------- Langues + centres d'intérêt (côte à côte) ----------
+% ---------- Langues et centres d'intérêt ----------
 \newcommand\LanguesInterets{%
-  \noindent
-  \begin{minipage}[t]{0.55\linewidth}
-    \cvsection{\faLanguage}{Langues}
-    \textbf{Français} : langue maternelle\\
-    \textbf{Anglais} : intermédiaire (B1/B2) — \cvget{anglaisCertif}\cvif{anglaisAnnee}{ (\TODO[anglaisAnnee]{année})}
-  \end{minipage}\hfill
-  \begin{minipage}[t]{0.41\linewidth}
-    \cvsection{\faHeart}{Centres d'intérêt}
-    Intelligence artificielle, lecture technique, football, jeux vidéo.
-  \end{minipage}\par}
+  \cvsection{\faLanguage}{Langues}
+  \begin{cvskills}
+    Français & Langue maternelle\\
+    Anglais & Niveau intermédiaire (B1/B2), \cvget{anglaisCertif}\cvif{anglaisAnnee}{, \TODO[anglaisAnnee]{année}}\\
+  \end{cvskills}
+  \cvsection{\faHeart}{Centres d'intérêt}
+  Intelligence artificielle, lecture technique, football, jeux vidéo.\par}
