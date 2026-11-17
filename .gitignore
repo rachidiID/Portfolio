@@ -8,3 +8,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vite/
+
+# CV LaTeX : fichiers de compilation
+cv/build/
